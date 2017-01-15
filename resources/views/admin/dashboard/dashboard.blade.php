@@ -255,3 +255,11 @@
     </section>
 </section>
 @endsection
+@section('script')
+    
+    <script src="{{ url('assets/plugins/morris-chart/js/morris.min.js') }}" type="text/javascript"></script>
+    <script>
+        window.jQuery || document.write('<script src="{{ url('assets/js/jquery-1.11.2.min.js') }}"><\/script>');
+    </script>
+    <script src="{{ url('assets/js/eco-dashboard.js') }}" type="text/javascript"></script>
+@endsection
