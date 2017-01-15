@@ -33,7 +33,7 @@ class CreateOrdersTable extends Migration
             $table->integer('paymentMethodID')->unsigned();
             $table->foreign('paymentMethodID')->references('id')->on('payment_methods');
             $table->integer('shipperID')->unsigned();
-            $table->foreign('shipperId')->references('id')->on('shippers');
+            $table->foreign('shipperID')->references('id')->on('shippers');
             $table->integer('isPaid');//Trạng thái thanh toán
 
 
