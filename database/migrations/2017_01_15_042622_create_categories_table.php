@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('alias');
             $table->text('description');
             $table->string('picture');
-            $table->boolean('isDisplay');
+            $table->boolean('isDisplay')->default(false);
             $table->timestamps();
         });
     }

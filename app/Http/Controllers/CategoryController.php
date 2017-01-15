@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Category;
 class CategoryController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.category-product');
+        $category = Category::orderBy('id','DESC')->get();
+        return view('admin.category.category-product',compact('category'));
     }
 
     /**
@@ -34,7 +35,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->cateName = $request->CateName;
+        $category->alias = changeTitle($request->CateName);
+        $category->description = $request->Description;
+        $category->isDisplay = $request->isDisplay;
+        $category->picture = $request->file('Picture')->store('category');
+        $category->save();
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -68,7 +77,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->cateName = $request->CateName;
+        $category->alias = changeTitle($request->CateName);
+        $category->description = $request->Description;
+        $category->isDisplay = $request->isDisplay;
+        $category->save();
+
+        return back();
     }
 
     /**

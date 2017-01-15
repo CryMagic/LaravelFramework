@@ -7,17 +7,21 @@ $(document).ready(function() {
             focusInvalid: false,
             ignore: "",
             rules: {
-                formfield1: {
+                CateName: {
                     minlength: 2,
                     required: true
                 },
-                formfield2: {
+                Description: {
                     required: true,
-                    email: true
+                }
+            },
+            messages: {
+                CateName: {
+                    required: "Danh mục sản phẩm không được bỏ trống",
+                    minlength: jQuery.validator.format("Bạn phải nhập ít nhất 2 ký tự")
                 },
-                formfield3: {
-                    required: true,
-                    url: true
+                Description: {
+                    required: "Bạn chưa nhập mô tả danh mục sản phẩm"
                 }
             },
 
@@ -46,9 +50,6 @@ $(document).ready(function() {
                 parent.removeClass('has-error').addClass('has-success');
             },
 
-            submitHandler: function(form) {
-
-            }
         });
 
 

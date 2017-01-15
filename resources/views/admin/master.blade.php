@@ -27,6 +27,7 @@
     <link href="{{ url('assets/fonts/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets/css/animate.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css" media="screen"/>
     <!-- CORE CSS FRAMEWORK - END -->
 
     <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
@@ -288,6 +289,13 @@
     <script src="{{ url('assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+    <!-- JQUERY VALIDATE -->
+    <script src="{{ url('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ url('assets/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ url('assets/js/form-validation.js') }}" type="text/javascript"></script> 
+
+    <script src="{{ url('assets/plugins/autosize/autosize.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
     <!-- CORE TEMPLATE JS - START -->
     <script src="{{ url('assets/js/scripts.js') }}" type="text/javascript"></script>
     <!-- END CORE TEMPLATE JS - END -->
