@@ -53,11 +53,11 @@ jQuery(function($) {
          Window Based Layout
      --------------------------------*/
     CMPLTADMIN_SETTINGS.onLoadTopBar = function() {
-        
-            $(".page-topbar .message-toggle-wrapper").addClass("showopacity");
-            $(".page-topbar .notify-toggle-wrapper").addClass("showopacity");
-            $(".page-topbar .searchform").addClass("showopacity");
-            $(".page-topbar li.profile").addClass("showopacity");
+
+        $(".page-topbar .message-toggle-wrapper").addClass("showopacity");
+        $(".page-topbar .notify-toggle-wrapper").addClass("showopacity");
+        $(".page-topbar .searchform").addClass("showopacity");
+        $(".page-topbar li.profile").addClass("showopacity");
     }
 
 
@@ -437,9 +437,9 @@ jQuery(function($) {
         });
 
         $("body").click(function(e) {
-            $(".page-sidebar.collapseit .wraplist li.open .sub-menu").attr("style","");
+            $(".page-sidebar.collapseit .wraplist li.open .sub-menu").attr("style", "");
             $(".page-sidebar.collapseit .wraplist li.open").removeClass("open");
-            $(".page-sidebar.chat_shift .wraplist li.open .sub-menu").attr("style","");
+            $(".page-sidebar.chat_shift .wraplist li.open .sub-menu").attr("style", "");
             $(".page-sidebar.chat_shift .wraplist li.open").removeClass("open");
         });
 
@@ -1747,8 +1747,7 @@ jQuery(function($) {
                     },
                     "sPaginationType": "bootstrap",
                     "aoColumnDefs": [{
-                        'bSortable': false,
-                        'aTargets': [0]
+                        'bSortable': false
                     }],
                     "aaSorting": [
                         [1, "asc"]
@@ -2179,7 +2178,7 @@ jQuery(function($) {
 
 
             var x;
-            var colors = ["-green", "-red", "-yellow", "-blue", "-aero", "-orange", "-grey", "-pink", "-purple","-white"];
+            var colors = ["-green", "-red", "-yellow", "-blue", "-aero", "-orange", "-grey", "-pink", "-purple", "-white"];
 
             for (x = 0; x < colors.length; x++) {
 
@@ -2664,29 +2663,29 @@ jQuery(function($) {
         // Spinner
         if ($.isFunction($.fn.spinner)) {
 
-                $( "#spinner" ).spinner();
+            $("#spinner").spinner();
 
-                $( "#spinner2" ).spinner({
-                    min: 5,
-                    max: 2500,
-                    step: 25,
-                    start: 1000,
-                    numberFormat: "C"
-                });
+            $("#spinner2").spinner({
+                min: 5,
+                max: 2500,
+                step: 25,
+                start: 1000,
+                numberFormat: "C"
+            });
 
 
-                $( "#spinner3" ).spinner({
-                    spin: function( event, ui ) {
-                        if ( ui.value > 10 ) {
-                            $( this ).spinner( "value", -10 );
-                            return false;
-                        } else if ( ui.value < -10 ) {
-                            $( this ).spinner( "value", 10 );
-                            return false;
-                        }
+            $("#spinner3").spinner({
+                spin: function(event, ui) {
+                    if (ui.value > 10) {
+                        $(this).spinner("value", -10);
+                        return false;
+                    } else if (ui.value < -10) {
+                        $(this).spinner("value", 10);
+                        return false;
                     }
-                });
-}
+                }
+            });
+        }
         /*------------------------------------*/
 
         // tagsinput
@@ -2821,7 +2820,7 @@ jQuery(function($) {
                     var drp = $this.data('daterangepicker');
 
                     if ($this.hasClass('daterange-text')) {
-//                        $this.find('span').html(start.format(drp.format) + drp.separator + end.format(drp.format));
+                        //                        $this.find('span').html(start.format(drp.format) + drp.separator + end.format(drp.format));
                         $this.find('span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
                     }
                 });
@@ -3528,48 +3527,48 @@ jQuery(function($) {
 
         if ($(".js-switch").length > 0) {
 
-                var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-                var defaults = {
-                    color             : '#17a0d9'
-                  , secondaryColor    : '#dfdfdf'
-                  , jackColor         : '#fff'
-                  , jackSecondaryColor: null
-                  , className         : 'switchery'
-                  , disabled          : false
-                  , disabledOpacity   : 0.5
-                  , speed             : '0.5s'
-                  , size              : 'large'
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+            var defaults = {
+                color: '#17a0d9',
+                secondaryColor: '#dfdfdf',
+                jackColor: '#fff',
+                jackSecondaryColor: null,
+                className: 'switchery',
+                disabled: false,
+                disabledOpacity: 0.5,
+                speed: '0.5s',
+                size: 'large'
+            }
+            var count = 0;
+            var colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548', '#9e9e9e', '#607d8b', '#000000'];
+            elems.forEach(function(html) {
+                count = count + 1;
+                var size = 'default';
+                var color = colors[count];
+                if (count > 20) {
+                    var size = 'large';
+                    var color = colors[count - 20];
                 }
-                var count = 0;
-                var colors = ['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4','#00bcd4','#009688','#4caf50','#8bc34a','#cddc39','#ffeb3b','#ffc107','#ff9800','#ff5722','#795548','#9e9e9e','#607d8b','#000000'];
-                elems.forEach(function(html) {
-                    count = count + 1;
-                    var size = 'default';
-                    var color = colors[count];
-                    if(count > 20){
-                        var size = 'large';
-                        var color = colors[count-20];
-                    }
-                    if(count > 40){
-                        var size = 'small';
-                        var color = colors[count-40];
-                    }
-                     var defaults = {
-                        color             : color
-                      , secondaryColor    : '#dfdfdf'
-                      , jackColor         : '#fff'
-                      , jackSecondaryColor: null
-                      , className         : 'switchery'
-                      , disabled          : false
-                      , disabledOpacity   : 0.5
-                      , speed             : '0.5s'
-                      , size              : size
-                    }
+                if (count > 40) {
+                    var size = 'small';
+                    var color = colors[count - 40];
+                }
+                var defaults = {
+                    color: color,
+                    secondaryColor: '#dfdfdf',
+                    jackColor: '#fff',
+                    jackSecondaryColor: null,
+                    className: 'switchery',
+                    disabled: false,
+                    disabledOpacity: 0.5,
+                    speed: '0.5s',
+                    size: size
+                }
 
-                  var switchery = new Switchery(html,defaults);
-                });
+                var switchery = new Switchery(html, defaults);
+            });
         }
- 
+
 
     };
 
