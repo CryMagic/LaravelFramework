@@ -36,6 +36,9 @@
     <link href="{{ url('assets/plugins/morris-chart/css/morris.css') }}" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ url('assets/plugins/jquery-ui/smoothness/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
 
+    <link href="{{ url('assets/plugins/messenger/css/messenger.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="{{ url('assets/plugins/messenger/css/messenger-theme-future.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="{{ url('assets/plugins/messenger/css/messenger-theme-flat.css') }}" rel="stylesheet" type="text/css" media="screen"/>
     <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
     
     <link href="{{ url('assets/plugins/datatables/css/jquery.dataTables.css') }}" rel="stylesheet" type="text/css" media="screen" />
@@ -296,6 +299,11 @@
 
     <script src="{{ url('assets/plugins/autosize/autosize.min.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
+
+    <script src="{{ url('assets/plugins/messenger/js/messenger.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/plugins/messenger/js/messenger-theme-future.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/plugins/messenger/js/messenger-theme-flat.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/js/messenger.js') }}" type="text/javascript"></script>
     <!-- CORE TEMPLATE JS - START -->
     <script src="{{ url('assets/js/scripts.js') }}" type="text/javascript"></script>
     <!-- END CORE TEMPLATE JS - END -->

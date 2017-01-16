@@ -60,7 +60,7 @@
                                             <td width="5%">{{ $item->id }}</td>
                                             <td>{{ $item->cateName }}</td>
                                             <td width="13%">
-                                                <img src="{{ Storage::disk('public')->url($item->picture) }}" class="img-rounded">
+                                                <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded">
                                             </td>
                                             <td>
                                                 @if($item->isDisplay == 1)
@@ -69,9 +69,19 @@
                                                     <span class="label label-danger"><i class="fa fa-ban"></i>Không</span>
                                                 @endif
                                             </td>
-                                            <td width="15%">
-                                                <a type="button" class="btn btn-info" data-toggle="modal" href="#edit-category{{ $item->id }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                                <a type="button" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            <td>
+                                                <form action="{{ route('category.destroy',[$item->id] ) }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                    <div class="btn-group" role="group" aria-label="...">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" href="#edit-category{{ $item->id }}">
+                                                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </td>
                                             <td width="5%">121</td>
                                         </tr>
@@ -118,7 +128,8 @@
                                 <div class="form-group">
                                     <label class="form-label">Hình ảnh</label>
                                     <div class="controls">
-
+                                        <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded" width="100px" height="100px">
+                                        <br>
                                         <input type="file" class="form-control" name="Picture" >
                                     </div>
                                 </div>

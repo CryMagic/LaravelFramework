@@ -40,10 +40,24 @@ class CategoryController extends Controller
         $category->alias = changeTitle($request->CateName);
         $category->description = $request->Description;
         $category->isDisplay = $request->isDisplay;
-        $category->picture = $request->file('Picture')->store('category');
-        $category->save();
+        
+        if($request->hasFile('Picture')){
+            $file = $request->file('Picture');
 
-        return redirect()->route('category.index');
+            $img = $file->getClientOriginalName();
+
+            $imgName = str_random(4)."_".$img;
+
+            while(file_exists('images/avatar/'.$imgName)){
+                 $imgName = str_random(4)."_".$img;
+            }
+
+            //Move to Folder images/category
+            $file->move('images/category/',$imgName);
+            $category->picture = $imgName;
+        }
+        $category->save();
+        return back();
     }
 
     /**
@@ -82,6 +96,20 @@ class CategoryController extends Controller
         $category->alias = changeTitle($request->CateName);
         $category->description = $request->Description;
         $category->isDisplay = $request->isDisplay;
+
+        if($request->hasFile('Picture')){
+            $file = $request->file('Picture');
+            $img = $file->getClientOriginalName();
+            $imgName = str_random(4)."_".$img;
+            while(file_exists('images/avatar/'.$imgName)){
+                 $imgName = str_random(4)."_".$img;
+            }
+            //Move to Folder images/category
+            $file->move('images/category/',$imgName);
+            unlink("images/category/".$category->picture);
+            $category->picture = $imgName;
+        }
+
         $category->save();
 
         return back();
@@ -95,6 +123,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        unlink("images/category/".$category->picture);
+        $category->delete();
+        return back();
     }
 }
