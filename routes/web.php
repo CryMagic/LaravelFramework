@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('admin.dashboard.dashboard');
 });
 Route::resource('category', 'CategoryController');
+Route::resource('supply', 'SupplyController');
+Route::resource('shipper', 'ShipperController');
