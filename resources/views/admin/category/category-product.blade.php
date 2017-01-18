@@ -4,7 +4,6 @@
         <section class="wrapper main-wrapper row" style=''>
             <div class='col-xs-12'>
                 <div class="page-title">
-
                     <div class="pull-left">
                         <!-- PAGE HEADING TAG - START -->
                         <h1 class="title">Danh mục sản phẩm</h1>
@@ -23,7 +22,6 @@
                             </li>
                         </ol>
                     </div>
-
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -40,15 +38,18 @@
                             <a class="box_close fa fa-times"></a>
                         </div>
                     </header>
+                    @include('admin.notify.message')
+                    @include('admin.notify.message-success')
                     <div class="content-body">
                         <div class="row">
                             <div class="col-xs-12  table-responsive">
-                                <table id="example" class="display table table-hover table-condensed">
+                                <table id="example" class="table table-hover table-condensed">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Tên danh mục</th>
                                             <th>Hình ảnh</th>
+                                            <th>Danh mục cha</th>
                                             <th>Trạng thái</th>
                                             <th>Action</th>
                                             <th>Sản phẩm</th>
@@ -60,7 +61,22 @@
                                             <td width="5%">{{ $item->id }}</td>
                                             <td>{{ $item->cateName }}</td>
                                             <td width="13%">
-                                                <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded">
+                                                @if($item->picture != null)
+                                                    <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded">
+                                                @else
+                                                    <img src="{{ url('data/product_icon.png') }}" class="img-rounded">
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($item->parent == 0)
+                                                    None
+                                                @else
+                                                    @foreach($category as $option)
+                                                        @if($item->parent == $option->id)
+                                                            {{ $option->cateName }}
+                                                        @endif
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>
                                                 @if($item->isDisplay == 1)
@@ -98,69 +114,5 @@
     </section>
     @include('admin.category.category-product-add')
     
-    @foreach($category as $item)
-    <div class="modal" id="edit-category{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog animated fadeInDown">
-            <div class="modal-content">
-                <form id="msg_validate" method="POST" action="{{ route('category.update',[$item->id]) }}" enctype="multipart/form-data" novalidate="novalidate">
-                {{ csrf_field() }}
-                {{ method_field('PUT') }}
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Thêm danh mục sản phẩm</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label class="form-label">Tên danh mục</label>
-                                    <div class="controls">
-                                        <input type="text" class="form-control" name="CateName" value="{{ $item->cateName }}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-label">Mô tả</label>
-                                    <div class="controls">
-                                        <input type="text" class="form-control" name="Description" value="{{ $item->description }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Hình ảnh</label>
-                                    <div class="controls">
-                                        <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded" width="100px" height="100px">
-                                        <br>
-                                        <input type="file" class="form-control" name="Picture" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="radio" id="square-radio-1" class="skin-square-red" value="1"
-                                    name="isDisplay"
-                                    @if($item->isDisplay == 1)
-                                        Checked
-                                    @endif
-                                    >
-                                    <label class="iradio-label form-label" for="square-radio-1">Hiển thị</label>
-
-                                    <input type="radio" id="square-radio-1" class="skin-square-red"
-                                    value="0" name="isDisplay"
-                                    @if($item->isDisplay == 0)
-                                        Checked
-                                    @endif
-                                     >
-                                    <label class="iradio-label form-label" for="square-radio-1">Không</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn btn-default" type="button">Đóng</button>
-                        <button type="submit" class="btn btn-success">Lưu lại</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    @endforeach
+    @include('admin.category.category-product-edit')
 @endsection

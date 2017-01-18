@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::orderBy('id','DESC')->get();
+        $category = Category::all();
         return view('admin.category.category-product',compact('category'));
     }
 
@@ -40,6 +40,7 @@ class CategoryController extends Controller
         $category->alias = changeTitle($request->CateName);
         $category->description = $request->Description;
         $category->isDisplay = $request->isDisplay;
+        $category->parent = $request->Parent;
         
         if($request->hasFile('Picture')){
             $file = $request->file('Picture');
@@ -48,7 +49,7 @@ class CategoryController extends Controller
 
             $imgName = str_random(4)."_".$img;
 
-            while(file_exists('images/avatar/'.$imgName)){
+            while(file_exists('images/category/'.$imgName)){
                  $imgName = str_random(4)."_".$img;
             }
 
@@ -57,7 +58,7 @@ class CategoryController extends Controller
             $category->picture = $imgName;
         }
         $category->save();
-        return back();
+        return back()->with('message-success','Thêm danh mục sản phẩm thành công');
     }
 
     /**
@@ -96,12 +97,12 @@ class CategoryController extends Controller
         $category->alias = changeTitle($request->CateName);
         $category->description = $request->Description;
         $category->isDisplay = $request->isDisplay;
-
+        $category->parent = $request->Parent;
         if($request->hasFile('Picture')){
             $file = $request->file('Picture');
             $img = $file->getClientOriginalName();
             $imgName = str_random(4)."_".$img;
-            while(file_exists('images/avatar/'.$imgName)){
+            while(file_exists('images/category/'.$imgName)){
                  $imgName = str_random(4)."_".$img;
             }
             //Move to Folder images/category
@@ -111,8 +112,7 @@ class CategoryController extends Controller
         }
 
         $category->save();
-
-        return back();
+        return back()->with('message-success','Cập nhật thông tin danh mục sản phẩm thành công');
     }
 
     /**
@@ -124,8 +124,16 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        unlink("images/category/".$category->picture);
+        $categories = Category::all();
+        foreach($categories as $item){
+            if($item->parent == $category->id){
+                return redirect()->route('category.index')->with('messages','Danh mục này có tồn tại các danh mục con');
+            }
+        }
+        if($category->picture != null){
+            unlink("images/category/".$category->picture);
+        }
         $category->delete();
-        return back();
+        return back()->with('message-success','Xóa danh mục sản phẩm thành công');
     }
 }

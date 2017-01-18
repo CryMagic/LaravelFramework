@@ -1750,7 +1750,7 @@ jQuery(function($) {
                         'bSortable': false
                     }],
                     "aaSorting": [
-                        [1, "asc"]
+                        [0, "DESC"]
                     ],
                     "oLanguage": {
                         "sLengthMenu": "_MENU_ ",
