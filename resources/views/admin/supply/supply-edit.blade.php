@@ -2,7 +2,7 @@
     <div class="modal" id="edit-supply{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog animated fadeInDown">
             <div class="modal-content">
-                <form id="msg_validate" method="POST" action="{{ route('supply.update',[$item->id]) }}" novalidate="novalidate">
+                <form id="msg_validate_supply" method="POST" action="{{ route('admin.supply.update',[$item->id]) }}" novalidate="novalidate">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                     <div class="modal-header">

@@ -2,7 +2,7 @@
     <div class="modal" id="edit-category{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog animated fadeInDown">
             <div class="modal-content">
-                <form id="msg_validate" method="POST" action="{{ route('category.update',[$item->id]) }}" enctype="multipart/form-data" novalidate="novalidate">
+                <form id="msg_validate" method="POST" action="{{ route('admin.category.update',[$item->id]) }}" enctype="multipart/form-data" novalidate="novalidate">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                     <div class="modal-header">

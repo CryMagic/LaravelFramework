@@ -1,7 +1,7 @@
 <div class="modal" id="add-shipper" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog animated fadeInDown">
         <div class="modal-content">
-            <form id="msg_validate_shipper" method="POST" action="{{ route('shipper.store') }}" novalidate="novalidate">
+            <form id="msg_validate_shipper" method="POST" action="{{ route('admin.shipper.store') }}" novalidate="novalidate">
             {{ csrf_field() }}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -13,21 +13,21 @@
                             <div class="form-group">
                                 <label class="form-label">Tên shipper</label>
                                 <div class="controls">
-                                    <input type="text" class="form-control" name="ShipperName" >
+                                    <input type="text" class="form-control" placeholder="Nhập tên shipper" name="ShipperName" >
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Mô tả</label>
                                 <div class="controls">
-                                    <input type="text" class="form-control" name="Description" >
+                                    <input type="text" class="form-control" placeholder="Mô tả về shipper" name="Description" >
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Số điện thoại</label>
                                 <div class="controls">
-                                    <input type="text" class="form-control" name="Phone" >
+                                    <input type="text" class="form-control" placeholder="Số điện thoại liên hệ" name="Phone" >
                                 </div>
                             </div>
                         </div>

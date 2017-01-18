@@ -10,10 +10,12 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Route::get('/', function () {
-    return view('admin.dashboard.dashboard');
+Route::group(['prefix'=>'admin'], function(){
+    Route::get('dashboard', function () {
+        return view('admin.dashboard.dashboard');
+    });
+    Route::resource('category', 'CategoryController');
+    Route::resource('supply', 'SupplyController');
+    Route::resource('shipper', 'ShipperController');
 });
-Route::resource('category', 'CategoryController');
-Route::resource('supply', 'SupplyController');
-Route::resource('shipper', 'ShipperController');
+

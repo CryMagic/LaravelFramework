@@ -67,7 +67,7 @@
                                             <td>{{ $item->country }}</td>
                                             <td>{{ $item->homePage }}</td>
                                             <td>
-                                                <form action="{{ route('supply.destroy',[$item->id] ) }}" method="POST">
+                                                <form action="{{ route('admin.supply.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">

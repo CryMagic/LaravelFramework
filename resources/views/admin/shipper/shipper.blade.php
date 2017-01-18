@@ -60,7 +60,7 @@
                                             <td>{{ $item->description }}</td>
                                             <td>{{ $item->phone }}</td>
                                             <td>
-                                                <form action="{{ route('shipper.destroy',[$item->id] ) }}" method="POST">
+                                                <form action="{{ route('admin.shipper.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">
