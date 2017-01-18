@@ -1,7 +1,7 @@
 <div class="modal" id="add-supply" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog animated fadeInDown">
         <div class="modal-content">
-            <form id="msg_validate" method="POST" action="{{ route('supply.store') }}" novalidate="novalidate">
+            <form id="msg_validate_supply" method="POST" action="{{ route('supply.store') }}" novalidate="novalidate">
             {{ csrf_field() }}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

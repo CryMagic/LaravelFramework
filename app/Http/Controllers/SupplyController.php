@@ -13,7 +13,7 @@ class SupplyController extends Controller
      */
     public function index()
     {
-        $supplies = Supply::orderBy('created_at','DESC')->get();
+        $supplies = Supply::all();
         return view('admin.supply.supply',compact('supplies'));
     }
 
@@ -43,7 +43,7 @@ class SupplyController extends Controller
         $supply->country = $request->Country;
         $supply->homePage = $request->HomePage;
         $supply->save();
-        return back();
+        return back()->with('message-success','Thêm nhà cung cấp thành công');
     }
 
     /**
@@ -85,7 +85,7 @@ class SupplyController extends Controller
         $supply->country = $request->Country;
         $supply->homePage = $request->HomePage;
         $supply->save();
-        return back();
+        return back()->with('message-success','Cập nhật thông tin nhà cung cấp thành công');
     }
 
     /**
@@ -97,6 +97,7 @@ class SupplyController extends Controller
     public function destroy($id)
     {
         $supply = Supply::find($id);
-        $supply->destroy();
+        $supply->delete();
+        return back()->with('message-success','Xóa thông tin nhà cung cấp thành công');
     }
 }

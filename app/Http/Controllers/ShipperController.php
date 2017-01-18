@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Shipper;
 
 class ShipperController extends Controller
 {
@@ -13,7 +14,8 @@ class ShipperController extends Controller
      */
     public function index()
     {
-        //
+        $shippers = Shipper::all();
+        return view('admin.shipper.shipper',compact('shippers'));
     }
 
     /**
@@ -34,7 +36,12 @@ class ShipperController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $shipper = new Shipper();
+        $shipper->shipperName = $request->ShipperName;
+        $shipper->description = $request->Description;
+        $shipper->phone = $request->Phone;
+        $shipper->save();
+        return back()->with('message-success','Thêm Shipper mới thành công');
     }
 
     /**
@@ -68,7 +75,12 @@ class ShipperController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $shipper = Shipper::find($id);
+        $shipper->shipperName = $request->ShipperName;
+        $shipper->description = $request->Description;
+        $shipper->phone = $request->Phone;
+        $shipper->save();
+        return back()->with('message-success','Cập nhật thông tin Shipper mới thành công');
     }
 
     /**
@@ -79,6 +91,8 @@ class ShipperController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $shipper = Shipper::find($id);
+        $shipper->delete();
+        return back()->with('message-success','Xóa thông tin Shipper thành công');
     }
 }

@@ -51,8 +51,129 @@ $(document).ready(function() {
             },
 
         });
+        $('#msg_validate_supply').validate({
+            focusInvalid: false,
+            ignore: "",
+            rules: {
+                CompanyName: {
+                    minlength: 3,
+                    required: true
+                },
+                EmailContact: {
+                    required: true,
+                    email:true
+                },
+                PhoneContact: {
+                    required: true
+                },
+                Address: {
+                    required: true
+                },
+                Country: {
+                    required: true
+                }
+            },
+            messages: {
+                CompanyName: {
+                    required: "Tên nhà cung cấp không được để trống",
+                    minlength: jQuery.validator.format("Bạn phải nhập ít nhất 3 kí tự")
+                },
+                EmailContact: {
+                    required: "Bạn chưa nhập Email liên lạc",
+                    email: "Định dạng email không đúng"
+                },
+                PhoneContact: {
+                    required: "Bạn chưa nhập số điện thoại liên lạc"
+                },
+                Address: {
+                    required: "Bạn chưa nhập địa chỉ nhà cung cấp"
+                },
+                Country: {
+                    required: "Bạn chưa nhập quốc gia đăng ký nhà cung cấp"
+                }
+            },
 
+            invalidHandler: function(event, validator) {
+                //display error alert on form submit    
+            },
 
+            errorPlacement: function(label, element) { // render error placement for each input type   
+                console.log(label);
+                $('<span class="error"></span>').insertAfter(element).append(label)
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            highlight: function(element) { // hightlight error inputs
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            unhighlight: function(element) { // revert the change done by hightlight
+
+            },
+
+            success: function(label, element) {
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-error').addClass('has-success');
+            },
+
+        });
+
+        $('#msg_validate_shipper').validate({
+            focusInvalid: false,
+            ignore: "",
+            rules: {
+                ShipperName: {
+                    minlength: 3,
+                    required: true
+                },
+                Description: {
+                    required: true
+                },
+                Phone: {
+                    required: true
+                },
+            },
+            messages: {
+                ShipperName: {
+                    required: "Tên Shipper không được để trống",
+                    minlength: jQuery.validator.format("Bạn phải nhập ít nhất 3 kí tự")
+                },
+                Description: {
+                    required: "Bạn chưa nhập thông tin về shipper",
+                },
+                Phone: {
+                    required: "Bạn chưa nhập số điện thoại liên lạc"
+                }
+            },
+
+            invalidHandler: function(event, validator) {
+                //display error alert on form submit    
+            },
+
+            errorPlacement: function(label, element) { // render error placement for each input type   
+                console.log(label);
+                $('<span class="error"></span>').insertAfter(element).append(label)
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            highlight: function(element) { // hightlight error inputs
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            unhighlight: function(element) { // revert the change done by hightlight
+
+            },
+
+            success: function(label, element) {
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-error').addClass('has-success');
+            },
+
+        });
         $('#icon_validate').validate({
             errorElement: 'span',
             errorClass: 'error',

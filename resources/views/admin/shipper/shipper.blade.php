@@ -29,9 +29,9 @@
             <div class="col-lg-12">
                 <section class="box ">
                     <header class="panel_header">
-                        <h2 class="title pull-left">Danh sách nhà cung cấp</h2>
+                        <h2 class="title pull-left">Danh sách Shipper</h2>
                         <div class="actions panel_actions pull-right">
-                            <a class="fa fa-plus-circle" data-toggle="modal" href="#add-supply"></a>
+                            <a class="fa fa-plus-circle" data-toggle="modal" href="#add-shipper"></a>
                             <a class="box_toggle fa fa-chevron-down"></a>
                             <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
                             <a class="box_close fa fa-times"></a>
@@ -46,32 +46,25 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Công ty</th>
-                                            <th>E-mail</th>
+                                            <th>Tên Shipper</th>
+                                            <th>Mô tả</th>
                                             <th>Số điện thoại</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Quốc gia</th>
-                                            <th>HomePage</th>
                                             <th>Action</th>
-                                            <th>Sản phẩm</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($supplies as $item)
+                                        @foreach($shippers as $item)
                                         <tr>
                                             <td width="5%">{{ $item->id }}</td>
-                                            <td>{{ $item->companyName }}</td>
-                                            <td>{{ $item->emailContact }}</td>
-                                            <td>{{ $item->phoneContact }}</td>
-                                            <td>{{ $item->address }}</td>
-                                            <td>{{ $item->country }}</td>
-                                            <td>{{ $item->homePage }}</td>
+                                            <td>{{ $item->shipperName }}</td>
+                                            <td>{{ $item->description }}</td>
+                                            <td>{{ $item->phone }}</td>
                                             <td>
-                                                <form action="{{ route('supply.destroy',[$item->id] ) }}" method="POST">
+                                                <form action="{{ route('shipper.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" href="#edit-supply{{ $item->id }}">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" href="#edit-shipper{{ $item->id }}">
                                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                                         </button>
                                                         <button type="submit" class="btn btn-danger">
@@ -80,7 +73,6 @@
                                                     </div>
                                                 </form>
                                             </td>
-                                            <td width="5%">121</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -93,8 +85,8 @@
             <!-- MAIN CONTENT AREA ENDS -->
         </section>
     </section>
-    @include('admin.supply.supply-add')
+    @include('admin.shipper.shipper-add')
     
-    @include('admin.supply.supply-edit')
+    @include('admin.shipper.shipper-edit')
     
 @endsection
