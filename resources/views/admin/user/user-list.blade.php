@@ -1,4 +1,4 @@
-@extends('admin.master')
+
 @section('content')
     <section id="main-content" class=" ">
         <section class="wrapper main-wrapper row" style=''>
@@ -79,6 +79,9 @@
                                                         
                                                     </div>
                                                 </form>
+                                                <button type="button" class="btn btn-success" id="btnBlock{{ $item->id }}">
+                                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                         @endforeach
