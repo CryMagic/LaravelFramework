@@ -3022,6 +3022,21 @@ jQuery(function($) {
                 // Adding Custom Scrollbar
                 $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
             });
+            
+            $("#Category").select2({
+                allowClear: true,
+                placeholder: 'Chọn thể loại...',
+            }).on('select2-open', function() {
+                // Adding Custom Scrollbar
+                $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+            });
+            $("#Supply").select2({
+                allowClear: true,
+                placeholder: 'Chọn nhà cung cấp...',
+            }).on('select2-open', function() {
+                // Adding Custom Scrollbar
+                $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+            });
 
 
             $("#s2example-2").select2({

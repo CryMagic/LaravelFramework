@@ -23,6 +23,8 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::resource('supply', 'SupplyController');
     Route::resource('shipper', 'ShipperController');
     Route::resource('user','UserController');
+    Route::resource('product', 'ProductController');
+    
     Route::get('/ajax-district','UserController@ajaxDistrict');
     Route::get('/ajax-ward','UserController@ajaxWard');
     Route::get('/block-user/{id}','UserController@blockUser');

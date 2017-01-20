@@ -128,7 +128,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+
     }
     public function ajaxDistrict(){
         $province_id = Input::get('province_id');

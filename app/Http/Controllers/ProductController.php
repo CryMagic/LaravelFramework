@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Product;
+use App\User;
+use App\Category;
+use App\Supply;
 class ProductController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('admin.product.product-list',compact('products'));
     }
 
     /**
@@ -23,7 +27,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $supplies = Supply::all();
+        return view('admin.product.product-add',compact('categories','supplies'));
     }
 
     /**
