@@ -38,7 +38,8 @@
    </header>
    <div class="content-body">
    <div class="row">
-      <form action ="#" method="post">
+      <form action ="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
          <div class="col-xs-12 col-sm-9 col-md-7">
 
             <div class="form-group">
@@ -81,7 +82,7 @@
             <div class="form-group">
                <label class="form-label" >Sinh nhật</label>
                <div class="controls">
-                  <input type="text" value="" class="form-control datepicker" data-format="mm/dd/yyyy" name="Birthday">
+                  <input type="text" value="" class="form-control datepicker" data-format="yyyy/mm/dd" name="BirthDay">
                 </div>
             </div>        
             <div class="form-group">
@@ -91,16 +92,6 @@
                 <input type="radio" id="square-radio-1" class="skin-square-red" value="0" name="Level" checked>
                 <label class="iradio-label form-label" for="square-radio-1">User</label>
             </div>
-            
-            <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
-               <div class="text-left">
-                  <button type="button" class="btn btn-primary">Save</button>
-                  <button type="button" class="btn">Cancel</button>
-               </div>
-            </div>
-        
-      
-      
         </div>
         <div class="col-xs-12 col-sm-9 col-md-5">
             <div class="form-group">
@@ -114,7 +105,7 @@
                <div class="controls">
                 <select class="" name="Province" id="selectProvince">
                     @foreach($provinces as $item)
-                        <option value="{{ $item->name }}">{{ $item->name }}</option>
+                        <option value="{{ $item->matp }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                </div>
@@ -123,24 +114,24 @@
                <label class="form-label">Quận/Huyện</label>
                <div class="controls">
                 <select class="" name="District" id="selectDistrict">
-                    @foreach($districts as $item)
-                        <option value="{{ $item->name }}">{{ $item->name }}</option>
-                    @endforeach
+                
                 </select>
                </div>
             </div>
             <div class="form-group">
-               <label class="form-label">Phường/Xã</label>
+               <label class="form-label">Xã/Phường</label>
                <div class="controls">
                 <select class="" name="Ward" id="selectWard">
-                  @foreach($wards as $item)
-                        <option value="{{ $item->name }}">{{ $item->name }}</option>
-                    @endforeach
-               </select>
+                     
+                </select>
                </div>
             </div>
-            
-
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 padding-bottom-30">
+            <div class="text-left">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="reset" class="btn">Cancel</button>
+            </div>
         </div>
       </form>
       </div>

@@ -2735,7 +2735,7 @@ jQuery(function($) {
                 var $this = $(e),
                     options = {
                         minViewMode: getValue($this, 'minViewMode', 0),
-                        format: getValue($this, 'format', 'mm/dd/yyyy'),
+                        format: getValue($this, 'format', 'yyyy/mm/dd'),
                         startDate: getValue($this, 'startDate', ''),
                         endDate: getValue($this, 'endDate', ''),
                         daysOfWeekDisabled: getValue($this, 'disabledDays', ''),
@@ -3009,13 +3009,15 @@ jQuery(function($) {
                 $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
             });
             $("#selectDistrict").select2({
-                allowClear: true
+                allowClear: true,
+                placeholder: 'Chọn Tên Quận/Huyện...',
             }).on('select2-open', function() {
                 // Adding Custom Scrollbar
                 $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
             });
             $("#selectWard").select2({
-                allowClear: true
+                allowClear: true,
+                placeholder: 'Chọn Tên Phường/Xã...',
             }).on('select2-open', function() {
                 // Adding Custom Scrollbar
                 $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();

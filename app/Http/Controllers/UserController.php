@@ -8,6 +8,7 @@ use Hash;
 use App\Province;
 use App\District;
 use App\Ward;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -72,7 +73,7 @@ class UserController extends Controller
 
             //Move to Folder images/category
             $file->move('images/user/',$imgName);
-            $user->picture = $imgName;
+            $user->avatar = $imgName;
         }
         $user->level = $request->Level;
         $user->point = 0;
@@ -81,7 +82,7 @@ class UserController extends Controller
         $user->ward = $request->Ward;
         $user->remember_token = $request->_token;
         $user->save();
-        return back()->with('message-success','Thêm tài khoản thành công');
+        return redirect()->route('user.index')->with('message-success','Thêm tài khoản thành công');
     }
 
     /**
@@ -127,5 +128,16 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function ajaxDistrict(){
+        $province_id = Input::get('province_id');
+        $data = District::where('matp',$province_id)->get();
+        return response()->json($data);
+    }
+    public function ajaxWard(){
+        $district_id = Input::get('district_id');
+        $data = Ward::where('maqh',$district_id)->get();
+        return response()->json($data);
+        
     }
 }

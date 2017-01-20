@@ -18,5 +18,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::resource('supply', 'SupplyController');
     Route::resource('shipper', 'ShipperController');
     Route::resource('user','UserController');
+    Route::get('/ajax-district','UserController@ajaxDistrict');
+    Route::get('/ajax-ward','UserController@ajaxWard');
 });
 

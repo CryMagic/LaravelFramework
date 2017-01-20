@@ -19,7 +19,7 @@
     <!-- For iPad -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url('assets/images/apple-touch-icon-144-precomposed.png') }}">
     <!-- For iPad Retina display -->
-
+<link href="{{ url('assets/plugins/datepicker/css/datepicker.css') }}" rel="stylesheet" type="text/css" media="screen"/>
     <!-- CORE CSS FRAMEWORK - START -->
     <link href="{{ url('assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ url('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@
     <!-- CORE CSS FRAMEWORK - END -->
 
     <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
-    <link href="{{ url('assets/plugins/datepicker/css/datepicker.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+    
     
     <link href="{{ url('assets/plugins/morris-chart/css/morris.css') }}" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ url('assets/plugins/jquery-ui/smoothness/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
@@ -302,7 +302,9 @@
     <script src="{{ url('assets/plugins/autosize/autosize.min.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{ url('assets/plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script> <script src="../assets/plugins/autosize/autosize.min.js" type="text/javascript"></script>
+    
+    <script src="{{ url('assets/plugins/autosize/autosize.min.js') }}" type="text/javascript"></script>
+
     <script src="{{ url('assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
     
     <script src="{{ url('assets/plugins/messenger/js/messenger.min.js') }}" type="text/javascript"></script>
@@ -311,10 +313,11 @@
     <script src="{{ url('assets/js/messenger.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/plugins/jquery-ui/smoothness/jquery-ui.min.j') }}s" type="text/javascript"></script> 
     <script src="{{ url('assets/plugins/select2/select2.min.js') }}" type="text/javascript"></script>
-
+    <script src="{{ url('assets/plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script> 
 
     <!-- CORE TEMPLATE JS - START -->
     <script src="{{ url('assets/js/scripts.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/js/myscript.js') }}" type="text/javascript"></script>
     <!-- END CORE TEMPLATE JS - END -->
 
     @yield('script')

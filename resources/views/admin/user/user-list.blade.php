@@ -66,7 +66,7 @@
                                             <td>{{ $item->birthday }}</td>
                                             <td>{{ $item->gender ? 'Nam':'Nữ' }}</td>
                                             <td>
-                                                <form action="{{ route('admin.user.destroy',[$item->id] ) }}" method="POST">
+                                                <form action="{{ route('user.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">
