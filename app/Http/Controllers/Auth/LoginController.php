@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,16 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+    public function getLogin(){
+        return view('admin.login');
+    }
+    public function postLogin(Request $request){
+        $email = $request->Email;
+        $password = $request->Password;
+        if(Auth::attempt(['email' => $email, 'password' => $password])){
+            return redirect('admin/dashboard');
+        }
+        return back()->with('messages','Email hoặc password không chính xác');
     }
 }

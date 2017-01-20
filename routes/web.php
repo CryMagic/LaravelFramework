@@ -10,6 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+
+Route::get('admin/login','Auth\LoginController@getLogin');
+Route::post('admin/login','Auth\LoginController@postLogin');
 Route::group(['prefix'=>'admin'], function(){
     Route::get('dashboard', function () {
         return view('admin.dashboard.dashboard');
