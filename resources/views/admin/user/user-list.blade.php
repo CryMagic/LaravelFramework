@@ -7,7 +7,7 @@
 
                     <div class="pull-left">
                         <!-- PAGE HEADING TAG - START -->
-                        <h1 class="title">Nhà cung cấp</h1>
+                        <h1 class="title">Tài khoản người dùng</h1>
                         <!-- PAGE HEADING TAG - END -->
                     </div>
                     <div class="pull-right hidden-xs">
@@ -16,7 +16,7 @@
                                 <a href="index.html"><i class="fa fa-home"></i>Trang chủ</a>
                             </li>
                             <li class="active">
-                                <strong>Nhà cung cấp</strong>
+                                <strong>Tài khoản người dùng</strong>
                             </li>
                         </ol>
                     </div>
@@ -29,9 +29,9 @@
             <div class="col-lg-12">
                 <section class="box ">
                     <header class="panel_header">
-                        <h2 class="title pull-left">Danh sách Shipper</h2>
+                        <h2 class="title pull-left">Danh sách người dùng</h2>
                         <div class="actions panel_actions pull-right">
-                            <a class="fa fa-plus-circle" data-toggle="modal" href="#add-shipper"></a>
+                            <a class="fa fa-plus-circle" href="{{ route('user.create') }}"></a>
                             <a class="box_toggle fa fa-chevron-down"></a>
                             <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
                             <a class="box_close fa fa-times"></a>
@@ -46,21 +46,27 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tên Shipper</th>
-                                            <th>Mô tả</th>
-                                            <th>Số điện thoại</th>
+                                            <th>E-mail</th>
+                                            <th>FirstName</th>
+                                            <th>LastName</th>
+                                            <th>Điện thoại</th>
+                                            <th>Sinh nhật</th>
+                                            <th>Giới tính</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($shippers as $item)
+                                        @foreach($users as $item)
                                         <tr>
                                             <td width="5%">{{ $item->id }}</td>
-                                            <td>{{ $item->shipperName }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->firstname }}</td>
+                                            <td>{{ $item->lastname }}</td>
                                             <td>{{ $item->phone }}</td>
+                                            <td>{{ $item->birthday }}</td>
+                                            <td>{{ $item->gender ? 'Nam':'Nữ' }}</td>
                                             <td>
-                                                <form action="{{ route('admin.shipper.destroy',[$item->id] ) }}" method="POST">
+                                                <form action="{{ route('admin.user.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">
@@ -85,8 +91,5 @@
             <!-- MAIN CONTENT AREA ENDS -->
         </section>
     </section>
-    @include('admin.shipper.shipper-add')
-    
-    @include('admin.shipper.shipper-edit')
     
 @endsection

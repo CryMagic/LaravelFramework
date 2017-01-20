@@ -86,7 +86,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.category.destroy',[$item->id] ) }}" method="POST">
+                                                <form action="{{ route('category.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">

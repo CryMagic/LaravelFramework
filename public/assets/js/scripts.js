@@ -3002,6 +3002,24 @@ jQuery(function($) {
                 // Adding Custom Scrollbar
                 $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
             });
+            $("#selectProvince").select2({
+                allowClear: true
+            }).on('select2-open', function() {
+                // Adding Custom Scrollbar
+                $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+            });
+            $("#selectDistrict").select2({
+                allowClear: true
+            }).on('select2-open', function() {
+                // Adding Custom Scrollbar
+                $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+            });
+            $("#selectWard").select2({
+                allowClear: true
+            }).on('select2-open', function() {
+                // Adding Custom Scrollbar
+                $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+            });
 
 
             $("#s2example-2").select2({

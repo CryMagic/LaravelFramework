@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Hash;
+use App\Province;
+use App\District;
+use App\Ward;
 
 class UserController extends Controller
 {
@@ -16,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.user.list-user',compact('users'));
+        return view('admin.user.user-list',compact('users'));
     }
 
     /**
@@ -26,7 +29,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.user-add');
+        $provinces = Province::all();
+        $districts = District::all();
+        $wards = Ward::all();
+        return view('admin.user.user-add',compact('provinces','districts','wards'));
     }
 
     /**
