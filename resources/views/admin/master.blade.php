@@ -52,6 +52,7 @@
     <!-- CORE CSS TEMPLATE - START -->
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets/css/summernote.css') }}" rel="stylesheet" type="text/css" />
     <!-- CORE CSS TEMPLATE - END -->
 
 </head>
@@ -317,10 +318,24 @@
     <script src="{{ url('assets/plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script> 
     
     <!-- CORE TEMPLATE JS - START -->
+    <script src="{{ url('assets/js/summernote.min.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/js/scripts.js') }}" type="text/javascript"></script>
     <script src="{{ url('assets/js/myscript.js') }}" type="text/javascript"></script>
     <!-- END CORE TEMPLATE JS - END -->
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#description-product').summernote({
+                height: 250,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,
+            });
+            $('#note-product').summernote({
+                height: 90,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,
+            });
+        });
+    </script>
     @yield('script')
     <!-- General section box modal start -->
     <div class="modal" id="section-settings" tabindex="-1" role="dialog" aria-hidden="true">

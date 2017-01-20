@@ -1,4 +1,4 @@
-
+@extends('admin.master')
 @section('content')
     <section id="main-content" class=" ">
         <section class="wrapper main-wrapper row" style=''>
@@ -73,15 +73,15 @@
                                                         <button type="button" class="btn btn-info" data-toggle="modal" href="#edit-shipper{{ $item->id }}">
                                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                                         </button>
-                                                        <button type="submit" class="btn btn-danger">
+                                                        <button type="submit" class="btn btn-warning">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </button>
-                                                        
+                                                        <button type="button" class="btn {{ $item->status ? 'btn-danger':'btn-success' }}" id="btnBlock{{ $item->id }}" data-id="{{ $item->id }}">
+                                                                <i id="{{$item->id}}" class="fa {{ $item->status ? 'fa-lock':'fa-unlock-alt' }}" aria-hidden="true"></i>
+                                                        </button>
                                                     </div>
                                                 </form>
-                                                <button type="button" class="btn btn-success" id="btnBlock{{ $item->id }}">
-                                                        <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </button>
+                                                
                                             </td>
                                         </tr>
                                         @endforeach

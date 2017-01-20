@@ -29,7 +29,7 @@
 <div class="col-xs-12">
 <section class="box ">
    <header class="panel_header">
-      <h2 class="title pull-left">Basic Info</h2>
+      <h2 class="title pull-left">Thông tin cơ bản</h2>
       <div class="actions panel_actions pull-right">
          <a class="box_toggle fa fa-chevron-down"></a>
          <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
@@ -87,14 +87,6 @@
                </div>
             </div>
             <div class="form-group">
-                <p>Trình trạng sản phẩm</p>
-                <input type="radio" id="square-radio-1" class="skin-square-red" value="1" name="IsContinue">
-                <label class="iradio-label form-label" for="square-radio-1">Còn bán</label>
-
-                <input type="radio" id="square-radio-1" class="skin-square-red" value="0" name="IsContinue" checked>
-                <label class="iradio-label form-label" for="square-radio-1">Ngừng kinh doanh</label>
-            </div>
-            <div class="form-group">
                 <label class="form-label" >Hinh ảnh</label>
                 <div class="controls">
                     <input type="file" value="" class="form-control" name="Picture">
@@ -106,13 +98,15 @@
             <div class="form-group">
                 <label class="form-label" >Mô tả về sản phẩm</label>
                 <div class="controls">
-                    <textarea class="bootstrap-wysihtml5-textarea form-control" placeholder="Mô tả sản phẩm ..."></textarea>
+                    <textarea id="description-product" class="form-control" rows="14" name="Description" placeholder="Mô tả sản phẩm ..."></textarea>
                 </div>
             </div>
-
-            
-            
-            
+            <div class="form-group">
+                <label class="form-label" >Ghi chú</label>
+                <div class="controls">
+                    <textarea id="note-product" class="form-control" rows="14" name="Note" placeholder="Thông tin thêm ..."></textarea>
+                </div>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 padding-bottom-30">
             <div class="text-left">

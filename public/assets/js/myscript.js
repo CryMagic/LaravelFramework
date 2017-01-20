@@ -45,3 +45,36 @@ $('#selectDistrict').on('change',function(e){
         
     });
 });
+$(document).ready(function(){
+    let btn = $("[id^=btnBlock]");
+    $(btn).on('click',function(){
+        var idButton  = $(this);
+        var _token = $("input[name='_token']").val();
+        var id = idButton.data('id');
+        var url = '/admin/block-user/';
+        $.ajax({
+            dataType: 'json',
+            type: 'post',
+            cache:false,
+            url: url + id,
+            data: {
+                '_token': _token, 'id': id, 'url': url
+            },
+            success: function (data) {
+                if(data.status){
+                    idButton.removeClass('btn-success');
+                    idButton.addClass('btn-danger');
+                    $('i#'+id).removeClass('fa-unlock-alt');
+                    $('i#'+id).addClass('fa-lock');
+
+                }
+                else{
+                    idButton.removeClass('btn-danger');
+                    idButton.addClass('btn-success');
+                    $('i#'+id).addClass('fa-unlock-alt');
+                    $('i#'+id).removeClass('fa-lock');
+                }
+            }
+        });
+    });
+});

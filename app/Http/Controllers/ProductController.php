@@ -62,7 +62,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $supplies = Supply::all();
+        $product = Product::find($id);
+        return view('admin.product.product-edit',compact('product','categories','supplies'));
     }
 
     /**

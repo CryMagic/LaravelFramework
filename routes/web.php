@@ -27,6 +27,6 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     
     Route::get('/ajax-district','UserController@ajaxDistrict');
     Route::get('/ajax-ward','UserController@ajaxWard');
-    Route::get('/block-user/{id}','UserController@blockUser');
+    Route::post('/block-user/{id}','UserController@blockUser');
 });
 
