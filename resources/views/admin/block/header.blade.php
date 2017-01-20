@@ -22,7 +22,7 @@
                                 <li class="unread status-available">
                                     <a href="javascript:;">
                                         <div class="user-img">
-                                            <img src="data/profile/avatar-1.png" alt="user-image" class="img-circle img-inline">
+                                            <img src="{{ url('images/user/',Auth::user()->avatar) }}" alt="user-image" class="img-circle img-inline">
                                         </div>
                                         <div>
                                             <span class="name">
@@ -39,7 +39,7 @@
                                 <li class=" status-away">
                                     <a href="javascript:;">
                                         <div class="user-img">
-                                            <img src="data/profile/avatar-2.png" alt="user-image" class="img-circle img-inline">
+                                            <img src="{{ url('images/user/',Auth::user()->avatar) }}" alt="user-image" class="img-circle img-inline">
                                         </div>
                                         <div>
                                             <span class="name">
@@ -309,10 +309,12 @@
         <div class='pull-right'>
             <ul class="info-menu right-links list-inline list-unstyled">
                 <li class="profile">
+                    @if(Auth::check())
                     <a href="#" data-toggle="dropdown" class="toggle">
-                        <img src="data/profile/profile-ecommerce.jpg" alt="user-image" class="img-circle img-inline">
-                        <span>Mark Willy <i class="fa fa-angle-down"></i></span>
+                        <img src="{{ url('images/user/',Auth::user()->avatar) }}" alt="user-image" class="img-circle img-inline">
+                        <span>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }} <i class="fa fa-angle-down"></i></span>
                     </a>
+                    @endif
                     <ul class="dropdown-menu profile animated fadeIn">
                         <li>
                             <a href="#settings">
@@ -329,8 +331,8 @@
                                 <i class="fa fa-info"></i> Help
                             </a>
                         </li>
-                        <li class="last">
-                            <a href="ui-login.html">
+                        <li>
+                            <a href="{{ url('/admin/logout') }}">
                                 <i class="fa fa-lock"></i> Logout
                             </a>
                         </li>

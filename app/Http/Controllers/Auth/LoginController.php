@@ -50,7 +50,9 @@ class LoginController extends Controller
         return back()->with('messages','Email hoặc password không chính xác');
     }
     public function getLogout(){
+        
         Auth::logout();
-        return redirect('/admin/login');
+        return redirect('admin/login');
+        
     }
 }

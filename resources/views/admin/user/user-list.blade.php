@@ -76,6 +76,7 @@
                                                         <button type="submit" class="btn btn-danger">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </button>
+                                                        
                                                     </div>
                                                 </form>
                                             </td>

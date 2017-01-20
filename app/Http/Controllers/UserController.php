@@ -80,6 +80,7 @@ class UserController extends Controller
         $user->province = $request->Province;
         $user->district = $request->District;
         $user->ward = $request->Ward;
+        $user->status = 1;
         $user->remember_token = $request->_token;
         $user->save();
         return redirect()->route('user.index')->with('message-success','Thêm tài khoản thành công');
@@ -139,5 +140,14 @@ class UserController extends Controller
         $data = Ward::where('maqh',$district_id)->get();
         return response()->json($data);
         
+    }
+    public function blockUser($id){
+        $user = User::find($id);
+        if($user){
+            $user->status = !$user->status;
+            $user->save();
+            return response()->json($user);
+        }
+        return response()->json(['code'=>'404','message'=>'User not found']);
     }
 }

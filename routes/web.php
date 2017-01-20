@@ -13,6 +13,8 @@
 
 Route::get('admin/login',['as'=>'login','uses'=>'Auth\LoginController@getLogin']);
 Route::post('admin/login','Auth\LoginController@postLogin');
+Route::get('admin/logout','Auth\LoginController@getLogout');
+
 Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::get('dashboard', function () {
         return view('admin.dashboard.dashboard');
@@ -23,5 +25,6 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::resource('user','UserController');
     Route::get('/ajax-district','UserController@ajaxDistrict');
     Route::get('/ajax-ward','UserController@ajaxWard');
+    Route::get('/block-user/{id}','UserController@blockUser');
 });
 

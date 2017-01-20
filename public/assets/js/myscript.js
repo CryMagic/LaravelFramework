@@ -45,3 +45,11 @@ $('#selectDistrict').on('change',function(e){
         
     });
 });
+$(document).ready(function(){
+    var disable = $("button#btnBlock");
+    $('button#btnBlock').on('click',function(e){
+        
+        alert("ok");
+
+    });
+})

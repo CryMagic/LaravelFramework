@@ -5,25 +5,26 @@
 
         <!-- USER INFO - START -->
         <div class="profile-info row">
-
+            @if(Auth::check())
             <div class="profile-image col-xs-4">
                 <a href="ui-profile.html">
-                    <img alt="" src="data/profile/profile-ecommerce.jpg" class="img-responsive img-circle">
+                    <img alt="" src="{{ url('images/user/',Auth::user()->avatar) }}" class="img-responsive img-circle">
                 </a>
             </div>
 
             <div class="profile-details col-xs-8">
 
                 <h3>
-                    <a href="ui-profile.html">Mark Willy</a>
+                    <a href="ui-profile.html">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
 
                     <!-- Available statuses: online, idle, busy, away and offline -->
                     <span class="profile-status online"></span>
                 </h3>
 
-                <p class="profile-title">Store Manager</p>
+                <p class="profile-title">FullStack Developer</p>
 
             </div>
+            @endif
 
         </div>
         <!-- USER INFO - END -->
