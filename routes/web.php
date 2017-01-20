@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('admin/login','Auth\LoginController@getLogin');
+Route::get('admin/login',['as'=>'login','uses'=>'Auth\LoginController@getLogin']);
 Route::post('admin/login','Auth\LoginController@postLogin');
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::get('dashboard', function () {
         return view('admin.dashboard.dashboard');
-    });
+    })->name('dashboard');
     Route::resource('category', 'CategoryController');
     Route::resource('supply', 'SupplyController');
     Route::resource('shipper', 'ShipperController');

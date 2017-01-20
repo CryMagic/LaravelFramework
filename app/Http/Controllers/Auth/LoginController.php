@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
@@ -48,5 +48,9 @@ class LoginController extends Controller
             return redirect('admin/dashboard');
         }
         return back()->with('messages','Email hoặc password không chính xác');
+    }
+    public function getLogout(){
+        Auth::logout();
+        return redirect('/admin/login');
     }
 }
