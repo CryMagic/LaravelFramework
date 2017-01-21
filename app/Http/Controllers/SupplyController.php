@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Supply;
+use App\Product;
 class SupplyController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class SupplyController extends Controller
     public function index()
     {
         $supplies = Supply::all();
-        return view('admin.supply.supply',compact('supplies'));
+        $products = Product::all();
+        return view('admin.supply.supply',compact('supplies','products'));
     }
 
     /**
@@ -43,7 +45,7 @@ class SupplyController extends Controller
         $supply->country = $request->Country;
         $supply->homePage = $request->HomePage;
         $supply->save();
-        return back()->with('message-success','Thêm nhà cung cấp thành công');
+        return back()->with(['status'=>'success','messages'=>'Thêm nhà cung cấp thành công']);
     }
 
     /**
@@ -85,7 +87,7 @@ class SupplyController extends Controller
         $supply->country = $request->Country;
         $supply->homePage = $request->HomePage;
         $supply->save();
-        return back()->with('message-success','Cập nhật thông tin nhà cung cấp thành công');
+        return back()->with(['status'=>'success','messages'=>'Cập nhật thông tin nhà cung cấp thành công']);
     }
 
     /**
@@ -98,6 +100,6 @@ class SupplyController extends Controller
     {
         $supply = Supply::find($id);
         $supply->delete();
-        return back()->with('message-success','Xóa thông tin nhà cung cấp thành công');
+        return back()->with(['status'=>'success','messages'=>'Xóa thông tin nhà cung cấp thành công']);
     }
 }

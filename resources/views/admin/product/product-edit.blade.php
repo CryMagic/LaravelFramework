@@ -54,7 +54,8 @@
                 <select class="" name="Category" id="Category">
                     @foreach($categories as $category)
                         <option
-                        @if($category->id == $product->cate)
+                        @if($category->id == $product->cateID)
+                            selected
                         @endif
                          value="{{ $category->id }}">{{ $category->cateName }}</option>
                     @endforeach
@@ -66,7 +67,11 @@
                <div class="controls">
                 <select class="" name="Supply" id="Supply">
                     @foreach($supplies as $supply)
-                        <option value="{{ $supply->id }}">{{ $supply->companyName }}</option>
+                        <option
+                        @if($category->id == $product->supplierID)
+                            selected
+                        @endif
+                         value="{{ $supply->id }}">{{ $supply->companyName }}</option>
                     @endforeach
                 </select>
                </div>
@@ -74,23 +79,27 @@
             <div class="form-group">
                <label class="form-label" for="field-118916">Giá</label>
                <div class="controls">
-                  <input type="text" value="" placeholder="Nhập giá sản phẩm..." class="form-control" name="Price">
+                  <input type="text" value="{{ $product->price }}" placeholder="Nhập giá sản phẩm..." class="form-control" name="Price">
                </div>
             </div>
             <div class="form-group">
                <label class="form-label" for="field-118916">Tồn Kho</label>
                <div class="controls">
-                  <input type="number" value="" placeholder="Số lượng tồn kho ..." class="form-control" name="InStock">
+                  <input type="number" value="{{ $product->inStock }}" placeholder="Số lượng tồn kho ..." class="form-control" name="InStock">
                </div>
             </div>
             <div class="form-group">
                <label class="form-label" for="field-118916">Giảm giá</label>
                <div class="controls">
-                  <input type="number" value="" placeholder="Giá sản phẩm giảm giá ..." class="form-control" name="Discount">
+                  <input type="number" value="{{ $product->discount }}" placeholder="Giá sản phẩm giảm giá ..." class="form-control" name="Discount">
                </div>
             </div>
             <div class="form-group">
                 <label class="form-label" >Hinh ảnh</label>
+                @if($product->picture != null)
+                    <img src="{{ url('images/product/'.$product->picture) }}" class="img-rounded" width="100px" height="100px">
+                @endif
+                <br>
                 <div class="controls">
                     <input type="file" value="" class="form-control" name="Picture">
                 </div>
@@ -101,13 +110,17 @@
             <div class="form-group">
                 <label class="form-label" >Mô tả về sản phẩm</label>
                 <div class="controls">
-                    <textarea id="description-product" class="form-control" rows="14" name="Description" placeholder="Mô tả sản phẩm ..."></textarea>
+                    <textarea id="description-product" class="form-control" rows="14" name="Description" placeholder="Mô tả sản phẩm ...">
+                        {{ $product->discription }}
+                    </textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label class="form-label" >Ghi chú</label>
                 <div class="controls">
-                    <textarea id="note-product" class="form-control" rows="14" name="Note" placeholder="Thông tin thêm ..."></textarea>
+                    <textarea id="note-product" class="form-control" rows="14" name="Note" placeholder="Thông tin thêm ...">
+                        {{ $product->note }}
+                    </textarea>
                 </div>
             </div>
         </div>

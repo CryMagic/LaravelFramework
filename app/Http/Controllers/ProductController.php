@@ -40,7 +40,36 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->productName = $request->ProductName;
+        $product->alias = changeTitle($request->ProductName);
+        $product->price = $request->Price;
+        $product->inStock = $request->InStock;
+        $product->discount = $request->Discount;
+        $product->isContinue = 0;
+        $product->avgRating = 0;
+        $product->discription = $request->Description;
+        $product->note = $request->Note;
+        $product->supplierID = $request->Supply;
+        $product->cateID = $request->Category;
+        //Save picture product
+        if($request->hasFile('Picture')){
+            $file = $request->file('Picture');
+
+            $img = $file->getClientOriginalName();
+
+            $imgName = str_random(15)."_".$img;
+
+            while(file_exists('images/product/'.$imgName)){
+                 $imgName = str_random(15)."_".$img;
+            }
+
+            //Move to Folder images/category
+            $file->move('images/product/',$imgName);
+            $product->picture = $imgName;
+        }
+        $product->save();
+        return redirect()->route('product.index')->with(['status'=>'success','messages'=>'Thêm sản phẩm thành công']);
     }
 
     /**
@@ -77,7 +106,35 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->productName = $request->ProductName;
+        $product->alias = changeTitle($request->ProductName);
+        $product->price = $request->Price;
+        $product->inStock = $request->InStock;
+        $product->discount = $request->Discount;
+        $product->discription = $request->Description;
+        $product->note = $request->Note;
+        $product->supplierID = $request->Supply;
+        $product->cateID = $request->Category;
+        //Save picture product
+        if($request->hasFile('Picture')){
+            $file = $request->file('Picture');
+
+            $img = $file->getClientOriginalName();
+
+            $imgName = str_random(15)."_".$img;
+
+            while(file_exists('images/product/'.$imgName)){
+                 $imgName = str_random(15)."_".$img;
+            }
+
+            //Move to Folder images/product
+            $file->move('images/product/',$imgName);
+            unlink("images/product/".$product->picture);
+            $product->picture = $imgName;
+        }
+        $product->save();
+        return redirect()->route('product.index')->with(['status'=>'success','messages'=>'Cập nhật thông tin sản phẩm thành công']);
     }
 
     /**
@@ -88,6 +145,20 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        if($product->picture != null){
+            unlink("images/product/".$product->picture);
+        }
+        $product->delete();
+        return back()->with(['status'=>'success','messages'=>'Xóa sản phẩm thành công']);
+    }
+    public function isContinue($id){
+        $product = Product::find($id);
+        if($product){
+            $product->isContinue = !$product->isContinue;
+            $product->save();
+            return response()->json($product);
+        }
+        return response()->json(['code'=>'404','message'=>'Product not found']);
     }
 }

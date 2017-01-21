@@ -38,7 +38,6 @@
                         </div>
                     </header>
                     @include('admin.notify.message')
-                    @include('admin.notify.message-success')
                     <div class="content-body">
                         <div class="row">
                             <div class="col-xs-12  table-responsive">

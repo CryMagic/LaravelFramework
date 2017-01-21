@@ -83,7 +83,7 @@ class UserController extends Controller
         $user->status = 1;
         $user->remember_token = $request->_token;
         $user->save();
-        return redirect()->route('user.index')->with('message-success','Thêm tài khoản thành công');
+        return redirect()->route('user.index')->with(['status'=>'success','messages'=>'Thêm tài khoản thành công']);
     }
 
     /**

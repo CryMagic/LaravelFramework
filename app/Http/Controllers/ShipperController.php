@@ -41,7 +41,7 @@ class ShipperController extends Controller
         $shipper->description = $request->Description;
         $shipper->phone = $request->Phone;
         $shipper->save();
-        return back()->with('message-success','Thêm Shipper mới thành công');
+        return back()->with(['status'=>'success','messages'=>'Thêm Shipper thành công']);
     }
 
     /**
@@ -80,7 +80,7 @@ class ShipperController extends Controller
         $shipper->description = $request->Description;
         $shipper->phone = $request->Phone;
         $shipper->save();
-        return back()->with('message-success','Cập nhật thông tin Shipper mới thành công');
+        return back()->with(['status'=>'success','messages'=>'Cập nhật thông tin Shipper thành công']);
     }
 
     /**
@@ -93,6 +93,6 @@ class ShipperController extends Controller
     {
         $shipper = Shipper::find($id);
         $shipper->delete();
-        return back()->with('message-success','Xóa thông tin Shipper thành công');
+        return back()->with(['status'=>'success','messages'=>'Xóa thông tin Shipper thành công']);
     }
 }

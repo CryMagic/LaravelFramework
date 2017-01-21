@@ -38,7 +38,6 @@
                         </div>
                     </header>
                     @include('admin.notify.message')
-                    @include('admin.notify.message-success')
                     <div class="content-body">
                         <div class="row">
                             <div class="col-xs-12  table-responsive">
@@ -49,9 +48,7 @@
                                             <th>Công ty</th>
                                             <th>E-mail</th>
                                             <th>Số điện thoại</th>
-                                            <th>Địa chỉ</th>
                                             <th>Quốc gia</th>
-                                            <th>HomePage</th>
                                             <th>Action</th>
                                             <th>Sản phẩm</th>
                                         </tr>
@@ -63,10 +60,8 @@
                                             <td>{{ $item->companyName }}</td>
                                             <td>{{ $item->emailContact }}</td>
                                             <td>{{ $item->phoneContact }}</td>
-                                            <td>{{ $item->address }}</td>
                                             <td>{{ $item->country }}</td>
-                                            <td>{{ $item->homePage }}</td>
-                                            <td>
+                                            <td width="20%">
                                                 <form action="{{ route('supply.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
@@ -77,10 +72,21 @@
                                                         <button type="submit" class="btn btn-danger">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </button>
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" href="#view-supply{{ $item->id }}">
+                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        </button>
                                                     </div>
                                                 </form>
                                             </td>
-                                            <td width="5%">121</td>
+                                            <td width="5%">
+                                                <?php $i=0; ?>
+                                                @foreach($products as $product)
+                                                    @if($item->id == $product->supplierID)
+                                                        <?php $i++ ;?>
+                                                    @endif
+                                                @endforeach
+                                                {{ $i }}
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -96,5 +102,7 @@
     @include('admin.supply.supply-add')
     
     @include('admin.supply.supply-edit')
+
+    @include('admin.supply.supply-view')
     
 @endsection

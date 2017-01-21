@@ -39,7 +39,6 @@
                         </div>
                     </header>
                     @include('admin.notify.message')
-                    @include('admin.notify.message-success')
                     <div class="content-body">
                         <div class="row">
                             <div class="col-xs-12  table-responsive">
@@ -79,11 +78,9 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @if($item->isDisplay == 1)
-                                                    <span class="label label-success"><i class="fa fa-check-circle"></i>Hiển thị</span>
-                                                @else
-                                                    <span class="label label-danger"><i class="fa fa-ban"></i>Không</span>
-                                                @endif
+                                                <span style="cursor:pointer" id="isDisplay{{$item->id}}" data-id="{{$item->id}}" class="label {{$item->isDisplay ? 'label-success':'label-danger'}}">
+                                                    <i id="{{ $item->id }}" class="fa {{ $item->isDispplay ? 'fa-ban':'fa-check-circle' }}"></i>   
+                                                </span>
                                             </td>
                                             <td>
                                                 <form action="{{ route('category.destroy',[$item->id] ) }}" method="POST">
@@ -99,7 +96,16 @@
                                                     </div>
                                                 </form>
                                             </td>
-                                            <td width="5%">121</td>
+                                            <td width="5%">
+                                                <?php $i = 0; ?>
+                                                @foreach($products as $product)
+                                                    
+                                                    @if($item->id == $product->cateID)
+                                                        <?php $i++; ?>
+                                                    @endif
+                                                @endforeach
+                                                {{ $i }}
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

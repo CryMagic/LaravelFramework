@@ -38,7 +38,6 @@
                         </div>
                     </header>
                     @include('admin.notify.message')
-                    @include('admin.notify.message-success')
                     <div class="content-body">
                         <div class="row">
                             <div class="col-xs-12  table-responsive">
@@ -67,23 +66,24 @@
                                                     <img src="{{ url('data/product_icon.png') }}" class="img-rounded">
                                                 @endif
                                             </td>
-                                            <td>{{ $item->categories->cateName }}</td>
-                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->belongsToCategories->cateName }}</td>
+                                            <td>{{ number_format($item->price) }} đ</td>
                                             <td>{{ $item->inStock }}</td>
-                                            <td>{{ $item->isContinue ? 'Còn bán':'Ngừng kinh doanh' }}</td>
                                             <td>
+                                                <button type="button" id="btnIsContinue{{$item->id}}" data-id="{{$item->id}}" class="btn {{ $item->isContinue ? 'btn-danger':'btn-success' }}">
+                                                    <i id="{{ $item->id }}" class="fa {{ $item->isContinue ? 'fa-close':'fa-check' }}"></i>
+                                                </button
+                                            </td>
+                                            <td width="15%">
                                                 <form action="{{ route('product.destroy',[$item->id] ) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" href="#edit-shipper{{ $item->id }}">
+                                                        <button type="button" class="btn btn-info" onClick="location.href='{{ route('product.edit',[$item->id]) }}'">
                                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                                         </button>
                                                         <button type="submit" class="btn btn-danger">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                        </button>
-                                                        <button type="button" class="btn btn-success" id="btnBlock{{ $item->id }}">
-                                                                <i class="fa fa-lock" aria-hidden="true"></i>
                                                         </button>
                                                     </div>
                                                 </form>

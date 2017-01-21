@@ -47,6 +47,8 @@ $('#selectDistrict').on('change',function(e){
 });
 $(document).ready(function(){
     let btn = $("[id^=btnBlock]");
+    let btnIsContinue = $("[id^=btnIsContinue]");
+    let isDisplay = $("[id^=isDisplay]");
     $(btn).on('click',function(){
         var idButton  = $(this);
         var _token = $("input[name='_token']").val();
@@ -77,4 +79,65 @@ $(document).ready(function(){
             }
         });
     });
+    $(btnIsContinue).on('click',function(){
+        var button  = $(this);
+        var _token = $("input[name='_token']").val();
+        var id = button.data('id');
+        var url = '/admin/continue/';
+        $.ajax({
+            dataType: 'json',
+            type: 'post',
+            cache:false,
+            url: url + id,
+            data: {
+                '_token': _token, 'id': id, 'url': url
+            },
+            success: function (data) {
+                if(data.isContinue){
+                    button.removeClass('btn-success');
+                    button.addClass('btn-danger');
+                    $('i#'+id).removeClass('fa-check');
+                    $('i#'+id).addClass('fa-close');
+                }
+                else{
+                    button.addClass('btn-success');
+                    button.removeClass('btn-danger');
+                     $('i#'+id).removeClass('fa-close');
+                    $('i#'+id).addClass('fa-check');
+                }
+            }
+        });
+    });
+    $(isDisplay).on('click',function(){
+        var span  = $(this);
+        var _token = $("input[name='_token']").val();
+        var id = span.data('id');
+        var url = '/admin/display/';
+        $.ajax({
+            dataType: 'json',
+            type: 'post',
+            cache:false,
+            url: url + id,
+            data: {
+                '_token': _token, 'id': id, 'url': url
+            },
+            success: function (data) {
+                if(data.isDisplay){
+                    
+                    span.addClass('label-success');
+                    span.removeClass('label-danger');
+                    
+                    $('i#'+id).removeClass('fa-ban');
+                    $('i#'+id).addClass('fa-check-circle');
+                }
+                else{
+                    span.removeClass('label-success');
+                    span.addClass('label-danger');
+                    $('i#'+id).removeClass('fa-check-circle');
+                    $('i#'+id).addClass('fa-ban');
+                }
+            }
+        });
+    });
+    $('div.alert').delay(3000).slideUp();
 });

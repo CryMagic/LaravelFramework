@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.category-product',compact('category'));
+        $products = Product::all();
+        return view('admin.category.category-product',compact('category','products'));
     }
 
     /**
@@ -58,7 +60,7 @@ class CategoryController extends Controller
             $category->picture = $imgName;
         }
         $category->save();
-        return back()->with('message-success','Thêm danh mục sản phẩm thành công');
+        return back()->with(['status'=>'success','messages'=>'Thêm danh mục sản phẩm thành công']);
     }
 
     /**
@@ -112,7 +114,7 @@ class CategoryController extends Controller
         }
 
         $category->save();
-        return back()->with('message-success','Cập nhật thông tin danh mục sản phẩm thành công');
+        return back()->with(['status'=>'success','messages'=>'Cập nhật thông tin danh mục sản phẩm thành công']);
     }
 
     /**
@@ -127,13 +129,22 @@ class CategoryController extends Controller
         $categories = Category::all();
         foreach($categories as $item){
             if($item->parent == $category->id){
-                return redirect()->route('category.index')->with('messages','Danh mục này có tồn tại các danh mục con');
+                return redirect()->route('category.index')->with(['status'=>'error','messages'=>'Danh mục có tồn tại các danh mục con']);
             }
         }
         if($category->picture != null){
             unlink("images/category/".$category->picture);
         }
         $category->delete();
-        return back()->with('message-success','Xóa danh mục sản phẩm thành công');
+        return back()->with(['status'=>'success','messages'=>'Xóa danh mục sản phẩm thành công']);
+    }
+    public function display($id){
+        $category = Category::find($id);
+        if($category){
+            $category->isDisplay = !$category->isDisplay;
+            $category->save();
+            return response()->json($category);
+        }
+        return response()->json(['code'=>'404','message'=>'category not found']);
     }
 }

@@ -87,7 +87,7 @@
                </div>
             </div>
             <div class="form-group">
-                <label class="form-label" >Hinh ảnh</label>
+                <label class="form-label"> Hình ảnh</label>
                 <div class="controls">
                     <input type="file" value="" class="form-control" name="Picture">
                 </div>
