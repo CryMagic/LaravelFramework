@@ -8,7 +8,7 @@
 
                 <div class="pull-left">
                     <!-- PAGE HEADING TAG - START -->
-                    <h1 class="title">Ecommerce</h1>
+                    <h1 class="title">Dashboard</h1>
                     <!-- PAGE HEADING TAG - END -->
                 </div>
             </div>
@@ -77,12 +77,12 @@
             </section>
         </div>
 
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-6">
             <div class="row">
                 <div class="col-xs-12">
                     <section class="box ">
                         <header class="panel_header">
-                            <h2 class="title pull-left">New Users</h2>
+                            <h2 class="title pull-left">Người dùng mới</h2>
                             <div class="actions panel_actions pull-right">
                                 <a class="box_toggle fa fa-chevron-down"></a>
                                 <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
@@ -93,37 +93,17 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="width:60%">Name</th>
-                                        <th style="width:30%">Progress</th>
+                                        <th style="width:60%">Tài khoản</th>
+                                        <th style="width:30%">Ngày tạo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($new_user as $item_user)    
                                     <tr>
-
-                                        <td>Harry P.</td>
-                                        <td><span class="playlist_song2">...</span></td>
+                                        <td>{{ $item_user->firstname }} {{ $item_user->lastname }}</td>
+                                        <td><span>{{ $item_user->created_at->diffForHumans() }}</span></td>
                                     </tr>
-                                    <tr>
-
-                                        <td>Will Mark</td>
-                                        <td><span class="playlist_song3">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Jason D.</td>
-                                        <td><span class="playlist_song4">...</span></td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>Nik P.</td>
-                                        <td><span class="playlist_song6">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Kate Wilson</td>
-                                        <td><span class="playlist_song7">...</span></td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -135,12 +115,12 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-6">
             <div class="row">
                 <div class="col-xs-12">
                     <section class="box ">
                         <header class="panel_header">
-                            <h2 class="title pull-left">New Vendors</h2>
+                            <h2 class="title pull-left">Nhà cung cấp mới</h2>
                             <div class="actions panel_actions pull-right">
                                 <a class="box_toggle fa fa-chevron-down"></a>
                                 <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
@@ -151,37 +131,17 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="width:60%">Name</th>
-                                        <th style="width:30%">Progress</th>
+                                        <th style="width:60%">Tên</th>
+                                        <th style="width:30%">Ngày tạo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($new_supply as $item_supply)
                                     <tr>
-
-                                        <td>John Doug</td>
-                                        <td><span class="playlist_song1">...</span></td>
+                                        <td>{{ $item_supply->companyName }}</td>
+                                        <td><span>{{ $item_supply->created_at->diffForHumans() }}</span></td>
                                     </tr>
-                                    <tr>
-
-                                        <td>Harry P.</td>
-                                        <td><span class="playlist_song2">...</span></td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>Clarke M.</td>
-                                        <td><span class="playlist_song5">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Nik P.</td>
-                                        <td><span class="playlist_song6">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Kate Wilson</td>
-                                        <td><span class="playlist_song7">...</span></td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -193,12 +153,12 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-12">
             <div class="row">
                 <div class="col-xs-12">
                     <section class="box ">
                         <header class="panel_header">
-                            <h2 class="title pull-left">New Customers</h2>
+                            <h2 class="title pull-left">Sản phẩm mới</h2>
                             <div class="actions panel_actions pull-right">
                                 <a class="box_toggle fa fa-chevron-down"></a>
                                 <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
@@ -209,38 +169,19 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="width:60%">Name</th>
-                                        <th style="width:30%">Progress</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th style="width:20%">Giá</th>
+                                        <th style="width:30%">Ngày tạo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach($new_product as $item_product)
                                     <tr>
-
-                                        <td>Harry P.</td>
-                                        <td><span class="playlist_song2">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Will Mark</td>
-                                        <td><span class="playlist_song3">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Jason D.</td>
-                                        <td><span class="playlist_song4">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Clarke M.</td>
-                                        <td><span class="playlist_song5">...</span></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>Nik P.</td>
-                                        <td><span class="playlist_song6">...</span></td>
-                                    </tr>
-
+                                        <td>{{ $item_product->productName }}</td>
+                                        <td>{{ number_format($item_product->price)}} đ</td>
+                                        <td><span>{{ $item_product->created_at->diffForHumans() }}</span></td>
+                                    </tr>                                
+                                    @endforeach
                                 </tbody>
                             </table>
 
