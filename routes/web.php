@@ -30,3 +30,10 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::post('/display/{id}','CategoryController@display');
 });
 
+
+Route::get('/',['as'=>'home','uses'=>'HomeController@home']);
+Route::get('about-us',['as'=>'about-us','uses'=>'HomeController@aboutUs']);
+Route::get('account-one',['as'=>'account-one','uses'=>'HomeController@accountOne']);
+Route::get('account-two',['as'=>'account-two','uses'=>'HomeController@accountTwo']);
+
+
