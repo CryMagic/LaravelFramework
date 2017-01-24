@@ -11,9 +11,14 @@
     <link rel="shortcut icon" href="{{ url('user/assets/ico/favicon.png')}}">
     <title>ShopOnline</title>
     <link href="{{ url('user/assets/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url('user/assets/css/skin-4.css')}}">
+    <link href="{{ url('user/assets/css/skin-4.css')}}" rel="stylesheet" type="text/css" >
     <link href="{{ url('user/assets/css/style.css')}}" rel="stylesheet">
     <link href="{{ url('user/assets/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{ url('user/assets/css/blog.css') }}" rel="stylesheet">
+    <link href="{{ url('user/assets/css/footable-0.1.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('user/assets/css/footable.sortable-0.1.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('user/assets/css/smoothproducts.css') }}"  rel="stylesheet" type="text/css">
+    <link href="{{ url('user/assets/plugins/rating/bootstrap-rating.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -29,20 +34,55 @@
 
 
     <script src="{{ url('user/assets/js/jquery.min.js')}}"></script>
-    <script src="{{ url('user/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url('user/assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('user/assets/js/jquery-migrate-1.2.1.js') }}"></script>
     <script src="{{ url('user/assets/js/jquery.cycle2.min.js')}}"></script>
     <script src="{{ url('user/assets/js/jquery.easing.1.3.js')}}"></script>
-    <script type="text/javascript" src="{{ url('user/assets/js/jquery.parallax-1.1.js')}}"></script>
-    <script type="text/javascript" src="{{ url('user/assets/js/helper-plugins/jquery.mousewheel.min.js')}}"></script>
-    <script type="text/javascript" src="{{ url('user/assets/js/jquery.mCustomScrollbar.js')}}"></script>
-    <script type="text/javascript" src="{{ url('user/assets/plugins/icheck-1.x/icheck.min.js')}}"></script>
+    <script src="{{ url('user/assets/js/jquery.parallax-1.1.js')}}"></script>
+    <script src="{{ url('user/assets/js/helper-plugins/jquery.mousewheel.min.js')}}"></script>
+    <script src="{{ url('user/assets/js/jquery.mCustomScrollbar.js')}}"></script>
+    <script src="{{ url('user/assets/plugins/icheck-1.x/icheck.min.js')}}"></script>
     <script src="{{ url('user/assets/js/grids.js')}}"></script>
     <script src="{{ url('user/assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ url('user/assets/js/smoothproducts.min.js')}}"></script>
     <script src="{{ url('user/assets/js/select2.min.js')}}"></script>
     <script src="{{ url('user/assets/js/bootstrap.touchspin.js')}}"></script>
     <script src="{{ url('user/assets/js/home.js')}}"></script>
     <script src="{{ url('user/assets/js/script.js')}}"></script>
-    
+    <script src="{{ url('user/assets/js/footable.js')}}" type="text/javascript"></script>
+    <script src="{{ url('user/assets/js/footable.sortable.js')}}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.footable').footable();
+        });
+    </script>
+    <script src="{{ url('user/assets/plugins/rating/bootstrap-rating.min.js')}}"></script>
+    <script>
+        $(function() {
+        
+            $('.rating-tooltip-manual').rating({
+                extendSymbol: function() {
+                    var title;
+                    $(this).tooltip({
+                        container: 'body',
+                        placement: 'bottom',
+                        trigger: 'manual',
+                        title: function() {
+                            return title;
+                        }
+                    });
+                    $(this).on('rating.rateenter', function(e, rate) {
+                            title = rate;
+                            $(this).tooltip('show');
+                        })
+                        .on('rating.rateleave', function() {
+                            $(this).tooltip('hide');
+                        });
+                }
+            });
+        
+        });
+    </script>
     @include('user.block.quick-view')
 </body>
 

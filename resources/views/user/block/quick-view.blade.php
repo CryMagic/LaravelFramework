@@ -4,14 +4,14 @@
     </button>
     <div class="modal-dialog" role="document">
         <div class="main-image col-lg-5 no-padding style3">
-            <a class="product-largeimg-link" href="product-details.html"><img src="images/product_details/low-res-white/1.jpg" class="img-responsive product-largeimg" alt="img">
+            <a class="product-largeimg-link" href="product-details.html"><img src="{{ url('user/images/product_details/low-res-white/1.jpg') }}" class="img-responsive product-largeimg" alt="img">
             </a>
             <div class="modal-product-thumb">
-                <a class="thumbLink selected"><img data-large="images/product_details/low-res-white/1.jpg" alt="img" class="img-responsive" src="images/product_details/low-res-white/1.jpg">
+                <a class="thumbLink selected"><img data-large="{{ url('user/images/product_details/low-res-white/1.jpg') }}" alt="img" class="img-responsive" src="{{ url('user/images/product_details/low-res-white/1.jpg') }}">
                 </a>
-                <a class="thumbLink"><img data-large="images/product_details/low-res-white/2.jpg" alt="img" class="img-responsive" src="images/product_details/low-res-white/2.jpg">
+                <a class="thumbLink"><img data-large="{{ url('user/images/product_details/low-res-white/2.jpg') }}" alt="img" class="img-responsive" src="{{ url('user/images/product_details/low-res-white/2.jpg') }}">
                 </a>
-                <a class="thumbLink"><img data-large="images/product_details/low-res-white/3.jpg" alt="img" class="img-responsive" src="images/product_details/low-res-white/3.jpg">
+                <a class="thumbLink"><img data-large="{{ url('user/images/product_details/low-res-white/3.jpg') }}" alt="img" class="img-responsive" src="{{ url('user/images/product_details/low-res-white/3.jpg') }}">
                 </a>
             </div>
         </div>

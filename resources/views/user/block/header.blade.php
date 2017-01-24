@@ -35,6 +35,7 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span></button>
+                                    </div>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span></button>
             <a class="navbar-brand" href="index.html"> <img src="{{ url('user/images/logo.png')}}" alt="TSHOP"> </a>
             <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -45,6 +46,7 @@
         </div>
         <div class="navbar-cart collapse">
             <div class="cartMenu col-lg-4 col-xs-12 col-md-4">
+                                    <div class="miniCartDescription">
                 <div class="w100 miniCartTable scroll-pane">
                     <table>
                         <tbody>
@@ -137,10 +139,8 @@
                                 <td style="width:20%" class="miniCartProductThumb">
                                     <div>
                                         <a href="product-details.html"> <img src="{{ url('user/images/product/4.jpg') }}" alt="img"> </a>
-                                    </div>
                                 </td>
                                 <td style="width:40%">
-                                    <div class="miniCartDescription">
                                         <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
                                         <span class="size"> 12 x 1.5 L </span>
                                         <div class="price"><span> $8.80 </span></div>
@@ -233,9 +233,13 @@
                                     <p><strong> Top Brands </strong></p>
                                 </li>
                                 <li><a href="#"> Diesel </a></li>
+                                            <div>
                                 <li><a href="#"> Farah </a></li>
+                                                </a>
                                 <li><a href="#"> G-Star RAW </a></li>
+                                        </td>
                                 <li><a href="#"> Lyle & Scott </a></li>
+                                            <div class="miniCartDescription">
                                 <li><a href="#"> Pretty Green </a></li>
                                 <li><a href="#"> TSHOP </a></li>
                                 <li><a href="#"> TANJIM </a></li>
@@ -269,6 +273,7 @@
                                         <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
                                         <td style="width:15%" class="miniCartSubtotal"><span> $33 </span></td>
                                         <td style="width:5%" class="delete"><a> x </a></td>
+            <input type="search" data-searchurl="search?=" name=" q" placeholder="start typing and hit enter to search" class="search-input">
                                     </tr>
                                     <tr class="miniCartProduct">
                                         <td style="width:20%" class="miniCartProductThumb">
@@ -324,15 +329,12 @@
                                         <td style="width:15%" class="miniCartSubtotal"><span> $55 </span></td>
                                         <td style="width:5%" class="delete"><a> x </a></td>
                                     </tr>
+                      m  </div>
                                     <tr class="miniCartProduct">
                                         <td style="width:20%" class="miniCartProductThumb">
-                                            <div>
                                                 <a href="product-details.html"> <img src="{{ url('user/images/product/4.jpg') }}" alt="img">
-                                                </a>
                                             </div>
-                                        </td>
                                         <td style="width:40%">
-                                            <div class="miniCartDescription">
                                                 <h4><a href="product-details.html"> T shirt Black </a></h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"><span> $44 </span></div>
@@ -361,26 +363,24 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
                         <div class="miniCartFooter text-right">
-                            <h3 class="text-right subtotal"> Subtotal: $210 </h3>
                             <a class="btn btn-sm btn-danger" href="cart.html"> <i class="fa fa-shopping-cart"> </i> VIEW CART </a><a class="btn btn-sm btn-primary"> CHECKOUT </a>
-                        </div>
                     </div>
                 </div>
                 <div class="search-box">
                     <div class="input-group">
                         <button class="btn btn-nobg getFullSearch" type="button"><i class="fa fa-search"> </i></button>
                     </div>
-                </div>
             </div>
         </div>
-    </div>
     <div class="search-full text-right">
         <a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i> </a>
         <div class="searchInputBox pull-right">
-            <input type="search" data-searchurl="search?=" name=" q" placeholder="start typing and hit enter to search" class="search-input">
             <button class="btn-nobg search-btn" type="submit"><i class="fa fa-search"> </i></button>
         </div>
     </div>
 </div>
+                            <h3 class="text-right subtotal"> Subtotal: $210 </h3>
+    </div>
+                        </div>
+                </div>
