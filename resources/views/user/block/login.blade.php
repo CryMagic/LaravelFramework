@@ -3,17 +3,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden=" true"> &times; </button>
-                <h3 class="modal-title-site text-center"> Login to TSHOP </h3>
+                <h3 class="modal-title-site text-center"> Đăng nhập </h3>
             </div>
             <div class="modal-body">
                 <div class="form-group login-username">
                     <div>
-                        <input name="log" id="login-user" class="form-control input" size="20" placeholder="Enter Username" type="text">
+                        <input name="log" id="login-user" class="form-control input" size="20" placeholder="Nhập email ..." type="text">
                     </div>
                 </div>
                 <div class="form-group login-password">
                     <div>
-                        <input name="Password" id="login-password" class="form-control input" size="20" placeholder="Password" type="password">
+                        <input name="Password" id="login-password" class="form-control input" size="20" placeholder="Nhập password" type="password">
                     </div>
                 </div>
                 <div class="form-group">
@@ -21,7 +21,7 @@
                         <div class="checkbox login-remember">
                             <label>
                         <input name="rememberme" value="forever" checked="checked" type="checkbox">
-                        Remember Me </label>
+                        Ghi nhớ mật khẩu </label>
                         </div>
                     </div>
                 </div>
@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <p class="text-center"> Not here before? <a data-toggle="modal" data-dismiss="modal" href="#ModalSignup"> Sign Up. </a> <br>
-                    <a href="forgot-password.html"> Lost your password? </a>
+                <p class="text-center"> Chưa có tài khoản? <a data-toggle="modal" data-dismiss="modal" href="#ModalSignup"> Đăng ký. </a> <br>
+                    <a href="{{ route('forget-password') }}"> Quên mật khẩu </a>
                 </p>
             </div>
         </div>

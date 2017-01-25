@@ -35,10 +35,10 @@
                         </form>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <h2 class="block-title-2"><span>Already registered?</span></h2>
+                        <h2 class="block-title-2"><span>Tồn tại một tài khoản?</span></h2>
                         <form role="form" class="logForm ">
                             <div class="form-group">
-                                <label>Email address</label>
+                                <label>E-mail</label>
                                 <input type="email" class="form-control" placeholder="Enter email">
                             </div>
                             <div class="form-group">
@@ -48,14 +48,13 @@
                             <div class="checkbox">
                                 <label>
                            <input type="checkbox" name="checkbox">
-                           Remember me </label>
+                           Nhớ mật khẩu </label>
                             </div>
                             <div class="form-group">
-                                <p><a title="Recover your forgotten password" href="forgot-password.html">Forgot your
-                              password? </a>
+                                <p><a title="Recover your forgotten password" href="{{ route('forget-password') }}">Quên mật khẩu? </a>
                                 </p>
                             </div>
-                            <a class="btn btn-primary" href="account.html"><i class="fa fa-sign-in"></i> Sign In</a>
+                            <a class="btn btn-primary" href="account.html"><i class="fa fa-sign-in"></i> Đăng nhập</a>
                         </form>
                     </div>
                 </div>

@@ -4,13 +4,13 @@
 @include('user.block.slider')
 <div class="container main-container">
     <div class="row featuredPostContainer globalPadding style2">
-        <h3 class="section-title style2 text-center"><span>NEW ARRIVALS</span></h3>
+        <h3 class="section-title style2 text-center"><span>Sản phẩm mới về</span></h3>
         <div id="productslider" class="owl-carousel owl-theme">
             <div class="item">
                 <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
+                    <button type="submit" class="add-fav tooltipHere" data-placement="left">
                         <i class="glyphicon glyphicon-heart"></i>
-                    </a>
+                    </button>
                     <div class="image">
                         <div class="quickview">
                             <a data-toggle="modal" class="btn btn-xs btn-quickview" data-target="#myModal">Xem nhanh </a>

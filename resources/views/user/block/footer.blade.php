@@ -3,42 +3,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                    <h3> Support </h3>
+                    <h3> Hỗ trợ </h3>
                     <ul>
                         <li class="supportLi">
-                            <p> Lorem ipsum dolor sit amet, consectetur </p>
+                            <p> Số điện thoại liên lạc </p>
                             <h4>
-                                <a class="inline" href="callto:+12025550151"> <strong> <i class="fa fa-phone"> </i> +1-202-555-0151 </strong> </a>
-                            </h4>
-                            <h4>
-                                <a class="inline" href="http://templatecycle.com/cdn-cgi/l/email-protection#ed8588819dad9482989f9a888fc38e8280">
-                                    <i class="fa fa-envelope-o"> </i>
-                                    <span class="__cf_email__" data-cfemail="177f727b67576e7862656072753974787a">[email&#160;protected]</span>
-                                    <script data-cfhash='f9e31' type="text/javascript">
-                                        /* <![CDATA[ */ ! function(t, e, r, n, c, a, p) {
-                                            try {
-                                                t = document.currentScript || function() {
-                                                    for (t = document.getElementsByTagName('script'), e = t.length; e--;)
-                                                        if (t[e].getAttribute('data-cfhash')) return t[e]
-                                                }();
-                                                if (t && (c = t.previousSibling)) {
-                                                    p = t.parentNode;
-                                                    if (a = c.getAttribute('data-cfemail')) {
-                                                        for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2) e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
-                                                        p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
-                                                    }
-                                                    p.removeChild(t)
-                                                }
-                                            } catch (u) {}
-                                        }() /* ]]> */
-                                    </script>
-                                </a>
+                                <a class="inline" href="callto:+12025550151"> <strong> <i class="fa fa-phone"> </i> 01658890216 </strong> </a>
                             </h4>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <h3> Shop </h3>
+                    <h3> Cửa hàng </h3>
                     <ul>
                         <li><a href="#">
                         Men's
@@ -62,7 +38,7 @@
                 </div>
                 <div style="clear:both" class="hide visible-xs"></div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <h3> Information </h3>
+                    <h3> Thông tin </h3>
                     <ul class="list-unstyled footer-nav">
                         <li><a href="#">Questions?
                         </a>
@@ -81,7 +57,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <h3> My Account </h3>
+                    <h3> Tài khoản </h3>
                     <ul>
                         <li><a href="account.html"> My Account </a></li>
                         <li><a href="my-address.html"> My Address </a></li>
