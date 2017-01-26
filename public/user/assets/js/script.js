@@ -279,9 +279,12 @@ $(document).ready(function() {
             radioClass: 'iradio_square-green iChk iCheck-margin'
         });
     });
-    $(document).ready(function() {
-        $('select').select2();
-    });
+    // $(document).ready(function() {
+    //     $('select').select2();
+    // });
+    // $(document).ready(function(){
+    //     $('#sort').select2();
+    // });
     $("input[name='quanitySniper']").TouchSpin({
         buttondown_class: "btn btn-link",
         buttonup_class: "btn btn-link"

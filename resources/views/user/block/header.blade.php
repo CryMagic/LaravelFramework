@@ -64,91 +64,7 @@
                                     <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
                                     <td style="width:5%" class="delete"><a> x </a></td>
                                 </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div>
-                                            <a href="product-details.html"> <img src="{{ url('user/images/product/2.jpg') }}" alt="img"> </a>
-                                        </div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"><span> $8.80 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div>
-                                            <a href="product-details.html"> <img src="{{ url('user/images/product/5.jpg') }}" alt="img"> </a>
-                                        </div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"><span> $8.80 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div>
-                                            <a href="product-details.html"> <img src="{{ url('user/images/product/3.jpg') }}" alt="img"> </a>
-                                        </div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"><span> $8.80 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div>
-                                            <a href="product-details.html"> <img src="{{ url('user/images/product/3.jpg') }}" alt="img"> </a>
-                                        </div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"><span> $8.80 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div>
-                                            <a href="product-details.html"> <img src="{{ url('user/images/product/4.jpg') }}" alt="img"> </a>
-                                        </div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"><span> $8.80 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -172,6 +88,7 @@
                                         <a class="newProductMenuBlock" href="{{ route('category',[$category->id,$category->alias]) }}"> 
                                             <img class="img-responsive" src="{{ url('images/category/'.$category->picture) }}" alt="product">
                                             <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> {{ $category->cateName }} </span>
+                                            
                                         </a>
                                     </li>
                                 </ul>
@@ -185,19 +102,18 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="megamenu-content">
+                                @foreach($categories as $category)
                                 <ul class="col-lg-2 col-sm-4 col-md-2 unstyled noMarginLeft">
                                     <li>
-                                        <p><strong> Women Collection </strong></p>
+                                        <p><strong> {{ $category->cateName }} </strong></p>
                                     </li>
-                                    <li><a href="#"> Kameez </a></li>
-                                    <li><a href="#"> Tops </a></li>
-                                    <li><a href="#"> Shoes </a></li>
-                                    <li><a href="#"> T shirt </a></li>
-                                    <li><a href="#"> TSHOP </a></li>
-                                    <li><a href="#"> Party Dress </a></li>
-                                    <li><a href="#"> Women Fragrances </a></li>
+                                    @foreach($categories_noneparent as $item)
+                                    @if($item->parent == $category->id)
+                                    <li><a href="{{ route('category',[$item->id,$item->alias]) }}"> {{ $item->cateName }} </a></li>
+                                    @endif
+                                    @endforeach
                                 </ul>
-                                
+                                @endforeach
                             </li>
                         </ul>
                     </li>

@@ -10,9 +10,11 @@ class HomeController extends Controller
 {
     public function __construct(){
         $top_product = Product::orderBy('created_at','DESC')->take(5)->get(); 
-        $categories = Category::where('parent',0)->get(); 
+        $categories = Category::where('parent',0)->get();
+        $categories_noneparent = Category::where('parent','<>',0)->get(); 
         view()->share('top_product', $top_product);
         view()->share('categories',$categories);
+        view()->share('categories_noneparent',$categories_noneparent);
     }
     public function home(){
         $category_images = Category::select('picture')->where('parent',0)->get();
@@ -43,8 +45,10 @@ class HomeController extends Controller
     }
     public function category($id){
         $category = Category::find($id);
-        $cate = Category::all();
-        return view('user.pages.category',compact('category','cate'));
+        $cate_noneparent = Category::where('parent','<>',0)->get();
+        $cate_parent = Category::where('parent',0)->get();
+        $product_category = Product::where('cateID',$category->id)->paginate(12);
+        return view('user.pages.category',compact('category','cate_noneparent','cate_parent','product_category'));
     }
     public function checkoutFive(){
         return view('user.pages.checkout-five');
