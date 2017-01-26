@@ -4,36 +4,30 @@
          <div class="row">
             <div class="breadcrumbDiv col-lg-12">
                <ul class="breadcrumb">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="category.html">MEN COLLECTION</a></li>
-                  <li><a href="sub-category.html">TSHIRT</a></li>
-                  <li class="active">Lorem ipsum dolor sit amet</li>
+                  <li><a href="{{ url('/') }}">Home</a></li>
+                  <li><a href="category.html">{{ $product->belongsToCategories->cateName }}</a></li>
+                  <li class="active">{{ $product->productName }}</li>
                </ul>
             </div>
          </div>
          <div class="row transitionfx">
             <div class="col-lg-6 col-md-6 col-sm-6">
                <div class="main-image sp-wrap col-lg-12 no-padding">
-                  <a href="{{ url('user/images/product_details/low-res-white/1.jpg') }}">
-                        <img src="{{ url('user/images/product_details/low-res-white/1.jpg') }}" class="img-responsive" alt="img"></a>
-                  <a href="{{ url('user/images/product_details/low-res-white/2.jpg') }}">
-                        <img src="{{ url('user/images/product_details/low-res-white/2.jpg') }}" class="img-responsive" alt="img"></a>
-                  <a href="{{ url('user/images/product_details/low-res-white/3.jpg') }}">
-                        <img src="{{ url('user/images/product_details/low-res-white/3.jpg') }}" class="img-responsive" alt="img"></a>
+                  <a href="{{ url('images/product/'.$product->picture) }}">
+                        <img src="{{ url('images/product/'.$product->picture) }}" class="img-responsive" alt="img"></a>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-5">
                <h1 class="product-title">
-               Lorem ipsum dolor sit amet</h2>
+               {{$product->productName}}</h1>
                <h3 class="product-code">Product Code : DEN1098</h3>
                <div class="rating">
                   <p><span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i class="fa fa-star-o "></i></span> <span class="ratingInfo"> <span> / </span>                            <a data-target="#modal-review" data-toggle="modal"> Write a review</a> </span>
                   </p>
                </div>
-               <div class="product-price"><span class="price-sales"> $70</span> <span class="price-standard">$95</span>
-               </div>
-               <div class="details-description">
-                  <p>In scelerisque libero ut elit porttitor commodo Suspendisse laoreet magna. </p>
+               <div class="product-price">
+                  <span class="price-sales"> {{ number_format($product->discount,'0',',','.') }} đ</span> 
+                  <span class="price-standard">{{ number_format($product->price,'0',',','.') }} đ</span>
                </div>
                <div class="color-details">
                   <span class="selected-color"><strong>COLOR</strong></span>
@@ -54,7 +48,6 @@
                      <div class="col-lg-6 col-sm-6 col-xs-6">
                         <div class="filterBox">
                            <select class="form-control">
-                              <option value="strawberries" selected>Quantity</option>
                               <option value="mango">1</option>
                               <option value="bananas">2</option>
                               <option value="watermelon">3</option>
@@ -63,18 +56,6 @@
                               <option value="pineapple">6</option>
                               <option value="peaches">7</option>
                               <option value="cherries">8</option>
-                           </select>
-                        </div>
-                     </div>
-                     <div class="col-lg-6 col-sm-6 col-xs-6">
-                        <div class="filterBox">
-                           <select class="form-control">
-                              <option value="strawberries" selected>Size</option>
-                              <option value="mango">XL</option>
-                              <option value="bananas">XXL</option>
-                              <option value="watermelon">M</option>
-                              <option value="apples">L</option>
-                              <option value="apples">S</option>
                            </select>
                         </div>
                      </div>
@@ -93,54 +74,25 @@
                   </div>
                   <div style="clear:both"></div>
                   <h3 class="incaps"><i class="fa fa fa-check-circle-o color-in"></i> In stock</h3>
-                  <h3 style="display:none" class="incaps"><i class="fa fa-minus-circle color-out"></i> Out of stock
-                  </h3>
+                  <h3 style="display:none" class="incaps"><i class="fa fa-minus-circle color-out"></i> Out of stock</h3>
                   <h3 class="incaps"><i class="glyphicon glyphicon-lock"></i> Secure online ordering</h3>
                </div>
-               <div class="clear"></div>
-               <div class="product-tab w100 clearfix">
+               
+            </div>
+         </div>
+         <div class="row">
+         <div class="col-md-8">
+            <div class="product-tab w100">
                   <ul class="nav nav-tabs">
-                     <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
-                     <li><a href="#size" data-toggle="tab">Size</a></li>
-                     <li><a href="#shipping" data-toggle="tab">Shipping</a></li>
+                     <li  class="active"><a href="#size" data-toggle="tab">Thông tin sản phẩm</a></li>
+                     <li><a href="#details" data-toggle="tab">Chi tiết sản phẩm</a></li>
                   </ul>
                   <div class="tab-content">
-                     <div class="tab-pane active" id="details">Sed ut eros felis. Vestibulum rutrum imperdiet nunc a interdum. In scelerisque libero ut elit porttitor commodo. Suspendisse laoreet magna nec urna fringilla viverra.<br> 100% Cotton<br>
+                     <div class="tab-pane" id="details">
+                        {!! $product->discription !!}
                      </div>
-                     <div class="tab-pane" id="size"> 16" waist<br> 34" inseam<br> 10.5" front rise<br> 8.5" knee<br> 7.5" leg opening<br>
-                        <br> Measurements taken from size 30<br> Model wears size 31. Model is 6'2 <br>
-                        <br>
-                     </div>
-                     <div class="tab-pane" id="shipping">
-                        <table>
-                           <colgroup>
-                              <col style="width:33%">
-                              <col style="width:33%">
-                              <col style="width:33%">
-                           </colgroup>
-                           <tbody>
-                              <tr>
-                                 <td>Standard</td>
-                                 <td>1-5 business days</td>
-                                 <td>$7.95</td>
-                              </tr>
-                              <tr>
-                                 <td>Two Day</td>
-                                 <td>2 business days</td>
-                                 <td>$15</td>
-                              </tr>
-                              <tr>
-                                 <td>Next Day</td>
-                                 <td>1 business day</td>
-                                 <td>$30</td>
-                              </tr>
-                           </tbody>
-                           <tfoot>
-                              <tr>
-                                 <td colspan="3">* Free on orders of $50 or more</td>
-                              </tr>
-                           </tfoot>
-                        </table>
+                     <div class="tab-pane active" id="size">
+                        {!! $product->note !!}
                      </div>
                   </div>
                </div>
@@ -155,83 +107,23 @@
                      <i class="fa fa-pinterest"></i></a>
                   </div>
                </div>
-            </div>
+         </div>
          </div>
          <div class="row recommended">
-            <h1> YOU MAY ALSO LIKE </h1>
+            
+            <h1> Sản phẩm liên quan </h1>
             <div id="SimilarProductSlider">
+            @foreach($product_recommend as $item)
                <div class="item">
                   <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/a1.jpg') }}" alt="img"> </a>
+                     <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}" class="product-image"> <img src="{{ url('images/product/'.$item->picture) }}" alt="img"> </a>
                      <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">YOUR LIFE</a></h4>
-                        <div class="price"><span>$57</span></div>
+                        <h4><a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}">{{ str_limit($item->productName ,40, '...')}}</a></h4>
+                        <div class="price"><span>{{ number_format($item->price,'0',',','.') }} đ</span></div>
                      </div>
                   </div>
                </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/a2.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">RED CROWN</a></h4>
-                        <div class="price"><span>$44</span></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/a3.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">WHITE GOLD</a></h4>
-                        <div class="price"><span>$35</span></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/a4.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">DENIM 4240</a></h4>
-                        <div class="price"> $<span>55</span></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/30.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">CROWN ROCK</a></h4>
-                        <div class="price"><span>$500</span></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/a5.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">SLIM ROCK</a></h4>
-                        <div class="price"><span>$50 </span></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/36.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">ROCK T-Shirts </a></h4>
-                        <div class="price"><span>$130</span></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <div class="product">
-                     <a class="product-image"> <img src="{{ url('user/images/product/13.jpg') }}" alt="img"> </a>
-                     <div class="description">
-                        <h4><a href="san-remo-spaghetti.html">Denim T-Shirts </a></h4>
-                        <div class="price"><span>$43</span></div>
-                     </div>
-                  </div>
-               </div>
+            @endforeach   
             </div>
          </div>
          <div style="clear:both"></div>

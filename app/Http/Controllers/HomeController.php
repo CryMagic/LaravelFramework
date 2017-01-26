@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Category;
 
 class HomeController extends Controller
 {
+    public function __construct(){
+        $top_product = Product::orderBy('created_at','DESC')->take(5)->get(); 
+        $categories = Category::where('parent',0)->get(); 
+        view()->share('top_product', $top_product);
+        view()->share('categories',$categories);
+    }
     public function home(){
-        return view('user.pages.home');
+        $category_images = Category::select('picture')->where('parent',0)->get();
+        $new_products = Product::orderBy('created_at','DESC')->take(10)->get();
+        $products = Product::orderBy('created_at','DESC')->paginate(12);
+        return view('user.pages.home',compact('new_products','products','category_images'));
     }
     public function aboutUs(){
         return view('user.pages.about-us');
@@ -30,8 +41,10 @@ class HomeController extends Controller
     public function cart(){
         return view('user.pages.cart');
     }
-    public function category(){
-        return view('user.pages.category');
+    public function category($id){
+        $category = Category::find($id);
+        $cate = Category::all();
+        return view('user.pages.category',compact('category','cate'));
     }
     public function checkoutFive(){
         return view('user.pages.checkout-five');
@@ -66,8 +79,10 @@ class HomeController extends Controller
     public function orderStatus(){
         return view('user.pages.order-status');
     }
-    public function productDetail(){
-        return view('user.pages.product-detail');
+    public function productDetail($id){
+        $product = Product::find($id);
+        $product_recommend = Product::where('cateID',$product->cateID)->where('id','<>',$product->id)->get();
+        return view('user.pages.product-detail',compact('product','product_recommend'));
     }
     public function thankForYour(){
         return view('user.pages.thank-for-your');

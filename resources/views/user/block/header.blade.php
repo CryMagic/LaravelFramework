@@ -154,8 +154,8 @@
                     </div>
                     <div class="miniCartFooter miniCartFooterInMobile text-right">
                         <h3 class="text-right subtotal"> Tổng tiền: $210 </h3>
-                        <a class="btn btn-sm btn-danger" href="cart.html"> <i class="fa fa-shopping-cart"> </i> Xem giỏ hàng
-                        </a> <a href="checkout-0.html" class="btn btn-sm btn-primary"> Thanh toán </a>
+                        <a class="btn btn-sm btn-danger" href="{{ route('cart') }}"> <i class="fa fa-shopping-cart"> </i> Xem giỏ hàng
+                        </a> <a href="{{ route('checkout-one') }}" class="btn btn-sm btn-primary"> Thanh toán </a>
                     </div>
                 </div>
             </div>
@@ -166,33 +166,16 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"> Danh mục sản phẩm <b class="caret"> </b> </a>
                         <ul class="dropdown-menu">
                             <li class="megamenu-content">
-                                <ul class="col-lg-3 col-sm-3 col-md-3 unstyled noMarginLeft newCollectionUl">
-                                    <li class="no-border">
-                                        <p class="promo-1"><strong> NEW COLLECTION </strong></p>
-                                    </li>
-                                    <li><a href="category.html"> ALL NEW PRODUCTS </a></li>
-                                    <li><a href="category.html"> NEW TOPS </a></li>
-                                    <li><a href="category.html"> NEW SHOES </a></li>
-                                    <li><a href="category.html"> NEW TSHIRT </a></li>
-                                    <li><a href="category.html"> NEW TSHOP </a></li>
-                                </ul>
+                                @foreach($categories as $category)
                                 <ul class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
                                     <li>
-                                        <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="{{ url('user/images/site/promo1.jpg') }}" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> JEANS </span>
+                                        <a class="newProductMenuBlock" href="{{ route('category',[$category->id,$category->alias]) }}"> 
+                                            <img class="img-responsive" src="{{ url('images/category/'.$category->picture) }}" alt="product">
+                                            <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> {{ $category->cateName }} </span>
                                         </a>
                                     </li>
                                 </ul>
-                                <ul class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
-                                    <li>
-                                        <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="{{ url('user/images/site/promo2.jpg') }}" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> PARTY DRESS </span> </a>
-                                    </li>
-                                </ul>
-                                <ul class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
-                                    <li>
-                                        <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="{{ url('user/images/site/promo3.jpg') }}" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> SHOES </span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                @endforeach
                             </li>
                         </ul>
                     </li>
@@ -202,7 +185,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="megamenu-content">
-                                <ul class="col-lg-4 col-sm-4 col-md-4 unstyled noMarginLeft">
+                                <ul class="col-lg-2 col-sm-4 col-md-2 unstyled noMarginLeft">
                                     <li>
                                         <p><strong> Women Collection </strong></p>
                                     </li>
@@ -214,30 +197,7 @@
                                     <li><a href="#"> Party Dress </a></li>
                                     <li><a href="#"> Women Fragrances </a></li>
                                 </ul>
-                                <ul class="col-lg-4 col-sm-4 col-md-4 unstyled">
-                                    <li>
-                                        <p><strong> Men Collection </strong></p>
-                                    </li>
-                                    <li><a href="#"> Panjabi </a></li>
-                                    <li><a href="#"> Male Fragrances </a></li>
-                                    <li><a href="#"> Scarf </a></li>
-                                    <li><a href="#"> Sandal </a></li>
-                                    <li><a href="#"> Underwear </a></li>
-                                    <li><a href="#"> Winter Collection </a></li>
-                                    <li><a href="#"> Men Accessories </a></li>
-                                </ul>
-                                <ul class="col-lg-4 col-sm-4 col-md-4 unstyled">
-                                    <li>
-                                        <p><strong> Top Brands </strong></p>
-                                    </li>
-                                    <li><a href="#"> Diesel </a></li>
-                                    <li><a href="#"> Farah </a></li>
-                                    <li><a href="#"> G-Star RAW </a></li>
-                                    <li><a href="#"> Lyle & Scott </a></li>
-                                    <li><a href="#"> Pretty Green </a></li>
-                                    <li><a href="#"> TSHOP </a></li>
-                                    <li><a href="#"> TANJIM </a></li>
-                                </ul>
+                                
                             </li>
                         </ul>
                     </li>

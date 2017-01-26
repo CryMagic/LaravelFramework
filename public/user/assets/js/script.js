@@ -25,7 +25,7 @@ $(document).ready(function() {
     owl.owlCarousel({
         navigation: false,
         pagination: false,
-        items: 8,
+        items: 6,
         itemsTablet: [768, 4],
         itemsMobile: [400, 2]
     });
@@ -267,7 +267,7 @@ $(document).ready(function() {
     })
     $(window).bind('resize load', function() {
         if ($(this).width() < 767) {
-            $("#accordionNo .panel-collapse:not(#collapseCategory)").collapse('hide');
+            $("#accordionNo .panel-collapse:not(#collapseCategory)").collapse('toggle');
         }
     });
     $(".tbtn").click(function() {
