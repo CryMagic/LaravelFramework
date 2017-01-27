@@ -61,3 +61,9 @@ Route::get('product-detail/{id}/{alias}',[
 Route::get('thank-for-order',['as'=>'thank-for-order','uses'=>'HomeController@thankForYour']);
 Route::get('user-information',['as'=>'user-information','uses'=>'HomeController@userInformation']);
 Route::get('wishlist',['as'=>'wishlist','uses'=>'HomeController@wishList']);
+
+
+//Login user
+Route::post('user/login',['as'=>'UserLogin','uses'=>'UserLoginController@login']);
+Route::post('user/register',['as'=>'UserRegister','uses'=>'UserLoginController@register']);
+Route::get('user/logout',['as'=>'UserLogout','uses'=>'UserLoginController@logout']);

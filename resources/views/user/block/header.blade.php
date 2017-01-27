@@ -15,19 +15,28 @@
                             </ul>
                         </div>
                     </div>
+                   
                     <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
                         <div class="pull-right">
                             <ul class="userMenu">
-                                <li><a href="{{ route('account-one') }}"><span class="hidden-xs"> Tài khoản</span> <i class="glyphicon glyphicon-user hide visible-xs"></i></a></li>
+                             @if(Auth::check())
+                                <li><a href="{{ route('account-one') }}"><span class="hidden-xs">Xin Chào: {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</span>
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    </a>
+                                </li>
+                                <li><a href="{{ route('UserLogout') }}"><span class="hidden-xs">Đăng xuất </span><i class="glyphicon glyphicon-log-in hide visible-xs"></i> </a></a></li>
+                             @else
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Đăng nhập</span>
                                         <i class="glyphicon glyphicon-log-in hide visible-xs"></i> </a>
                                 </li>
                                 <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#ModalSignup">Đăng ký </a>
                                 </li>
+                            @endif
                             </ul>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -121,7 +130,7 @@
                 </ul>
                 <div class="nav navbar-nav navbar-right hidden-xs">
                     <div class="dropdown cartMenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng ($210.00) </span> <b class="caret"> </b> </a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng (0 đ) </span> <b class="caret"> </b> </a>
                         <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4">
                             <div class="w100 miniCartTable scroll-pane">
                                 <table>
@@ -144,95 +153,7 @@
                                             <td style="width:15%" class="miniCartSubtotal"><span> $33 </span></td>
                                             <td style="width:5%" class="delete"><a> x </a></td>
                                         </tr>
-                                        <tr class="miniCartProduct">
-                                            <td style="width:20%" class="miniCartProductThumb">
-                                                <div>
-                                                    <a href="product-details.html"> <img src="{{ url('user/images/product/2.jpg') }}" alt="img">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td style="width:40%">
-                                                <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> TShir TSHOP 09 </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
-                                                    <div class="price"><span> $15 </span></div>
-                                                </div>
-                                            </td>
-                                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $120 </span></td>
-                                            <td style="width:5%" class="delete"><a> x </a></td>
-                                        </tr>
-                                        <tr class="miniCartProduct">
-                                            <td style="width:20%" class="miniCartProductThumb">
-                                                <div>
-                                                    <a href="product-details.html"> <img src="{{ url('user/images/product/5.jpg') }}" alt="img">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td style="width:40%">
-                                                <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> Tshir 2014 </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
-                                                    <div class="price"><span> $30 </span></div>
-                                                </div>
-                                            </td>
-                                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $80 </span></td>
-                                            <td style="width:5%" class="delete"><a> x </a></td>
-                                        </tr>
-                                        <tr class="miniCartProduct">
-                                            <td style="width:20%" class="miniCartProductThumb">
-                                                <div>
-                                                    <a href="product-details.html"> <img src="{{ url('user/images/product/3.jpg') }}" alt="img">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td style="width:40%">
-                                                <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> TSHOP T shirt DO20 </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
-                                                    <div class="price"><span> $15 </span></div>
-                                                </div>
-                                            </td>
-                                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $55 </span></td>
-                                            <td style="width:5%" class="delete"><a> x </a></td>
-                                        </tr>
-                                        <tr class="miniCartProduct">
-                                            <td style="width:20%" class="miniCartProductThumb">
-                                                <div>
-                                                    <a href="product-details.html"> <img src="{{ url('user/images/product/4.jpg') }}" alt="img">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td style="width:40%">
-                                                <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> T shirt Black </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
-                                                    <div class="price"><span> $44 </span></div>
-                                                </div>
-                                            </td>
-                                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $40 </span></td>
-                                            <td style="width:5%" class="delete"><a> x </a></td>
-                                        </tr>
-                                        <tr class="miniCartProduct">
-                                            <td style="width:20%" class="miniCartProductThumb">
-                                                <div>
-                                                    <a href="product-details.html"> <img src="{{ url('user/images/site/winter.jpg') }}" alt="img"> </a>
-                                                </div>
-                                            </td>
-                                            <td style="width:40%">
-                                                <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> G Star T shirt </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
-                                                    <div class="price"><span> $80 </span></div>
-                                                </div>
-                                            </td>
-                                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                            <td style="width:5%" class="delete"><a> x </a></td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>

@@ -52,6 +52,15 @@ $(document).ready(function() {
     $("#SimilarProductSlider .owl-prev").click(function() {
         SimilarProductSlider.trigger('owl.prev');
     })
+    var BannerSlide = $("#bannerslide");
+    BannerSlide.owlCarousel({
+        navigation: false,
+        items: 6,
+        loop: true,
+        mouseDrag: true,
+        afterInit: customPager,
+        afterUpdate: customPager
+    });
     var pshowcase = $("#productShowCase");
     pshowcase.owlCarousel({
         autoPlay: 4000,

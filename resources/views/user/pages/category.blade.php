@@ -120,11 +120,11 @@
                     <h2> {{ $category->cateName }} </h2>
                     <div class="categoryImage"><img src="{{ url('user/images/site/category.jpg') }}" class="img-responsive" alt="img"></div>
                 </div>
-                <div class="row subCategoryList clearfix">
+                <div class="row subCategoryList clearfix owl-carousel owl-theme" id="bannerslide">
                     @foreach($cate_parent as $item)
-                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center ">
+                    <div class="text-center ">
                         <div class="thumbnail equalheight">
-                            <a class="subCategoryThumb" href="sub-category.html">
+                            <a class="subCategoryThumb">
                                 <img src="{{ url('images/category/',$item->picture) }}" class="img-rounded " alt="img"> 
                             </a> 
                             <a class="subCategoryTitle"><span> {{ $item->cateName  }} </span></a>

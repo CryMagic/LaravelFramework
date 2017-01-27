@@ -14,36 +14,42 @@
                 <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Authentication</span></h1>
                 <div class="row userInfo">
                     <div class="col-xs-12 col-sm-6">
-                        <h2 class="block-title-2"> Create an account </h2>
-                        <form role="form" class="regForm">
+                        <h2 class="block-title-2"> Đăng ký tài khoản </h2>
+                        <form role="form" class="regForm" action="{{ route('UserRegister') }}" method="POST">
+                        {{ csrf_field() }}
                             <div class="form-group">
-                                <label>Name</label>
-                                <input title="Please enter your username (at least 3 characters)" type="text" class="form-control" placeholder="Enter name" required minlength="3">
+                                <label>Họ</label>
+                                <input type="text" class="form-control" placeholder="Enter name" name="Firstname">
                             </div>
                             <div class="form-group">
-                                <label>Email address</label>
-                                <input title="Please enter valid email" type="email" class="form-control" placeholder="Enter email" required>
+                                <label>Tên</label>
+                                <input type="text" class="form-control" placeholder="Enter name" name="Lastname">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Enter email" name="Email">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input required minlength="5" title="Please enter your password, between 5 and 12 characters" type="password" class="form-control" placeholder="Password">
+                                <input type="password" class="form-control" placeholder="Password" name="Password">
                             </div>
                             <div class="error">
                             </div>
-                            <button type="submit" class="btn   btn-primary"><i class="fa fa-user"></i> Create an account
+                            <button type="submit" class="btn  btn-primary"><i class="fa fa-user"></i>Đăng ký
                         </button>
                         </form>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <h2 class="block-title-2"><span>Tồn tại một tài khoản?</span></h2>
-                        <form role="form" class="logForm ">
+                        <form role="form" class="logForm " method="POST" action="{{ route('UserLogin') }}">
+                        {{ csrf_field() }}
                             <div class="form-group">
                                 <label>E-mail</label>
-                                <input type="email" class="form-control" placeholder="Enter email">
+                                <input type="email" class="form-control" placeholder="Enter email" name="Email">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="password" class="form-control" placeholder="Password" name="Password">
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -54,7 +60,7 @@
                                 <p><a title="Recover your forgotten password" href="{{ route('forget-password') }}">Quên mật khẩu? </a>
                                 </p>
                             </div>
-                            <a class="btn btn-primary" href="account.html"><i class="fa fa-sign-in"></i> Đăng nhập</a>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in"></i> Đăng nhập</button>
                         </form>
                     </div>
                 </div>
