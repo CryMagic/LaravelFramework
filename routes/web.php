@@ -38,7 +38,6 @@ Route::get('account-two',['as'=>'account-two','uses'=>'HomeController@accountTwo
 Route::get('add-address',['as'=>'add-address','uses'=>'HomeController@addAddress']);
 Route::get('blog',['as'=>'blog','uses'=>'HomeController@blog']);
 Route::get('blog-detail',['as'=>'blog-detail','uses'=>'HomeController@blogDetail']);
-Route::get('cart',['as'=>'cart','uses'=>'HomeController@cart']);
 Route::get('category/{id}/{alias}',[
     'as'=>'category',
     'uses'=>'HomeController@category'
@@ -67,3 +66,6 @@ Route::get('wishlist',['as'=>'wishlist','uses'=>'HomeController@wishList']);
 Route::post('user/login',['as'=>'UserLogin','uses'=>'UserLoginController@login']);
 Route::post('user/register',['as'=>'UserRegister','uses'=>'UserLoginController@register']);
 Route::get('user/logout',['as'=>'UserLogout','uses'=>'UserLoginController@logout']);
+//Shopping cart
+Route::get('add-to-cart/{id}',['as'=>'AddToCart','uses'=>'ShoppingCartController@addToCart']);
+Route::get('cart',['as'=>'cart','uses'=>'ShoppingCartController@cart']);

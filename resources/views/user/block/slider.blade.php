@@ -24,7 +24,7 @@
                     <div class="details-description">
                         
                     </div>
-                    <a title="Add to Cart" class="btn btn-stroke-dark"> <i class="glyphicon glyphicon-shopping-cart"></i> Thêm vào giỏ hàng</a>
+                    <a href="{{ route('AddToCart',[$item->id]) }}"  class="btn btn-stroke-dark"> <i class="glyphicon glyphicon-shopping-cart"></i> Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>

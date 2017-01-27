@@ -64,6 +64,8 @@ $(document).ready(function() {
     var pshowcase = $("#productShowCase");
     pshowcase.owlCarousel({
         autoPlay: 4000,
+        loop:true,
+        items:1,
         stopOnHover: true,
         navigation: false,
         paginationSpeed: 1000,

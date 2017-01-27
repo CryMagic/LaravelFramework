@@ -26,73 +26,34 @@
                             <table class="cartTable table-responsive" style="width:100%">
                                 <tbody>
                                     <tr class="CartProduct cartTableHeader">
-                                        <td style="width:15%"> Product</td>
-                                        <td style="width:40%">Details</td>
+                                        <td style="width:15%"> Hình ảnh</td>
+                                        <td style="width:40%"> Sản phẩm</td>
                                         <td style="width:10%" class="delete">&nbsp;</td>
-                                        <td style="width:10%">QNT</td>
-                                        <td style="width:10%">Discount</td>
-                                        <td style="width:15%">Total</td>
+                                        <td style="width:10%">Số lượng</td>
+                                        <td style="width:10%">Giảm giá</td>
+                                        <td style="width:15%">Tiền</td>
                                     </tr>
+                                    @foreach($content as $item)
                                     <tr class="CartProduct">
                                         <td class="CartProductThumb">
                                             <div>
-                                                <a href="product-details.html"><img src="{{ url('user/images/product/a1.jpg') }}" alt="img"></a>
+                                                <a href=""><img src="{{ url('images/product/'.$item->options['img']) }}" alt="img"></a>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="CartDescription">
-                                                <h4><a href="product-details.html">Denim T shirt Black </a></h4>
-                                                <span class="size">12 x 1.5 L</span>
-                                                <div class="price"><span>$8.80</span></div>
+                                                <h4><a href="product-details.html">{{ $item->name }} </a></h4>
+                                                <div class="price"><span>{{ number_format($item->price,'0',',','.') }} đ</span></div>
                                             </div>
                                         </td>
                                         <td class="delete">
                                             <a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a>
                                         </td>
-                                        <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
+                                        <td><input class="quanitySniper" type="text" value="{{ $item->qty }}" name="quanitySniper"></td>
                                         <td>0</td>
-                                        <td class="price">$300</td>
+                                        <td class="price">{{ number_format($item->price*$item->qty,'0',',','.') }} đ</td>
                                     </tr>
-                                    <tr class="CartProduct">
-                                        <td class="CartProductThumb">
-                                            <div>
-                                                <a href="product-details.html"><img src="{{ url('user/images/product/a2.jpg') }}" alt="img"></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="CartDescription">
-                                                <h4><a href="product-details.html">Denim T shirt Red </a></h4>
-                                                <span class="size">12 x 1.5 L</span>
-                                                <div class="price"><span>$30</span></div>
-                                            </div>
-                                        </td>
-                                        <td class="delete">
-                                            <a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a>
-                                        </td>
-                                        <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
-                                        <td>0</td>
-                                        <td class="price">$60</td>
-                                    </tr>
-                                    <tr class="CartProduct">
-                                        <td class="CartProductThumb">
-                                            <div>
-                                                <a href="product-details.html"><img src="{{ url('user/images/product/a5.jpg') }}" alt="img"></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="CartDescription">
-                                                <h4><a href="product-details.html">Denim T shirt Blue </a></h4>
-                                                <span class="size">12 x 1.5 L</span>
-                                                <div class="price"><span>$8.80</span></div>
-                                            </div>
-                                        </td>
-                                        <td class="delete">
-                                            <a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a>
-                                        </td>
-                                        <td><input class="quanitySniper" type="text" value="2" name="quanitySniper"></td>
-                                        <td>0</td>
-                                        <td class="price">$60</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -121,24 +82,24 @@
                                 <table id="cart-summary" class="std table">
                                     <tbody>
                                         <tr>
-                                            <td>Total products</td>
-                                            <td class="price">$216.51</td>
+                                            <td>Tổng tiền sản phẩm</td>
+                                            <td class="price">{{ $total }} đ</td>
                                         </tr>
                                         <tr style="">
-                                            <td>Shipping</td>
-                                            <td class="price"><span class="success">Free shipping!</span></td>
+                                            <td>Giao hàng</td>
+                                            <td class="price"><span class="success">Miễn phí giao hàng!</span></td>
                                         </tr>
                                         <tr class="cart-total-price ">
-                                            <td>Total (tax excl.)</td>
-                                            <td class="price">$216.51</td>
+                                            <td>Tổng tiền (Chưa thuế)</td>
+                                            <td class="price">{{ $total }} đ</td>
                                         </tr>
                                         <tr>
-                                            <td>Total tax</td>
-                                            <td class="price" id="total-tax">$0.00</td>
+                                            <td>Thuế</td>
+                                            <td class="price" id="total-tax">0 đ</td>
                                         </tr>
                                         <tr>
-                                            <td> Total</td>
-                                            <td class=" site-color" id="total-price">$216.51</td>
+                                            <td> Tổng tiền</td>
+                                            <td class=" site-color" id="total-price">{{ $total }} đ</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">

@@ -35,7 +35,7 @@
                     </div>
                     <div class="price"><span>{{ number_format($item->price,'0',',','.') }} đ</span></div>
                     <div class="action-control">
-                        <a class="btn btn-primary" href="{{ route('cart') }}"> 
+                        <a class="btn btn-primary" href="{{ route('AddToCart',[$item->id]) }}"> 
                             <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"></i> Thêm vào giỏ hàng </span> 
                         </a>
                     </div>
@@ -256,7 +256,7 @@
                             <span class="old-price">{{ number_format($item->price,'0',',','.') }} đ</span>
                         </div>
                         <div class="action-control">
-                            <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a>
+                            <a class="btn btn-primary" href="{{ route('AddToCart',[$item->id]) }}"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a>
                         </div>
                     </div>
                 </div>
