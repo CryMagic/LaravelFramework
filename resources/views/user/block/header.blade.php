@@ -56,24 +56,25 @@
                     <div class="w100 miniCartTable scroll-pane">
                         <table>
                             <tbody>
+                                @foreach(Cart::content() as $item)
                                 <tr class="miniCartProduct">
                                     <td style="width:20%" class="miniCartProductThumb">
                                         <div>
-                                            <a href="product-details.html"> <img src="{{ url('user/images/product/3.jpg') }}" alt="img"> </a>
+                                            <a href="product-details.html"> <img src="{{ url('images/product/'.$item->options['img']) }}" alt="img"> </a>
                                         </div>
                                     </td>
+
                                     <td style="width:40%">
                                         <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"><span> $8.80 </span></div>
+                                            <h4><a href="product-details.html"> {{ $item->name }} </a></h4>
+                                            <div class="price"><span> {{ number_format($item->price,'0',',','.') }} </span></div>
                                         </div>
                                     </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                                    <td style="width:10%" class="miniCartQuantity"><a> X {{ $item->qty }} </a></td>
+                                    <td style="width:15%" class="miniCartSubtotal"><span> {{ number_format($item->price*$item->qty,'0',',','.') }} </span></td>
                                     <td style="width:5%" class="delete"><a> x </a></td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

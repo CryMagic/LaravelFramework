@@ -11,15 +11,16 @@ class ShoppingCartController extends Controller
     //
     public function addToCart($id){
         $product = Product::where('id',$id)->first();
-        Cart::add(array(
+        Cart::add([
             'id'=>$id,
             'name'=>$product->productName,
             'qty'=>1,
             'price'=>$product->discount,
-            'options'=>array(
+            'options'=>[
                 'img'=>$product->picture,
-                )
-            )
+                'alias'=>$product->alias
+                ]
+            ]
         );
         return redirect()->route('cart');
     }

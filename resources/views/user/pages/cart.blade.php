@@ -42,7 +42,7 @@
                                         </td>
                                         <td>
                                             <div class="CartDescription">
-                                                <h4><a href="product-details.html">{{ $item->name }} </a></h4>
+                                                <h4><a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}">{{ $item->name }} </a></h4>
                                                 <div class="price"><span>{{ number_format($item->price,'0',',','.') }} đ</span></div>
                                             </div>
                                         </td>
