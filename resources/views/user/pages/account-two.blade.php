@@ -4,16 +4,18 @@
         <div class="row">
             <div class="breadcrumbDiv col-lg-12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"> Authentication</li>
+                    <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                    <li class="active"> Xác thực tài khoản</li>
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-7">
-                <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Authentication</span></h1>
+                <h1 class="section-title-inner"><span><i class="fa fa-lock"></i> Xác thực tài khoản</span></h1>
                 <div class="row userInfo">
+                    @include('user.block.notify')
                     <div class="col-xs-12 col-sm-6">
+                        
                         <h2 class="block-title-2"> Đăng ký tài khoản </h2>
                         <form role="form" class="regForm" action="{{ route('UserRegister') }}" method="POST">
                         {{ csrf_field() }}

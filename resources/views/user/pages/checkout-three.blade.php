@@ -25,219 +25,140 @@
                         <div class="w100 clearfix">
                             <ul class="orderStep orderStepLook2">
                                 <li>
-                                    <a href="{{ route('checkout-one') }}"> <i class="fa fa-map-marker "></i> <span> address</span> </a>
+                                    <a href="{{ route('checkout-one') }}">
+                                        <i class="fa fa-map-marker "></i>
+                                        <span> Địa chỉ</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('checkout-two') }}"> <i class="fa fa fa-envelope  "></i>
-                                        <span> Billing </span></a>
-                                </li>
-                                <li class="active"><a href="{{ route('checkout-three') }}"><i class="fa fa-truck "> </i><span>Shipping</span> </a></li>
-                                <li><a href="{{ route('checkout-four') }}"><i class="fa fa-money  "> </i><span>Payment</span> </a></li>
-                                <li><a href="{{ route('checkout-five') }}"><i class="fa fa-check-square "> </i><span>Order</span></a></li>
+                                
+                                <li><a href="{{ route('checkout-two') }}"><i class="fa fa-money  "> </i><span>Thanh toán</span> </a></li>
+                                <li class="active"><a href="{{ route('checkout-three') }}"><i class="fa fa-check-square "> </i><span>Hóa đơn</span></a></li>
                             </ul>
                         </div>
                         <div class="w100 clearfix">
                             <div class="row userInfo">
                                 <div class="col-lg-12">
-                                    <h2 class="block-title-2"> Chọn phương thức giao hàng </h2>
+                                    <h2 class="block-title-2"> Review Order </h2>
                                 </div>
                                 <div class="col-xs-12 col-sm-12">
-                                    <div class="w100 row">
-                                        <div class="form-group col-lg-4 col-sm-4 col-md-4 -col-xs-12">
-                                            <label for="id_country">Country</label>
-                                            <select class="form-control" required aria-required="true" id="id_country" name="id_country">
-                                       <option value="">Choose</option>
-                                       <option value="38">Algeria</option>
-                                       <option value="39">American Samoa</option>
-                                       <option value="40">Andorra</option>
-                                       <option value="41">Angola</option>
-                                       <option value="42">Anguilla</option>
-                                       <option value="43">Antigua and Barbuda</option>
-                                       <option value="44">Argentina</option>
-                                       <option value="45">Armenia</option>
-                                       <option value="46">Aruba</option>
-                                       <option value="24">Australia</option>
-                                       <option value="2">Austria</option>
-                                       <option value="47">Azerbaijan</option>
-                                       <option value="48">Bahamas</option>
-                                       <option value="49">Bahrain</option>
-                                       <option value="50">Bangladesh</option>
-                                       <option value="3">Belgium</option>
-                                       <option value="34">Bolivia</option>
-                                       <option value="4">Canada</option>
-                                       <option value="5">China</option>
-                                       <option value="16">Czech Republic</option>
-                                       <option value="20">Denmark</option>
-                                       <option value="7">Finland</option>
-                                       <option value="8">France</option>
-                                       <option value="1">Germany</option>
-                                       <option value="9">Greece</option>
-                                       <option value="22">HongKong</option>
-                                       <option value="26">Ireland</option>
-                                       <option value="29">Israel</option>
-                                       <option value="10">Italy</option>
-                                       <option value="32">Ivory Coast</option>
-                                       <option value="11">Japan</option>
-                                       <option value="12">Luxemburg</option>
-                                       <option value="35">Mauritius</option>
-                                       <option value="13">Netherlands</option>
-                                       <option value="27">New Zealand</option>
-                                       <option value="31">Nigeria</option>
-                                       <option value="23">Norway</option>
-                                       <option value="14">Poland</option>
-                                       <option value="15">Portugal</option>
-                                       <option value="36">Romania</option>
-                                       <option value="25">Singapore</option>
-                                       <option value="37">Slovakia</option>
-                                       <option value="30">South Africa</option>
-                                       <option value="28">South Korea</option>
-                                       <option value="6">Spain</option>
-                                       <option value="18">Sweden</option>
-                                       <option value="19">Switzerland</option>
-                                       <option value="33">Togo</option>
-                                       <option value="17">United Kingdom</option>
-                                       <option selected="selected" value="21">United States</option>
-                                    </select>
-                                        </div>
-                                        <div id="states" class="form-group  col-lg-4 col-sm-4 col-md-4 -col-xs-12">
-                                            <label for="id-state">State</label>
-                                            <select class="form-control" required aria-required="true" id="id-state" name="id-state">
-                                       <option value="">Choose</option>
-                                       <option value="1">Alabama</option>
-                                       <option value="2">Alaska</option>
-                                       <option value="3">Arizona</option>
-                                       <option value="4">Arkansas</option>
-                                       <option value="5">California</option>
-                                       <option value="6">Colorado</option>
-                                       <option value="7">Connecticut</option>
-                                       <option value="8">Delaware</option>
-                                       <option value="9">Florida</option>
-                                       <option value="10">Georgia</option>
-                                       <option value="11">Hawaii</option>
-                                       <option value="12">Idaho</option>
-                                       <option value="13">Illinois</option>
-                                       <option value="14">Indiana</option>
-                                       <option value="15">Iowa</option>
-                                       <option value="16">Kansas</option>
-                                       <option value="17">Kentucky</option>
-                                       <option value="18">Louisiana</option>
-                                       <option value="19">Maine</option>
-                                       <option value="20">Maryland</option>
-                                       <option value="21">Massachusetts</option>
-                                       <option value="22">Michigan</option>
-                                       <option value="23">Minnesota</option>
-                                       <option value="24">Mississippi</option>
-                                       <option value="25">Missouri</option>
-                                       <option value="26">Montana</option>
-                                       <option value="27">Nebraska</option>
-                                       <option value="28">Nevada</option>
-                                       <option value="29">New Hampshire</option>
-                                       <option value="30">New Jersey</option>
-                                       <option value="31">New Mexico</option>
-                                       <option value="32">New York</option>
-                                       <option value="33">North Carolina</option>
-                                       <option value="34">North Dakota</option>
-                                       <option value="35">Ohio</option>
-                                       <option value="36">Oklahoma</option>
-                                       <option value="37">Oregon</option>
-                                       <option value="38">Pennsylvania</option>
-                                       <option value="39">Rhode Island</option>
-                                       <option value="40">South Carolina</option>
-                                       <option value="41">South Dakota</option>
-                                       <option value="42">Tennessee</option>
-                                       <option value="43">Texas</option>
-                                       <option value="44">Utah</option>
-                                       <option value="45">Vermont</option>
-                                       <option value="46">Virginia</option>
-                                       <option value="47">Washington</option>
-                                       <option value="48">West Virginia</option>
-                                       <option value="49">Wisconsin</option>
-                                       <option value="50">Wyoming</option>
-                                       <option value="51">Puerto Rico</option>
-                                       <option value="52">US Virgin Islands</option>
-                                       <option value="53">District of Columbia</option>
-                                    </select>
-                                        </div>
-                                        <div class="form-group  col-lg-4 col-sm-4 col-md-4 -col-xs-12">
-                                            <label for="zipcode">Zip Code</label>
-                                            <input type="text" id="zipcode" name="zipcode" class="form-control"> (Needed for certain carriers.)
-                                        </div>
-                                        <div class="form-group col-lg-12 col-sm-12 col-md-12 -col-xs-12">
-                                            <table style="width:100%" class="table-bordered table tablelook2">
-                                                <tbody>
-                                                    <tr>
-                                                        <td> Carrier</td>
-                                                        <td>Method</td>
-                                                        <td>Information</td>
-                                                        <td>Price!</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label class="radio">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                <i class="fa  fa-plane fa-2x"></i> </label>
-                                                        </td>
-                                                        <td> By Road</td>
-                                                        <td>Pick up in-store</td>
-                                                        <td>Free!</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label class="radio">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                                <i class="fa fa-truck fa-2x"></i> </label>
-                                                        </td>
-                                                        <td>By Air</td>
-                                                        <td>Delivery next day!</td>
-                                                        <td>Free!</td>
-                                                    </tr>
-                                                </tbody>
+                                    <div class="cartContent w100 checkoutReview ">
+                                        <table class="cartTable table-responsive" style="width:100%">
+                                            <tbody>
+                                                <tr class="CartProduct cartTableHeader">
+                                                    <th style="width:15%"> Product</th>
+                                                    <th class="checkoutReviewTdDetails">Details</th>
+                                                    <th style="width:10%">Unit Price</th>
+                                                    <th class="hidden-xs" style="width:5%">QNT</th>
+                                                    <th class="hidden-xs" style="width:10%">Discount</th>
+                                                    <th style="width:15%">Total</th>
+                                                </tr>
+                                                <tr class="CartProduct">
+                                                    <td class="CartProductThumb">
+                                                        <div>
+                                                            <a href="product-details.html"><img src="{{ url('user/images/product/3.jpg') }}"></a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="CartDescription">
+                                                            <h4><a href="product-details.html">Denim T shirt Black </a></h4>
+                                                            <span class="size">12 x 1.5 L</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="delete">
+                                                        <div class="price ">$116.51</div>
+                                                    </td>
+                                                    <td class="hidden-xs">1</td>
+                                                    <td class="hidden-xs">0</td>
+                                                    <td class="price">$116.51</td>
+                                                </tr>
+                                                <tr class="CartProduct">
+                                                    <td class="CartProductThumb">
+                                                        <div>
+                                                            <a href="product-details.html"><img src="{{ url('user/images/product/2.jpg') }}"></a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="CartDescription">
+                                                            <h4><a href="product-details.html">Denim T shirt </a></h4>
+                                                            <span class="size">12 x 1.5 L</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="delete">
+                                                        <div class="price ">$50</div>
+                                                    </td>
+                                                    <td class="hidden-xs">1</td>
+                                                    <td class="hidden-xs">0</td>
+                                                    <td class="price">$50</td>
+                                                </tr>
+                                                <tr class="CartProduct">
+                                                    <td class="CartProductThumb">
+                                                        <div>
+                                                            <a href="product-details.html"><img src="{{ url('user/images/product/5.jpg') }}"></a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="CartDescription">
+                                                            <h4><a href="product-details.html">Denim T shirt Red </a></h4>
+                                                            <span class="size">12 x 1.5 L</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="delete">
+                                                        <div class="price ">$50</div>
+                                                    </td>
+                                                    <td class="hidden-xs">1</td>
+                                                    <td class="hidden-xs">0</td>
+                                                    <td class="price">$50</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="w100 costDetails">
+                                        <div class="table-block" id="order-detail-content">
+                                            <table class="std table" id="cart-summary">
+                                                <tr>
+                                                    <td>Total products</td>
+                                                    <td class="price">$216.51</td>
+                                                </tr>
+                                                <tr style="">
+                                                    <td>Shipping</td>
+                                                    <td class="price"><span class="success">Free shipping!</span></td>
+                                                </tr>
+                                                <tr class="cart-total-price ">
+                                                    <td>Total (tax excl.)</td>
+                                                    <td class="price">$216.51</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total tax</td>
+                                                    <td id="total-tax" class="price">0.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Total</td>
+                                                    <td id="total-price" class="price">$216.51</td>
+                                                </tr>
+                                                <tbody></tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="cartFooter w100">
-                                        <div class="box-footer">
-                                            <div class="pull-left">
-                                                <a class="btn btn-default" href="{{ route('checkout-two') }}"> <i class="fa fa-arrow-left"></i> &nbsp; Shipping address </a>
-                                            </div>
-                                            <div class="pull-right"><a href="checkout-4.html" class="btn btn-primary btn-small "> Payment Method
-                                       &nbsp; <i class="fa fa-arrow-circle-right"></i> </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cartFooter w100">
+                            <div class="box-footer">
+                                <div class="pull-left">
+                                    <a class="btn btn-default" href="checkout-4.html">
+                                        <i class="fa fa-arrow-left"></i> &nbsp; Payment method </a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="thanks-for-order.html" class="btn btn-primary btn-small ">
+                              Confirm Order &nbsp; <i class="fa fa-check"></i>
+                              </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 rightSidebar">
-                <div class="w100 cartMiniTable">
-                    <table id="cart-summary" class="std table">
-                        <tbody>
-                            <tr>
-                                <td>Total products</td>
-                                <td class="price">$216.51</td>
-                            </tr>
-                            <tr style="">
-                                <td>Shipping</td>
-                                <td class="price"><span class="success">Free shipping!</span></td>
-                            </tr>
-                            <tr class="cart-total-price ">
-                                <td>Total (tax excl.)</td>
-                                <td class="price">$216.51</td>
-                            </tr>
-                            <tr>
-                                <td>Total tax</td>
-                                <td class="price" id="total-tax">$0.00</td>
-                            </tr>
-                            <tr>
-                                <td> Total</td>
-                                <td class=" site-color" id="total-price">$216.51</td>
-                            </tr>
-                        </tbody>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
+            @include('user.block.total-cart')
         </div>
         <div style="clear:both"></div>
     </div>

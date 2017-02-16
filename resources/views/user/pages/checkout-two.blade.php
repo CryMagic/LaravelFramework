@@ -6,13 +6,13 @@
                 <ul class="breadcrumb">
                     <li><a href="{{ route('home') }}">Trang chủ</a></li>
                     <li><a href="{{ route('cart') }}">Giỏ hàng</a></li>
-                    <li class="active"> Thanh Toán</li>
+                    <li class="active"> Thanh toán</li>
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 col-xxs-12 text-center-xs">
-                <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Thanh Toán</span></h1>
+                <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Thanh toán</span></h1>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar col-xs-6 col-xxs-12 text-center-xs">
                 <h4 class="caps"><a href="{{ route('home') }}"><i class="fa fa-chevron-left"></i> Quay lại Shop </a></h4>
@@ -27,187 +27,172 @@
                                 <li>
                                     <a href="{{ route('checkout-one') }}"> <i class="fa fa-map-marker "></i> <span> Địa chỉ</span> </a>
                                 </li>
-                                <li class="active">
-                                    <a href="{{ route('checkout-two') }}"> <i class="fa fa fa-envelope  "></i> <span> Billing </span></a>
-                                </li>
-                                <li><a href="{{ route('checkout-three') }}"><i class="fa fa-truck "> </i><span>Shipping</span> </a></li>
-                                <li><a href="{{ route('checkout-four') }}"><i class="fa fa-money  "> </i><span>Payment</span> </a></li>
-                                <li><a href="{{ route('checkout-five') }}"><i class="fa fa-check-square "> </i><span>Order</span></a></li>
+                                <li class="active"><a href="{{ route('checkout-two') }}"><i class="fa fa-money  "> </i><span>Thanh toán</span> </a></li>
+                                <li><a href="{{ route('checkout-three') }}"><i class="fa fa-check-square "> </i><span>Hóa đơn</span></a></li>
                             </ul>
                         </div>
                         <div class="w100 clearfix">
                             <div class="row userInfo">
                                 <div class="col-lg-12">
-                                    <h2 class="block-title-2"> To add a billing address, please fill out the form below.
-                                    </h2>
-                                </div>
-                                <div class="col-xs-12 col-sm-12">
-                                    <label class="checkbox-inline" for="checkboxes-0">
-                              <input name="checkboxes" id="checkboxes-0" value="1" type="checkbox">
-                              My delivery and billing addresses are the same. </label>
+                                    <h2 class="block-title-2"> Phương thức thanh toán </h2>
+                                    <p>Làm ơn chọn phương thức thanh toán hóa đơn.</p>
                                     <hr>
                                 </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="form-group required">
-                                        <label for="InputName">First Name <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputName" placeholder="First Name">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="InputLastName">Last Name <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputLastName" placeholder="Last Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="InputEmail">Email </label>
-                                        <input type="text" class="form-control" id="InputEmail" placeholder="Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="InputCompany">Company </label>
-                                        <input type="text" class="form-control" id="InputCompany" placeholder="Company">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="InputAddress">Address <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputAddress" placeholder="Address">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="InputAddress2">Address (Line 2) </label>
-                                        <input type="text" class="form-control" id="InputAddress2" placeholder="Address">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="InputCity">City <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputCity" placeholder="City">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="InputState">State <sup>*</sup> </label>
-                                        <select class="form-control" required aria-required="true" id="InputState" name="InputState">
-                                    <option value="">Choose</option>
-                                    <option value="1">Alabama</option>
-                                    <option value="2">Alaska</option>
-                                    <option value="3">Arizona</option>
-                                    <option value="4">Arkansas</option>
-                                    <option value="5">California</option>
-                                    <option value="6">Colorado</option>
-                                    <option value="7">Connecticut</option>
-                                    <option value="8">Delaware</option>
-                                    <option value="53">District of Columbia</option>
-                                    <option value="9">Florida</option>
-                                    <option value="10">Georgia</option>
-                                    <option value="11">Hawaii</option>
-                                    <option value="12">Idaho</option>
-                                    <option value="13">Illinois</option>
-                                    <option value="14">Indiana</option>
-                                    <option value="15">Iowa</option>
-                                    <option value="16">Kansas</option>
-                                    <option value="17">Kentucky</option>
-                                    <option value="18">Louisiana</option>
-                                    <option value="19">Maine</option>
-                                    <option value="20">Maryland</option>
-                                    <option value="21">Massachusetts</option>
-                                    <option value="22">Michigan</option>
-                                    <option value="23">Minnesota</option>
-                                    <option value="24">Mississippi</option>
-                                    <option value="25">Missouri</option>
-                                    <option value="26">Montana</option>
-                                    <option value="27">Nebraska</option>
-                                    <option value="28">Nevada</option>
-                                    <option value="29">New Hampshire</option>
-                                    <option value="30">New Jersey</option>
-                                    <option value="31">New Mexico</option>
-                                    <option value="32">New York</option>
-                                    <option value="33">North Carolina</option>
-                                    <option value="34">North Dakota</option>
-                                    <option value="35">Ohio</option>
-                                    <option value="36">Oklahoma</option>
-                                    <option value="37">Oregon</option>
-                                    <option value="38">Pennsylvania</option>
-                                    <option value="51">Puerto Rico</option>
-                                    <option value="39">Rhode Island</option>
-                                    <option value="40">South Carolina</option>
-                                    <option value="41">South Dakota</option>
-                                    <option value="42">Tennessee</option>
-                                    <option value="43">Texas</option>
-                                    <option value="52">US Virgin Islands</option>
-                                    <option value="44">Utah</option>
-                                    <option value="45">Vermont</option>
-                                    <option value="46">Virginia</option>
-                                    <option value="47">Washington</option>
-                                    <option value="48">West Virginia</option>
-                                    <option value="49">Wisconsin</option>
-                                    <option value="50">Wyoming</option>
-                                 </select>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="form-group required">
-                                        <label for="InputZip">Zip / Postal Code <sup>*</sup> </label>
-                                        <input required type="text" class="form-control" id="InputZip" placeholder="Zip / Postal Code">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="InputCountry">Country <sup>*</sup> </label>
-                                        <select class="form-control" required aria-required="true" id="InputCountry" name="InputCountry">
-                                    <option value="">Choose</option>
-                                    <option value="38">Algeria</option>
-                                    <option value="39">American Samoa</option>
-                                    <option value="40">Andorra</option>
-                                    <option value="41">Angola</option>
-                                    <option value="42">Anguilla</option>
-                                    <option value="43">Antigua and Barbuda</option>
-                                    <option value="44">Argentina</option>
-                                    <option value="45">Armenia</option>
-                                    <option value="46">Aruba</option>
-                                    <option value="24">Australia</option>
-                                    <option value="2">Austria</option>
-                                    <option value="47">Azerbaijan</option>
-                                    <option value="48">Bahamas</option>
-                                    <option value="49">Bahrain</option>
-                                    <option value="50">Bangladesh</option>
-                                    <option value="3">Belgium</option>
-                                    <option value="34">Bolivia</option>
-                                    <option value="4">Canada</option>
-                                    <option value="5">China</option>
-                                    <option value="16">Czech Republic</option>
-                                    <option value="20">Denmark</option>
-                                    <option value="7">Finland</option>
-                                    <option value="8">France</option>
-                                    <option value="1">Germany</option>
-                                    <option value="9">Greece</option>
-                                    <option value="22">HongKong</option>
-                                    <option value="26">Ireland</option>
-                                    <option value="29">Israel</option>
-                                    <option value="10">Italy</option>
-                                    <option value="32">Ivory Coast</option>
-                                    <option value="11">Japan</option>
-                                    <option value="12">Luxemburg</option>
-                                    <option value="35">Mauritius</option>
-                                    <option value="13">Netherlands</option>
-                                    <option value="27">New Zealand</option>
-                                    <option value="31">Nigeria</option>
-                                    <option value="23">Norway</option>
-                                    <option value="14">Poland</option>
-                                    <option value="15">Portugal</option>
-                                    <option value="36">Romania</option>
-                                    <option value="25">Singapore</option>
-                                    <option value="37">Slovakia</option>
-                                    <option value="30">South Africa</option>
-                                    <option value="28">South Korea</option>
-                                    <option value="6">Spain</option>
-                                    <option value="18">Sweden</option>
-                                    <option value="19">Switzerland</option>
-                                    <option value="33">Togo</option>
-                                    <option value="17">United Kingdom</option>
-                                    <option selected="selected" value="21">United States</option>
-                                 </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="InputAdditionalInformation">Additional information</label>
-                                        <textarea rows="3" cols="26" name="InputAdditionalInformation" class="form-control" id="other"></textarea>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="InputMobile">Mobile phone <sup>*</sup></label>
-                                        <input required type="tel" name="InputMobile" class="form-control" id="InputMobile">
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="addressAlias">Please assign an address title for future reference. <sup>*</sup></label>
-                                        <input required type="text" value="My address" name="addressAlias" class="form-control" id="addressAlias">
+                                <div class="col-xs-12 col-sm-12">
+                                    <div class="paymentBox">
+                                        <div class="panel-group paymentMethod" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading panel-heading-custom">
+                                                    <h4 class="panel-title">
+                                                        <a class="cashOnDelivery" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                            <span class="numberCircuil">Option 1</span> <strong> Cash on
+                                             Delivery</strong> </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <p>All transactions are secure and encrypted, and we neverstor To learn more, please view our privacy policy.
+                                                        </p>
+                                                        <br>
+                                                        <label class="radio-inline" for="radios-4">
+                                             <input name="radios" id="radios-4" value="4" type="radio">
+                                             Cash On Delivery </label>
+                                                        <div class="form-group">
+                                                            <label for="CommentsOrder">Add Comments About Your Order</label>
+                                                            <textarea id="CommentsOrder" class="form-control" name="CommentsOrder" cols="26" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="form-group clearfix">
+                                                            <label class="checkbox-inline" for="checkboxes-1">
+                                                <input name="checkboxes" id="checkboxes-1" value="1" type="checkbox">
+                                                I have read and agree to the <a href="terms-conditions.html">Terms & Conditions</a>
+                                                </label>
+                                                        </div>
+                                                        <div class="pull-right"><a href="checkout-5.html" class="btn btn-primary btn-small "> Order
+                                                &nbsp; <i class="fa fa-arrow-circle-right"></i> </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading panel-heading-custom">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                            <span class="numberCircuil">Option 2</span><strong> PayPal</strong>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseTwo" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <p>All transactions are secure and encrypted, and we neverstor To learn more, please view our privacy policy.
+                                                        </p>
+                                                        <br>
+                                                        <label class="radio-inline" for="radios-3">
+                                             <input name="radios" id="radios-3" value="4" type="radio">
+                                             <img src="{{ url('user/images/site/payment/paypal-small.png') }}" height="18" alt="paypal"> Checkout with Paypal </label>
+                                                        <div class="form-group">
+                                                            <label for="CommentsOrder2">Add Comments About Your
+                                                Order</label>
+                                                            <textarea id="CommentsOrder2" class="form-control" name="CommentsOrder2" cols="26" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="form-group clearfix">
+                                                            <label class="checkbox-inline" for="checkboxes-0">
+                                                <input name="checkboxes" id="checkboxes-0" value="1" type="checkbox">
+                                                I have read and agree to the <a href="terms-conditions.html">Terms & Conditions</a>
+                                                </label>
+                                                        </div>
+                                                        <div class="pull-right"><a href="checkout-5.html" class="btn btn-primary btn-small "> Order
+                                                &nbsp; <i class="fa fa-arrow-circle-right"></i> </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading panel-heading-custom">
+                                                    <h4 class="panel-title">
+                                                        <a class="masterCard" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> <span class="numberCircuil">Option 3</span> <strong>
+                                             MasterCard</strong> </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <p>All transactions are secure and encrypted, and we neverstor To learn more, please view our privacy policy.
+                                                        </p>
+                                                        <br>
+                                                        <div class="panel open">
+                                                            <div class="creditCard">
+                                                                <div class="cartBottomInnerRight paymentCard"></div>
+                                                                <span>Supported</span> <span>Credit Cards</span>
+                                                                <div class="paymentInput">
+                                                                    <label for="CardNumber">Credit Card Number *</label>
+                                                                    <br>
+                                                                    <input id="CardNumber" type="text" name="Number">
+                                                                </div>
+                                                                <div class="paymentInput">
+                                                                    <label for="CardNumber2">Name on Credit Card *</label>
+                                                                    <br>
+                                                                    <input type="text" name="CardNumber2" id="CardNumber2">
+                                                                </div>
+                                                                <div class="paymentInput">
+                                                                    <div class="form-group">
+                                                                        <label>Expiration date *</label>
+                                                                        <br>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 no-margin-left no-padding">
+                                                                            <select class="form-control" required aria-required="true" name="expire">
+                                                               <option value="">Month</option>
+                                                               <option value="1">01 - January</option>
+                                                               <option value="2">02 - February</option>
+                                                               <option value="3">03 - March</option>
+                                                               <option value="4">04 - April</option>
+                                                               <option value="5">05 - May</option>
+                                                               <option value="6">06 - June</option>
+                                                               <option value="7">07 - July</option>
+                                                               <option value="8">08 - August</option>
+                                                               <option value="9">09 - September</option>
+                                                               <option value="10">10 - October</option>
+                                                               <option value="11">11 - November</option>
+                                                               <option value="12">12 - December</option>
+                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                            <select class="form-control" required aria-required="true" name="year">
+                                                               <option value="">Year</option>
+                                                               <option value="2013">2013</option>
+                                                               <option value="2014">2014</option>
+                                                               <option value="2015">2015</option>
+                                                               <option value="2016">2016</option>
+                                                               <option value="2017">2017</option>
+                                                               <option value="2018">2018</option>
+                                                               <option value="2019">2019</option>
+                                                               <option value="2020">2020</option>
+                                                               <option value="2021">2021</option>
+                                                               <option value="2022">2022</option>
+                                                               <option value="2023">2023</option>
+                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="clear:both"></div>
+                                                                <div class="paymentInput clearfix">
+                                                                    <label for="VerificationCode">Verification Code
+                                                      *</label>
+                                                                    <br>
+                                                                    <input type="text" id="VerificationCode" name="VerificationCode" style="width:90px;">
+                                                                    <br>
+                                                                </div>
+                                                                <div>
+                                                                    <input type="checkbox" name="saveInfo" id="saveInfoid">
+                                                                    <label for="saveInfoid">&nbsp;Save my Card
+                                                      information</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pull-right"><a href="checkout-5.html" class="btn btn-primary btn-small ">
+                                                   Order &nbsp; <i class="fa fa-arrow-circle-right"></i> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -215,45 +200,14 @@
                         <div class="cartFooter w100">
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a class="btn btn-default" href="{{ route('checkout-one') }}"> <i class="fa fa-arrow-left"></i> &nbsp; Địa chỉ giao hàng </a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="checkout-3.html" class="{{ route('checkout-three') }}"> Phương thức giao hàng &nbsp; <i class="fa fa-arrow-circle-right"></i> </a>
+                                    <a class="btn btn-default" href="checkout-3.html"> <i class="fa fa-arrow-left"></i> &nbsp; Billing address </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 rightSidebar">
-                <div class="w100 cartMiniTable">
-                    <table id="cart-summary" class="std table">
-                        <tbody>
-                            <tr>
-                                <td>Total products</td>
-                                <td class="price">$216.51</td>
-                            </tr>
-                            <tr style="">
-                                <td>Shipping</td>
-                                <td class="price"><span class="success">Free shipping!</span></td>
-                            </tr>
-                            <tr class="cart-total-price ">
-                                <td>Total (tax excl.)</td>
-                                <td class="price">$216.51</td>
-                            </tr>
-                            <tr>
-                                <td>Total tax</td>
-                                <td class="price" id="total-tax">$0.00</td>
-                            </tr>
-                            <tr>
-                                <td> Total</td>
-                                <td class=" site-color" id="total-price">$216.51</td>
-                            </tr>
-                        </tbody>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
+            @include('user.block.total-cart')
         </div>
         <div style="clear:both"></div>
     </div>

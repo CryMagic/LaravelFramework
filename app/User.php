@@ -38,4 +38,13 @@ class User extends Authenticatable
     public function hasManyWishList(){
         return $this->hasMany('App\WishList','userID','id');
     }
+    public function belongsToWard(){
+        return $this->belongsTo('App\Ward','ward','xaid');
+    }
+    public function belongsToDistrict(){
+        return $this->belongsTo('App\District','district','maqh');
+    }
+    public function belongsToProvince(){
+        return $this->belongsTo('App\Province','province','matp');
+    }
 }

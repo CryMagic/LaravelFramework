@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\User;
+use Auth;
+use App\Province;
+use App\District;
+use App\Ward;
+use App\Order;
+use App\OrderDetail;
 
 class HomeController extends Controller
 {
@@ -40,9 +47,6 @@ class HomeController extends Controller
         $product_category = Product::where('cateID',$category->id)->paginate(12);
         return view('user.pages.category',compact('category','cate_noneparent','cate_parent','product_category'));
     }
-    public function checkoutFive(){
-        return view('user.pages.checkout-five');
-    }
     public function checkoutFour(){
         return view('user.pages.checkout-four');
     }
@@ -53,7 +57,50 @@ class HomeController extends Controller
         return view('user.pages.checkout-two');
     }
     public function checkoutOne(){
-        return view('user.pages.checkout-one');
+        $userId = Auth::user()->id;
+        $user = User::find($userId);
+        $provinces = Province::all();
+        $districts = District::all();
+        $wards = Ward::all();
+        $name_province = "";
+        $name_district = "";
+        $name_ward = "";
+        foreach($provinces as $item){
+            if($user->province == $item->matp){
+                $name_province = $item->name;
+                break;
+            }
+        }
+        foreach($districts as $item){
+            if($user->district == $item->maqh){
+                $name_district = $item->name;
+                break;
+            }
+        }
+        foreach($wards as $item){
+            if($user->ward == $item->xaid){
+                $name_ward = $item->name;
+                break;
+            }
+        }
+        return view('user.pages.checkout-one',compact('user','name_province','name_district','name_ward'));
+    }
+    public function postCheckoutOne(Request $request){
+        $order = new Order();
+        $order->userID = Auth::user()->id;
+        $order->shipName = $request->ShipName;
+        $order->shipPhone = $request->ShipPhone;
+        $order->shipEmail = $request->ShipEmail;
+        $order->shipWard = $request->ShipWard;
+        $order->shipDistrict = $request->ShipDistrict;
+        $order->shipProvince = $request->ShipProvince;
+        $order->shipAddress = $request->ShipAddress;
+        $order->statusChecked = 0;
+        $order->isRead=false;
+        $order->isClose=false;
+        $order->isPaid = 0;
+        $order->save();
+        return redirect()->route('checkout-two')->with(['messages'=>'Thêm địa chỉ giao hàng thành công','status'=>'success']);
     }
     public function contactUs(){
         return view('user.pages.contact-us');

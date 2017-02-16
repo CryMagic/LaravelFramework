@@ -42,11 +42,13 @@ Route::get('category/{id}/{alias}',[
     'as'=>'category',
     'uses'=>'HomeController@category'
 ]);
-Route::get('checkout-five',['as'=>'checkout-five','uses'=>'HomeController@checkoutFive']);
-Route::get('checkout-four',['as'=>'checkout-four','uses'=>'HomeController@checkoutFour']);
-Route::get('checkout-three',['as'=>'checkout-three','uses'=>'HomeController@checkoutThree']);
-Route::get('checkout-two',['as'=>'checkout-two','uses'=>'HomeController@checkoutTwo']);
-Route::get('checkout-one',['as'=>'checkout-one','uses'=>'HomeController@checkoutOne']);
+Route::group(['prefix' => 'checkout','middleware'=>'Checkout'], function() {
+    Route::get('step-4',['as'=>'checkout-four','uses'=>'HomeController@checkoutFour']);
+    Route::get('step-3',['as'=>'checkout-three','uses'=>'HomeController@checkoutThree']);
+    Route::get('step-2',['as'=>'checkout-two','uses'=>'HomeController@checkoutTwo']);
+    Route::get('step-1',['as'=>'checkout-one','uses'=>'HomeController@checkoutOne']);
+    Route::post('step-1',['as'=>'post-checkout-one','uses'=>'HomeController@postCheckoutOne']); 
+});
 Route::get('contact-us',['as'=>'contact-us','uses'=>'HomeController@contactUs']);
 Route::get('error-page',['as'=>'error-page','uses'=>'HomeController@errorPage']);
 Route::get('forget-password',['as'=>'forget-password','uses'=>'HomeController@forgetPassword']);

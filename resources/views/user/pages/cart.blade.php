@@ -4,18 +4,17 @@
         <div class="row">
             <div class="breadcrumbDiv col-lg-12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="category.html">Category</a></li>
-                    <li class="active">Cart</li>
+                    <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                    <li class="active">Giỏ hàng</li>
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 col-xxs-12 text-center-xs">
-                <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Shopping cart </span></h1>
+                <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Giỏ hàng </span></h1>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar col-xs-6 col-xxs-12 text-center-xs">
-                <h4 class="caps"><a href="category.html"><i class="fa fa-chevron-left"></i> Back to shopping </a></h4>
+                <h4 class="caps"><a href="{{ route('home') }}"><i class="fa fa-chevron-left"></i> Quay lại Shop </a></h4>
             </div>
         </div>
         <div class="row">
@@ -33,6 +32,9 @@
                                         <td style="width:10%">Giảm giá</td>
                                         <td style="width:15%">Tiền</td>
                                     </tr>
+                                    @if($total == 0)
+                                    <tr><h2 class="text-center">Chưa có sản phẩm</h2></tr>
+                                    @endif
                                     @foreach($content as $item)
                                     <tr class="CartProduct">
                                         <td class="CartProductThumb">
@@ -60,11 +62,10 @@
                         <div class="cartFooter w100">
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="index.html" class="btn btn-default"> <i class="fa fa-arrow-left"></i> &nbsp; Continue shopping </a>
+                                    <a href="{{ route('home') }}" class="btn btn-default"> <i class="fa fa-arrow-left"></i> &nbsp; Tiếp tục mua hàng </a>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-undo"></i> &nbsp; Update
-                              cart
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-undo"></i> &nbsp; Cập nhật giỏ hàng
                               </button>
                                 </div>
                             </div>
