@@ -25,18 +25,18 @@
                         <div class="w100 clearfix">
                             <ul class="orderStep orderStepLook2">
                                 <li>
-                                    <a href="checkout-1.html">
+                                    <a href="{{ route('checkout-one') }}">
                                         <i class="fa fa-map-marker "></i>
                                         <span> address</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="checkout-2.html"> <i class="fa fa fa-envelope  "></i>
+                                    <a href="{{ route('checkout-two') }}"> <i class="fa fa fa-envelope  "></i>
                                         <span> Billing </span></a>
                                 </li>
-                                <li><a href="checkout-3.html"><i class="fa fa-truck "> </i><span>Shipping</span> </a></li>
-                                <li><a href="checkout-4.html"><i class="fa fa-money  "> </i><span>Payment</span> </a></li>
-                                <li class="active"><a href="checkout-5.html"><i class="fa fa-check-square "> </i><span>Order</span></a></li>
+                                <li><a href="{{ route('checkout-three') }}"><i class="fa fa-truck "> </i><span>Shipping</span> </a></li>
+                                <li><a href="{{ route('checkout-four') }}"><i class="fa fa-money  "> </i><span>Payment</span> </a></li>
+                                <li class="active"><a href="{{ route('checkout-five') }}"><i class="fa fa-check-square "> </i><span>Order</span></a></li>
                             </ul>
                         </div>
                         <div class="w100 clearfix">

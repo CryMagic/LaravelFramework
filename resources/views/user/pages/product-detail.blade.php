@@ -64,9 +64,8 @@
                <div class="cart-actions">
                   <div class="addto row">
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <button onclick="productAddToCartForm.submit(this);" class="button btn-block btn-cart cart first" title="Add to Cart" type="button">Add
-                        to Cart
-                        </button>
+                        <a href="{{ route('AddToCart',[$product->id]) }}" class="button btn-primary btn-block btn-cart cart first" title="Add to Cart" type="button"> Thêm vào giỏ hàng
+                        </a>
                      </div>
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a class="link-wishlist wishlist btn-block ">Add
                         to Wishlist</a>

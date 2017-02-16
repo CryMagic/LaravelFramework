@@ -4,18 +4,18 @@
         <div class="row">
             <div class="breadcrumbDiv col-lg-12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li class="active"> Checkout</li>
+                    <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                    <li><a href="{{ route('cart') }}">Giỏ hàng</a></li>
+                    <li class="active"> Thanh toán</li>
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 col-xxs-12 text-center-xs">
-                <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Checkout</span></h1>
+                <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-shopping-cart"></i> Thanh toán</span></h1>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar col-xs-6 col-xxs-12 text-center-xs">
-                <h4 class="caps"><a href="category.html"><i class="fa fa-chevron-left"></i> Back to shopping </a></h4>
+                <h4 class="caps"><a href="{{ route('home') }}"><i class="fa fa-chevron-left"></i> Quay lại Shop </a></h4>
             </div>
         </div>
         <div class="row">
@@ -25,21 +25,21 @@
                         <div class="w100 clearfix">
                             <ul class="orderStep orderStepLook2">
                                 <li>
-                                    <a href="checkout-1.html"> <i class="fa fa-map-marker "></i> <span> address</span> </a>
+                                    <a href="{{ route('checkout-one') }}"> <i class="fa fa-map-marker "></i> <span> address</span> </a>
                                 </li>
                                 <li>
-                                    <a href="checkout-2.html"> <i class="fa fa fa-envelope  "></i>
+                                    <a href="{{ route('checkout-two') }}"> <i class="fa fa fa-envelope  "></i>
                                         <span> Billing </span></a>
                                 </li>
-                                <li class="active"><a href="checkout-3.html"><i class="fa fa-truck "> </i><span>Shipping</span> </a></li>
-                                <li><a href="checkout-4.html"><i class="fa fa-money  "> </i><span>Payment</span> </a></li>
-                                <li><a href="checkout-5.html"><i class="fa fa-check-square "> </i><span>Order</span></a></li>
+                                <li class="active"><a href="{{ route('checkout-three') }}"><i class="fa fa-truck "> </i><span>Shipping</span> </a></li>
+                                <li><a href="{{ route('checkout-four') }}"><i class="fa fa-money  "> </i><span>Payment</span> </a></li>
+                                <li><a href="{{ route('checkout-five') }}"><i class="fa fa-check-square "> </i><span>Order</span></a></li>
                             </ul>
                         </div>
                         <div class="w100 clearfix">
                             <div class="row userInfo">
                                 <div class="col-lg-12">
-                                    <h2 class="block-title-2"> Choose your delivery method </h2>
+                                    <h2 class="block-title-2"> Chọn phương thức giao hàng </h2>
                                 </div>
                                 <div class="col-xs-12 col-sm-12">
                                     <div class="w100 row">
@@ -196,7 +196,7 @@
                                     <div class="cartFooter w100">
                                         <div class="box-footer">
                                             <div class="pull-left">
-                                                <a class="btn btn-default" href="checkout-2.html"> <i class="fa fa-arrow-left"></i> &nbsp; Shipping address </a>
+                                                <a class="btn btn-default" href="{{ route('checkout-two') }}"> <i class="fa fa-arrow-left"></i> &nbsp; Shipping address </a>
                                             </div>
                                             <div class="pull-right"><a href="checkout-4.html" class="btn btn-primary btn-small "> Payment Method
                                        &nbsp; <i class="fa fa-arrow-circle-right"></i> </a>

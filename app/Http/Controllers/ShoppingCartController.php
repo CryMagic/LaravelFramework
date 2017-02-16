@@ -29,4 +29,15 @@ class ShoppingCartController extends Controller
         $total = Cart::total(00,",",".");
         return view('user.pages.cart',compact('content','total'));
     }
+    public function removeCart($id){
+        Cart::remove($id);
+        return redirect()->route('cart');
+    }
+    public function minusQuantity($id, $qty){
+        Cart::update($id,$qty++);
+        return redirect()->route('cart');
+    }
+    public function subQuantity($id, $qty){
+
+    }
 }

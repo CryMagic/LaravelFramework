@@ -131,35 +131,40 @@
                 </ul>
                 <div class="nav navbar-nav navbar-right hidden-xs">
                     <div class="dropdown cartMenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng (0 đ) </span> <b class="caret"> </b> </a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Giỏ hàng (Tổng tiền: {{ Cart::total(00,",",".") }} đ) </span> <b class="caret"> </b> </a>
                         <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4">
                             <div class="w100 miniCartTable scroll-pane">
                                 <table>
                                     <tbody>
+                                        <td>
+                                            @if(Cart::total(00,",",".") == 0)
+                                                <h3 class="text-center">Không có sản phẩm</h3>
+                                            @endif
+                                        </td> 
+                                        @foreach(Cart::content() as $item)
                                         <tr class="miniCartProduct">
                                             <td style="width:20%" class="miniCartProductThumb">
                                                 <div>
-                                                    <a href="product-details.html"> <img src="{{ url('user/images/product/3.jpg') }}" alt="img">
+                                                    <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> <img src="{{ url('images/product/'.$item->options['img']) }}" alt="img">
                                                     </a>
                                                 </div>
                                             </td>
                                             <td style="width:40%">
                                                 <div class="miniCartDescription">
-                                                    <h4><a href="product-details.html"> TSHOP Tshirt DO9 </a></h4>
-                                                    <span class="size"> 12 x 1.5 L </span>
-                                                    <div class="price"><span> $22 </span></div>
+                                                    <h4><a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> {{ $item->name }} </a></h4>
+                                                    <div class="price"><span> {{ number_format($item->price,'0',',','.') }} </span></div>
                                                 </div>
                                             </td>
-                                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                            <td style="width:15%" class="miniCartSubtotal"><span> $33 </span></td>
+                                            <td style="width:10%" class="miniCartQuantity"><a> X {{ $item->qty }} </a></td>
+                                            <td style="width:15%" class="miniCartSubtotal"><span> {{ number_format($item->price*$item->qty,'0',',','.') }} </span></td>
                                             <td style="width:5%" class="delete"><a> x </a></td>
                                         </tr>
-                                        
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                             <div class="miniCartFooter text-right">
-                                <h3 class="text-right subtotal"> Tổng tiền: $210 </h3>
+                                <h3 class="text-right subtotal"> Tổng tiền: {{ Cart::total(00,",",".") }} đ</h3>
                                 <a class="btn btn-sm btn-danger" href="{{ route('cart') }}"> <i class="fa fa-shopping-cart"> </i> Xem giỏ hàng </a>
                                 <a class="btn btn-sm btn-primary" href="{{ route('checkout-one') }}"> Thanh toán </a>
                             </div>

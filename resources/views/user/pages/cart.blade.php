@@ -47,7 +47,7 @@
                                             </div>
                                         </td>
                                         <td class="delete">
-                                            <a title="Delete"> <i class="glyphicon glyphicon-trash fa-2x"></i></a>
+                                            <a title="Delete" href="{{ route('RemoveCart',['id'=>$item->rowId]) }}"> <i class="glyphicon glyphicon-trash fa-2x"></i></a>
                                         </td>
                                         <td><input class="quanitySniper" type="text" value="{{ $item->qty }}" name="quanitySniper"></td>
                                         <td>0</td>
@@ -76,8 +76,7 @@
                 <div class="contentBox">
                     <div class="w100 costDetails">
                         <div class="table-block" id="order-detail-content">
-                            <a class="btn btn-primary btn-lg btn-block " title="checkout" href="checkout-0.html" style="margin-bottom:20px"> Proceed to
-                        checkout &nbsp; <i class="fa fa-arrow-right"></i> </a>
+                            <a class="btn btn-primary btn-lg btn-block " title="checkout" href="{{ route('checkout-one') }}" style="margin-bottom:20px"> Thanh Toán &nbsp; <i class="fa fa-arrow-right"></i> </a>
                             <div class="w100 cartMiniTable">
                                 <table id="cart-summary" class="std table">
                                     <tbody>

@@ -69,3 +69,5 @@ Route::get('user/logout',['as'=>'UserLogout','uses'=>'UserLoginController@logout
 //Shopping cart
 Route::get('add-to-cart/{id}',['as'=>'AddToCart','uses'=>'ShoppingCartController@addToCart']);
 Route::get('cart',['as'=>'cart','uses'=>'ShoppingCartController@cart']);
+Route::get('remove-cart/{id}',['as'=>'RemoveCart','uses'=>'ShoppingCartController@removeCart']);
+Route::get('minus-quantity/{id}/{qty}',['as'=>'Minus','uses'=>'ShoppingCartController@minusQuantity']);
