@@ -22,6 +22,7 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::resource('shipper', 'ShipperController');
     Route::resource('user','UserController');
     Route::resource('product', 'ProductController');
+    Route::resource('method-payment', 'MethodPaymentController');
     
     Route::get('/ajax-district','UserController@ajaxDistrict');
     Route::get('/ajax-ward','UserController@ajaxWard');
@@ -37,13 +38,12 @@ Route::get('account-one',['as'=>'account-one','uses'=>'HomeController@accountOne
 Route::get('account-two',['as'=>'account-two','uses'=>'HomeController@accountTwo']);
 Route::get('add-address',['as'=>'add-address','uses'=>'HomeController@addAddress']);
 Route::get('blog',['as'=>'blog','uses'=>'HomeController@blog']);
-Route::get('blog-detail',['as'=>'blog-detail','uses'=>'HomeController@blogDetail']);
+Route::get('blog-detail/{id}/{alias}',['as'=>'BlogDetail','uses'=>'HomeController@blogDetail']);
 Route::get('category/{id}/{alias}',[
     'as'=>'category',
     'uses'=>'HomeController@category'
 ]);
 Route::group(['prefix' => 'checkout','middleware'=>'Checkout'], function() {
-    Route::get('step-4',['as'=>'checkout-four','uses'=>'HomeController@checkoutFour']);
     Route::get('step-3',['as'=>'checkout-three','uses'=>'HomeController@checkoutThree']);
     Route::get('step-2',['as'=>'checkout-two','uses'=>'HomeController@checkoutTwo']);
     Route::get('step-1',['as'=>'checkout-one','uses'=>'HomeController@checkoutOne']);

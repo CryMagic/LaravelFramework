@@ -26,51 +26,23 @@
                                         <td colspan="2"> Items to be Shipped</td>
                                         <td style="width:15%"></td>
                                     </tr>
+                                    @foreach(Cart::content() as $item)
                                     <tr class="CartProduct">
                                         <td class="CartProductThumb">
                                             <div>
-                                                <a href="product-details.html"><img alt="img" src="{{ url('user/images/product/a1.jpg') }}"></a>
+                                                <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"><img alt="img" src="{{ url('images/product/',$item->options['img']) }}"></a>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="CartDescription">
-                                                <h4><a href="product-details.html">Denim T shirt Black </a></h4>
-                                                <span class="size">12 x 1.5 L</span>
-                                                <div class="price"><span>$8.80</span></div>
+                                                <h4><a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}">{{ $item->name }} </a></h4>
+                                                
+                                                <div class="price"><span>{{ number_format($item->price,'0',',','.') }} đ</span></div>
                                             </div>
                                         </td>
-                                        <td class="price">$300</td>
+                                        <td class="price">{{ number_format($item->price*$item->qty,'0',',','.') }} đ</td>
                                     </tr>
-                                    <tr class="CartProduct">
-                                        <td class="CartProductThumb">
-                                            <div>
-                                                <a href="product-details.html"><img alt="img" src="{{ url('user/images/product/a2.jpg') }}"></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="CartDescription">
-                                                <h4><a href="product-details.html">Denim T shirt Red </a></h4>
-                                                <span class="size">12 x 1.5 L</span>
-                                                <div class="price"><span>$30</span></div>
-                                            </div>
-                                        </td>
-                                        <td class="price">$60</td>
-                                    </tr>
-                                    <tr class="CartProduct">
-                                        <td class="CartProductThumb">
-                                            <div>
-                                                <a href="product-details.html"><img alt="img" src="{{ url('user/images/product/a5.jpg') }}"></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="CartDescription">
-                                                <h4><a href="product-details.html">Denim T shirt Blue </a></h4>
-                                                <span class="size">12 x 1.5 L</span>
-                                                <div class="price"><span>$8.80</span></div>
-                                            </div>
-                                        </td>
-                                        <td class="price">$60</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

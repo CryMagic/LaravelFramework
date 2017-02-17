@@ -60,13 +60,13 @@
                                 <tr class="miniCartProduct">
                                     <td style="width:20%" class="miniCartProductThumb">
                                         <div>
-                                            <a href="product-details.html"> <img src="{{ url('images/product/'.$item->options['img']) }}" alt="img"> </a>
+                                            <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> <img src="{{ url('images/product/'.$item->options['img']) }}" alt="img"> </a>
                                         </div>
                                     </td>
 
                                     <td style="width:40%">
                                         <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> {{ $item->name }} </a></h4>
+                                            <h4><a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> {{ $item->name }} </a></h4>
                                             <div class="price"><span> {{ number_format($item->price,'0',',','.') }} </span></div>
                                         </div>
                                     </td>
@@ -87,7 +87,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"> Trang chủ </a></li>
+                    <li class="active"><a href="{{ route('home') }}"> Trang chủ </a></li>
                     <li class="dropdown megamenu-fullwidth">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"> Danh mục sản phẩm <b class="caret"> </b> </a>
                         <ul class="dropdown-menu">
@@ -127,7 +127,9 @@
                             </li>
                         </ul>
                     </li>
-
+                    <li><a href="{{ route('blog') }}"> Blog </a></li>
+                    <li><a href="{{ route('about-us') }}"> Thông tin </a></li>
+                    <li><a href="{{ route('contact-us') }}"> Liên hệ </a></li>
                 </ul>
                 <div class="nav navbar-nav navbar-right hidden-xs">
                     <div class="dropdown cartMenu">

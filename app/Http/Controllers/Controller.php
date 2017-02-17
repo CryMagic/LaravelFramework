@@ -8,12 +8,15 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Product;
 use App\Category;
+use App\Order;
 use Cart;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
+        $orderNotReads = Order::where('isRead',false)->orderBy('updated_at','DESC')->paginate(4);
+        $countOrderNotRead = Order::where('isRead',false)->count();
         $top_product = Product::orderBy('created_at','DESC')->take(5)->get(); 
         $categories = Category::where('parent',0)->get();
         $categories_noneparent = Category::where('parent','<>',0)->get(); 
@@ -22,5 +25,7 @@ class Controller extends BaseController
         view()->share('categories',$categories);
         view()->share('categories_noneparent',$categories_noneparent);
         view()->share('contents',$contents);
+        view()->share('orderNotReads',$orderNotReads);
+        view()->share('countOrderNotRead',$countOrderNotRead);
     }
 }

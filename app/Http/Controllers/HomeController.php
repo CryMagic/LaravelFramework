@@ -12,6 +12,7 @@ use App\District;
 use App\Ward;
 use App\Order;
 use App\OrderDetail;
+use Cart;
 
 class HomeController extends Controller
 {
@@ -35,10 +36,12 @@ class HomeController extends Controller
         return view('user.pages.add-address');
     }
     public function blog(){
-        return view('user.pages.blog');
+        $blogs = Product::paginate(5);
+        return view('user.pages.blog',compact('blogs'));
     }
-    public function blogDetail(){
-        return view('user.pages.blog-detail');
+    public function blogDetail($id){
+        $blog = Product::find($id);
+        return view('user.pages.blog-detail',compact('blog'));
     }
     public function category($id){
         $category = Category::find($id);
@@ -47,11 +50,10 @@ class HomeController extends Controller
         $product_category = Product::where('cateID',$category->id)->paginate(12);
         return view('user.pages.category',compact('category','cate_noneparent','cate_parent','product_category'));
     }
-    public function checkoutFour(){
-        return view('user.pages.checkout-four');
-    }
     public function checkoutThree(){
-        return view('user.pages.checkout-three');
+        $content = Cart::content();
+        $total = Cart::total(00,",",".");
+        return view('user.pages.checkout-three',compact('content','total'));
     }
     public function checkoutTwo(){
         return view('user.pages.checkout-two');

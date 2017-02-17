@@ -45,70 +45,34 @@
                                         <table class="cartTable table-responsive" style="width:100%">
                                             <tbody>
                                                 <tr class="CartProduct cartTableHeader">
-                                                    <th style="width:15%"> Product</th>
-                                                    <th class="checkoutReviewTdDetails">Details</th>
-                                                    <th style="width:10%">Unit Price</th>
-                                                    <th class="hidden-xs" style="width:5%">QNT</th>
-                                                    <th class="hidden-xs" style="width:10%">Discount</th>
-                                                    <th style="width:15%">Total</th>
+                                                    <th style="width:15%">Sản phẩm </th>
+                                                    <th class="checkoutReviewTdDetails"></th>
+                                                    <th style="width:15%">Giá</th>
+                                                    <th class="hidden-xs" style="width:5%">Số lượng</th>
+                                                    <th class="hidden-xs" style="width:10%">Giảm giá</th>
+                                                    <th style="width:15%">Tổng tiền</th>
                                                 </tr>
+                                                @foreach($content as $item)
                                                 <tr class="CartProduct">
                                                     <td class="CartProductThumb">
                                                         <div>
-                                                            <a href="product-details.html"><img src="{{ url('user/images/product/3.jpg') }}"></a>
+                                                            <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"><img src="{{ url('images/product/'.$item->options['img']) }}"></a>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="CartDescription">
-                                                            <h4><a href="product-details.html">Denim T shirt Black </a></h4>
-                                                            <span class="size">12 x 1.5 L</span>
+                                                            <h4><a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}">{{ $item->name }}</a></h4>
+                                                            
                                                         </div>
                                                     </td>
                                                     <td class="delete">
-                                                        <div class="price ">$116.51</div>
+                                                        <div class="price ">{{ number_format($item->price,'0',',','.') }} đ</div>
                                                     </td>
-                                                    <td class="hidden-xs">1</td>
+                                                    <td class="hidden-xs">{{ $item->qty }}</td>
                                                     <td class="hidden-xs">0</td>
-                                                    <td class="price">$116.51</td>
+                                                    <td class="price">{{ number_format($item->price*$item->qty,'0',',','.') }} đ</td>
                                                 </tr>
-                                                <tr class="CartProduct">
-                                                    <td class="CartProductThumb">
-                                                        <div>
-                                                            <a href="product-details.html"><img src="{{ url('user/images/product/2.jpg') }}"></a>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="CartDescription">
-                                                            <h4><a href="product-details.html">Denim T shirt </a></h4>
-                                                            <span class="size">12 x 1.5 L</span>
-                                                        </div>
-                                                    </td>
-                                                    <td class="delete">
-                                                        <div class="price ">$50</div>
-                                                    </td>
-                                                    <td class="hidden-xs">1</td>
-                                                    <td class="hidden-xs">0</td>
-                                                    <td class="price">$50</td>
-                                                </tr>
-                                                <tr class="CartProduct">
-                                                    <td class="CartProductThumb">
-                                                        <div>
-                                                            <a href="product-details.html"><img src="{{ url('user/images/product/5.jpg') }}"></a>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="CartDescription">
-                                                            <h4><a href="product-details.html">Denim T shirt Red </a></h4>
-                                                            <span class="size">12 x 1.5 L</span>
-                                                        </div>
-                                                    </td>
-                                                    <td class="delete">
-                                                        <div class="price ">$50</div>
-                                                    </td>
-                                                    <td class="hidden-xs">1</td>
-                                                    <td class="hidden-xs">0</td>
-                                                    <td class="price">$50</td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -116,24 +80,24 @@
                                         <div class="table-block" id="order-detail-content">
                                             <table class="std table" id="cart-summary">
                                                 <tr>
-                                                    <td>Total products</td>
-                                                    <td class="price">$216.51</td>
+                                                    <td>Tổng tiền sản phẩm</td>
+                                                    <td class="price">{{ $total }} đ</td>
                                                 </tr>
                                                 <tr style="">
-                                                    <td>Shipping</td>
-                                                    <td class="price"><span class="success">Free shipping!</span></td>
+                                                    <td>Giao hàng</td>
+                                                    <td class="price"><span class="success">Miễn phí giao hàng!</span></td>
                                                 </tr>
                                                 <tr class="cart-total-price ">
-                                                    <td>Total (tax excl.)</td>
-                                                    <td class="price">$216.51</td>
+                                                    <td>Tổng tiền (chưa tính thuế)</td>
+                                                    <td class="price">{{ $total }} đ</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Total tax</td>
-                                                    <td id="total-tax" class="price">0.00</td>
+                                                    <td>Thuế</td>
+                                                    <td id="total-tax" class="price">0</td>
                                                 </tr>
                                                 <tr>
                                                     <td> Total</td>
-                                                    <td id="total-price" class="price">$216.51</td>
+                                                    <td id="total-price" class="price">{{ $total }} đ</td>
                                                 </tr>
                                                 <tbody></tbody>
                                             </table>
@@ -145,12 +109,12 @@
                         <div class="cartFooter w100">
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a class="btn btn-default" href="checkout-4.html">
-                                        <i class="fa fa-arrow-left"></i> &nbsp; Payment method </a>
+                                    <a class="btn btn-default" href="{{ route('checkout-two') }}">
+                                        <i class="fa fa-arrow-left"></i> &nbsp; Phương thức thanh toán </a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="thanks-for-order.html" class="btn btn-primary btn-small ">
-                              Confirm Order &nbsp; <i class="fa fa-check"></i>
+                                    <a href="{{ route('thank-for-order') }}" class="btn btn-primary btn-small ">
+                              Xác nhận hóa đơn &nbsp; <i class="fa fa-check"></i>
                               </a>
                                 </div>
                             </div>

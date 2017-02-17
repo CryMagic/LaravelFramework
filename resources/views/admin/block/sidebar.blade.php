@@ -53,6 +53,13 @@
                 </a>
             </li>
             <li class="">
+                <a href="{{ route('method-payment.index') }}">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Phương thức thanh toán</span>
+                    <span class="arrow "></span>
+                </a>
+            </li>
+            <li class="">
                 <a href="javascript:;">
                     <i class="fa fa-dollar "></i>
                     <span class="title">Thanh toán</span>
