@@ -23,7 +23,13 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
     Route::resource('user','UserController');
     Route::resource('product', 'ProductController');
     Route::resource('method-payment', 'MethodPaymentController');
-    
+    //order
+    Route::group(['prefix' => 'order'], function() {
+        Route::get('list',['as'=>'OrderList','uses'=>'OrderController@index']);
+        Route::get('view/{id}',['as'=>'OrderView','uses'=>'OrderController@show']);
+        Route::put('change-is-read/{id}',['as'=>'ChangeIsRead','uses'=>'OrderController@changeIsRead']);
+    });
+
     Route::get('/ajax-district','UserController@ajaxDistrict');
     Route::get('/ajax-ward','UserController@ajaxWard');
     Route::post('/block-user/{id}','UserController@blockUser');

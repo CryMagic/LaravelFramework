@@ -36,12 +36,13 @@ class HomeController extends Controller
         return view('user.pages.add-address');
     }
     public function blog(){
-        $blogs = Product::paginate(5);
+        $blogs = Product::orderBy('created_at','DESC')->paginate(5);
         return view('user.pages.blog',compact('blogs'));
     }
     public function blogDetail($id){
         $blog = Product::find($id);
-        return view('user.pages.blog-detail',compact('blog'));
+        $blog_recommend = Product::where('cateID',$blog->cateID)->where('id','<>',$blog->id)->get();
+        return view('user.pages.blog-detail',compact('blog','blog_recommend'));
     }
     public function category($id){
         $category = Category::find($id);
@@ -135,5 +136,8 @@ class HomeController extends Controller
     }
     public function wishList(){
         return view('user.pages.wishlist');
+    }
+    public function addProductWishList(){
+        
     }
 }

@@ -427,7 +427,7 @@
 }
 
 .RecommendedBlog .blog-rc-item .rcimg {
-    max-height: 140px;
+    height: 230px;
     display: block;
     overflow: hidden;
 }
@@ -440,7 +440,7 @@
     display: block;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
     line-height: normal;
 }
 

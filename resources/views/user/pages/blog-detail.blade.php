@@ -6,40 +6,8 @@
                 <div class="container blogIntroContent zindex10 relative scrollme">
                     <div class="row">
                         <div class="  wow  fadeInDown introContent text-center" data-wow-duration="0.2s" data-wow-delay=".5s">
-                            <h1 class="x2large"> TSHOP BLOG </h1>
-                            <h5 class="parallaxSubtitle"> The latest fashion news, advice and comment. </h5>
-                            <div class="subscribe-dropdown">
-                                <div class="dropdown">
-                                    <a class="btn btn-subscribe dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Subscribe</a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li>
-                                            <div>
-                                                <label>
-                                       <input name="option1" value="option1" type="checkbox">
-                                       &nbsp; Latest News </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <label>
-                                       <input name="option2" value="option2" type="checkbox">
-                                       &nbsp; New Product </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <label>
-                                       <input name="option3" value="option2" type="checkbox">
-                                       &nbsp; Offer </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <input placeholder="Enter Your Email" id="subemail" name="subemail" type="text" />
-                                        </li>
-                                        <li><a href="#" class="btn btn-block"> Subscribe </a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <h1 class="x2large"> Shop Blog </h1>
+                            
                         </div>
                     </div>
                 </div>
@@ -57,8 +25,8 @@
                             <div class="post-header clearfix">
                                 <h2 class="fadeInDown  wow" data-wow-duration="0.2s" data-wow-delay=".5s"> {{ $blog->productName }} </h2>
                                 <div class="post-info">
-                                    by <span><a class="userBy">Detti S.</a></span> on
-                                    <span>Mar 24, 2015</span>
+                                    by <span><a class="userBy">Quản trị viên</a></span> đã post
+                                    <span>{{ $blog->created_at->diffForHumans() }}</span>
                                     <div class="share-gallery pull-right no-float-xs">
                                         <a class="share-facebook"> <i class="fa fa-facebook-f"> </i> </a>
                                         <a class="share-twitter" href="http://facebook.com/"> <i class="fa fa-twitter"> </i> </a>
@@ -69,7 +37,7 @@
                             </div>
                             <div class="post-main-view">
                                 <div class="post-lead-image wow  fadeIn  " data-wow-duration="0.2s" data-wow-delay=".6s">
-                                    <a href="blog-details.html"> <img src="{{ url('images/product/',$blog->picture) }}" class="img-responsive" alt="G"> </a>
+                                    <a> <img src="{{ url('images/product/',$blog->picture) }}" class="img-responsive" alt="G"> </a>
                                 </div>
                                 <div class="post-description wow fadeIn  " data-wow-duration="0.2s" data-wow-delay=".1s">
                                     {!!  $blog->discription  !!}
@@ -77,28 +45,18 @@
                             </div>
                         </div>
                         <div class="RecommendedBlog clearfix text-center">
-                            <div class="h2 RecommendedTitle">Recommended</div>
-                            <div class="row">
-                                <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
+                            <div class="h2 RecommendedTitle">Tin tức liên quan</div>
+                            <div class="row" id="SimilarProductSlider">
+                                @foreach($blog_recommend as $item)
+                                <div class="">
                                     <div class="blog-rc-item">
-                                        <a href="blog-details.html"> <span class="rcimg"><img src="{{ url('user/images/blog/unnamed.jpg') }}" class="img-responsive" alt="img"></span> <span class="h4">Cras rutrum diam velit, id ullamcorper turpis</span> </a>
+                                        <a href="{{ route('BlogDetail',[$blog->id,$blog->alias]) }}"> 
+                                            <span class="rcimg"><img src="{{ url('images/product/',$item->picture) }}" class="img-responsive" alt="img"></span> 
+                                            <span class="h4">{{ $item->productName }}</span> 
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-                                    <div class="blog-rc-item">
-                                        <a href="blog-details.html"> <span class="rcimg"><img src="{{ url('user/images/blog/unnamed2.jpg') }}" class="img-responsive" alt="img"></span> <span class="h4">Cras rutrum diam velit, id ullamcorper turpis</span> </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-                                    <div class="blog-rc-item">
-                                        <a href="blog-details.html"> <span class="rcimg"> <img src="{{ url('user/images/blog/unnamed3.jpg') }}" class="img-responsive" alt="img"></span> <span class="h4">Cras rutrum diam velit, id ullamcorper turpis</span> </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-                                    <div class="blog-rc-item">
-                                        <a href="blog-details.html"> <span class="rcimg"><img src="{{ url('user/images/blog/unnamed4.jpg') }}" class="img-responsive" alt="img"></span> <span class="h4">Cras rutrum diam velit, id ullamcorper turpis</span> </a>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

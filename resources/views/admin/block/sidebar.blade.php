@@ -81,10 +81,10 @@
                 </a>
             </li>
             <li class="">
-                <a href="javascript:;">
+                <a href="{{ route('OrderList') }}">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="title">Đơn Hàng</span>
-                    <span class="arrow "></span>
+                    <span class="arrow "></span><span class="label label-accent">{{ $countOrderNotRead }} new</span>
                 </a>
             </li>
             <li class="">
