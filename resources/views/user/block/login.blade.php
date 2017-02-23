@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden=" true"> &times; </button>
                 <h3 class="modal-title-site text-center"> Đăng nhập </h3>
             </div>
-            <form action="{{ route('UserLogin') }}" method="POST">
+            <form id="formLogin" action="{{ route('user.login') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="form-group login-username">

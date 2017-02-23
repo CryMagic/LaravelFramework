@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
                 <h3 class="modal-title-site text-center"> Đăng ký </h3>
             </div>
-            <form action="{{ route('UserRegister') }}" method="POST">
+            <form id="formRegister" action="{{ route('user.register') }}" method="POST">
             {{ csrf_field() }}
             <div class="modal-body">
                 <div class="control-group"><a class="fb_button btn btn-block btn-lg" href="#"> Đăng nhập bằng facebook </a>

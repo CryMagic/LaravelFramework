@@ -77,7 +77,7 @@
                 <div class="contentBox">
                     <div class="w100 costDetails">
                         <div class="table-block" id="order-detail-content">
-                            <a class="btn btn-primary btn-lg btn-block " title="checkout" href="{{ route('checkout-one') }}" style="margin-bottom:20px"> Thanh Toán &nbsp; <i class="fa fa-arrow-right"></i> </a>
+                            <a class="btn btn-primary btn-lg btn-block " title="checkout" href="{{ route('checkout') }}" style="margin-bottom:20px"> Thanh Toán &nbsp; <i class="fa fa-arrow-right"></i> </a>
                             <div class="w100 cartMiniTable">
                                 <table id="cart-summary" class="std table">
                                     <tbody>

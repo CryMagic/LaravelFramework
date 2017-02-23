@@ -51,6 +51,8 @@
     <script src="{{ url('user/assets/js/script.js')}}"></script>
     <script src="{{ url('user/assets/js/footable.js')}}" type="text/javascript"></script>
     <script src="{{ url('user/assets/js/footable.sortable.js')}}" type="text/javascript"></script>
+    <script src="{{ url('user/assets/plugins/validate/jquery.validate.min.js') }}"></script>
+    <script src="{{ url('user/assets/js/script-validate.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $('.footable').footable();
@@ -83,6 +85,7 @@
         
         });
     </script>
+    @yield('script')
     @include('user.block.quick-view')
 </body>
 

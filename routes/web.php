@@ -41,7 +41,7 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'], function(){
 Route::get('/',['as'=>'home','uses'=>'HomeController@home']);
 Route::get('about-us',['as'=>'about-us','uses'=>'HomeController@aboutUs']);
 Route::get('account-one',['as'=>'account-one','uses'=>'HomeController@accountOne']);
-Route::get('account-two',['as'=>'account-two','uses'=>'HomeController@accountTwo']);
+Route::get('login',['as'=>'account-two','uses'=>'HomeController@accountTwo']);
 Route::get('add-address',['as'=>'add-address','uses'=>'HomeController@addAddress']);
 Route::get('blog',['as'=>'blog','uses'=>'HomeController@blog']);
 Route::get('blog-detail/{id}/{alias}',['as'=>'BlogDetail','uses'=>'HomeController@blogDetail']);
@@ -49,12 +49,8 @@ Route::get('category/{id}/{alias}',[
     'as'=>'category',
     'uses'=>'HomeController@category'
 ]);
-Route::group(['prefix' => 'checkout','middleware'=>'Checkout'], function() {
-    Route::get('step-3',['as'=>'checkout-three','uses'=>'HomeController@checkoutThree']);
-    Route::get('step-2',['as'=>'checkout-two','uses'=>'HomeController@checkoutTwo']);
-    Route::get('step-1',['as'=>'checkout-one','uses'=>'HomeController@checkoutOne']);
-    Route::post('step-1',['as'=>'post-checkout-one','uses'=>'HomeController@postCheckoutOne']); 
-});
+Route::get('checkout',['as'=>'checkout','uses'=>'HomeController@checkout'])->middleware('Checkout');
+Route::post('postCheckout',['as'=>'post.checkout','uses'=>'HomeController@postCheckout']);
 Route::get('contact-us',['as'=>'contact-us','uses'=>'HomeController@contactUs']);
 Route::get('error-page',['as'=>'error-page','uses'=>'HomeController@errorPage']);
 Route::get('forget-password',['as'=>'forget-password','uses'=>'HomeController@forgetPassword']);
@@ -71,9 +67,12 @@ Route::get('wishlist',['as'=>'wishlist','uses'=>'HomeController@wishList']);
 
 
 //Login user
-Route::post('user/login',['as'=>'UserLogin','uses'=>'UserLoginController@login']);
-Route::post('user/register',['as'=>'UserRegister','uses'=>'UserLoginController@register']);
-Route::get('user/logout',['as'=>'UserLogout','uses'=>'UserLoginController@logout']);
+Route::group(['prefix' => 'user'], function() {
+    Route::post('login',['as'=>'user.login','uses'=>'UserLoginController@login']);
+    Route::post('register',['as'=>'user.register','uses'=>'UserLoginController@register']);
+    Route::get('logout',['as'=>'user.logout','uses'=>'UserLoginController@logout']);
+
+});
 //Shopping cart
 Route::get('add-to-cart/{id}',['as'=>'AddToCart','uses'=>'ShoppingCartController@addToCart']);
 Route::get('cart',['as'=>'cart','uses'=>'ShoppingCartController@cart']);

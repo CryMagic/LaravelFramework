@@ -13,6 +13,8 @@ use App\Ward;
 use App\Order;
 use App\OrderDetail;
 use Cart;
+use App\PaymentMethod;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -51,42 +53,53 @@ class HomeController extends Controller
         $product_category = Product::where('cateID',$category->id)->paginate(12);
         return view('user.pages.category',compact('category','cate_noneparent','cate_parent','product_category'));
     }
-    public function checkoutThree(){
-        $content = Cart::content();
-        $total = Cart::total(00,",",".");
-        return view('user.pages.checkout-three',compact('content','total'));
+    public function checkout(){
+        $payment_methods = PaymentMethod::all();
+        return view('user.pages.checkout',compact('payment_methods'));
     }
-    public function checkoutTwo(){
-        return view('user.pages.checkout-two');
-    }
-    public function checkoutOne(){
-        $userId = Auth::user()->id;
-        $user = User::find($userId);
-        $provinces = Province::all();
-        $districts = District::all();
-        $wards = Ward::all();
-        $name_province = "";
-        $name_district = "";
-        $name_ward = "";
-        foreach($provinces as $item){
-            if($user->province == $item->matp){
-                $name_province = $item->name;
-                break;
-            }
+    public function postCheckout(Request $request){
+        $order = new Order();
+        $currentDate = Carbon::now();
+        $order->userID = Auth::user()->id;
+        $order->orderDate = $currentDate;
+        $order->statusChecked = 0;
+        $order->isRead=false;
+        $order->isClose=false;
+        $order->isPaid = 0;
+        $order->paymentMethodID=$request->PaymentMethod;
+        $order->totalPrice = Cart::total(00,",","");
+        $order->note = $request->Note;
+        $option = $request->add;
+
+        if($option == 'option1'){
+            $order->shipAddress = $request->ShipAddress;
+            $order->shipName = Auth::user()->firstname.' '.Auth::user()->lastname;
+            $order->shipPhone = Auth::user()->phone;
+            $order->shipEmail = Auth::user()->email;
+            $order->shipWard = Auth::user()->belongsToWard->name;
+            $order->shipDistrict = Auth::user()->belongsToDistrict->name;
+            $order->shipProvince = Auth::user()->belongsToProvince->name;
         }
-        foreach($districts as $item){
-            if($user->district == $item->maqh){
-                $name_district = $item->name;
-                break;
-            }
+        else{
+            $order->shipName = $request->ShipName;
+            $order->shipPhone = $request->ShipPhone;
+            $order->shipEmail = $request->ShipEmail;
+            $order->shipWard = $request->ShipWard;
+            $order->shipDistrict = $request->ShipDistrict;
+            $order->shipProvince = $request->ShipProvince;
+            $order->shipAddress = $request->ShipAddress;
         }
-        foreach($wards as $item){
-            if($user->ward == $item->xaid){
-                $name_ward = $item->name;
-                break;
-            }
+        $order->save();
+        Cart::destroy();
+        foreach(Cart::content() as $item){
+            $order_detail = new OrderDetail();
+            $order_detail->orderID = $order->id;
+            $order_detail->productID = $item->id;
+            $order_detail->price = $item->price;
+            $order_detail->quantity = $item->qty;
+            $order_detail->save();
         }
-        return view('user.pages.checkout-one',compact('user','name_province','name_district','name_ward'));
+        return redirect()->route('thank-for-order')->with(['messages'=>'Thành công','status'=>'success']);
     }
     public function postCheckoutOne(Request $request){
         $order = new Order();

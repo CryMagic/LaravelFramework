@@ -17,15 +17,15 @@
                     <div class="col-xs-12 col-sm-6">
                         
                         <h2 class="block-title-2"> Đăng ký tài khoản </h2>
-                        <form role="form" class="regForm" action="{{ route('UserRegister') }}" method="POST">
+                        <form role="form" class="regForm" action="{{ route('user.register') }}" method="POST">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Họ</label>
-                                <input type="text" class="form-control" placeholder="Enter name" name="Firstname">
+                                <input type="text" class="form-control" placeholder="Nhập Họ" name="FirstName">
                             </div>
                             <div class="form-group">
                                 <label>Tên</label>
-                                <input type="text" class="form-control" placeholder="Enter name" name="Lastname">
+                                <input type="text" class="form-control" placeholder="Nhập Tên" name="LastName">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
@@ -37,13 +37,13 @@
                             </div>
                             <div class="error">
                             </div>
-                            <button type="submit" class="btn  btn-primary"><i class="fa fa-user"></i>Đăng ký
+                            <button type="submit" class="btn  btn-primary"><i class="fa fa-user"></i> Đăng ký
                         </button>
                         </form>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <h2 class="block-title-2"><span>Tồn tại một tài khoản?</span></h2>
-                        <form role="form" class="logForm " method="POST" action="{{ route('UserLogin') }}">
+                        <form role="form" class="logForm " method="POST" action="{{ route('user.login') }}">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>E-mail</label>

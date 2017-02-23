@@ -3885,7 +3885,6 @@ tr.CartProduct td:nth-child(2) {
 .cartFooter {
     padding: 20px;
     border-top: solid 1px #eee;
-    background: #EBEDEF;
     display: inline-block;
     width: 100%;
 }
@@ -5179,6 +5178,9 @@ div.quickview {
         width: 100%;
         text-align: center;
         padding-bottom: 5px;
+    }
+    .cartFooter{
+        background: tranparent;
     }
     .navbar-brand {
         padding: 17px 0 0 10px;

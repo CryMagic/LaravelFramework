@@ -22,8 +22,11 @@ class UserLoginController extends Controller
         $user->lastname = $request->LastName;
         $user->email = $request->Email;
         $user->password = Hash::make($request->Password);
+        $user->point = 0;
+        $user->level = 0;
+        $user->status = 0;
         $user->save();
-        return redirect()->route('account-two');
+        return redirect()->route('account-two')->with(['messages'=>'Tạo tài khoản thành công','status'=>'success']);
     }
     public function logout(){
         Auth::logout();

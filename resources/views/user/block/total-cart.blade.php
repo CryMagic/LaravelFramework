@@ -12,7 +12,7 @@
                 </tr>
                 <tr class="cart-total-price ">
                     <td>Tổng tiền (chưa tính thuế)</td>
-                    <td class="price">$216.51</td>
+                    <td class="price">{{ Cart::total(00,",",".") }} đ</td>
                 </tr>
                 <tr>
                     <td>Tiền thuế</td>

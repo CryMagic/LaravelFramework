@@ -24,7 +24,7 @@
                                     <i class="glyphicon glyphicon-user"></i>
                                     </a>
                                 </li>
-                                <li><a href="{{ route('UserLogout') }}"><span class="hidden-xs">Đăng xuất </span><i class="glyphicon glyphicon-log-in hide visible-xs"></i> </a></a></li>
+                                <li><a href="{{ route('user.logout') }}"><span class="hidden-xs">Đăng xuất </span><i class="glyphicon glyphicon-log-in hide visible-xs"></i> </a></a></li>
                              @else
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Đăng nhập</span>
@@ -81,7 +81,7 @@
                     <div class="miniCartFooter miniCartFooterInMobile text-right">
                         <h3 class="text-right subtotal"> Tổng tiền: $210 </h3>
                         <a class="btn btn-sm btn-danger" href="{{ route('cart') }}"> <i class="fa fa-shopping-cart"> </i> Xem giỏ hàng
-                        </a> <a href="{{ route('checkout-one') }}" class="btn btn-sm btn-primary"> Thanh toán </a>
+                        </a> <a href="{{ route('checkout') }}" class="btn btn-sm btn-primary"> Thanh toán </a>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                                 @foreach($categories as $category)
                                 <ul class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
                                     <li>
-                                        <a class="newProductMenuBlock" href="{{ route('category',[$category->id,$category->alias]) }}"> 
+                                        <a class="newProductMenuBlock" > 
                                             <img class="img-responsive" src="{{ url('images/category/'.$category->picture) }}" alt="product">
                                             <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> {{ $category->cateName }} </span>
                                             
@@ -168,7 +168,7 @@
                             <div class="miniCartFooter text-right">
                                 <h3 class="text-right subtotal"> Tổng tiền: {{ Cart::total(00,",",".") }} đ</h3>
                                 <a class="btn btn-sm btn-danger" href="{{ route('cart') }}"> <i class="fa fa-shopping-cart"> </i> Xem giỏ hàng </a>
-                                <a class="btn btn-sm btn-primary" href="{{ route('checkout-one') }}"> Thanh toán </a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('checkout') }}"> Thanh toán </a>
                             </div>
                         </div>
                     </div>
