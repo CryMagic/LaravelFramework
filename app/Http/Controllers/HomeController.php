@@ -55,7 +55,8 @@ class HomeController extends Controller
     }
     public function checkout(){
         $payment_methods = PaymentMethod::all();
-        return view('user.pages.checkout',compact('payment_methods'));
+        $provinces = Province::all();
+        return view('user.pages.checkout',compact('payment_methods','provinces'));
     }
     public function postCheckout(Request $request){
         $order = new Order();
@@ -72,13 +73,20 @@ class HomeController extends Controller
         $option = $request->add;
 
         if($option == 'option1'){
-            $order->shipAddress = $request->ShipAddress;
+            $order->shipAddress = $request->ShipAddress1;
             $order->shipName = Auth::user()->firstname.' '.Auth::user()->lastname;
             $order->shipPhone = Auth::user()->phone;
             $order->shipEmail = Auth::user()->email;
-            $order->shipWard = Auth::user()->belongsToWard->name;
-            $order->shipDistrict = Auth::user()->belongsToDistrict->name;
-            $order->shipProvince = Auth::user()->belongsToProvince->name;
+            if(Auth::user()->province == null || Auth::user()->district ==null || Auth::user()->ward ==null){
+                return redirect()->back()->with(['messages'=>'Hệ thống hiện tại không tìm thấy địa chỉ của bạn','status'=>'danger']);
+            }
+            else{
+                $order->shipProvince = Auth::user()->province; 
+            
+                $order->shipDistrict = Auth::user()->district;
+            
+                $order->shipWard = Auth::user()->ward;
+            }
         }
         else{
             $order->shipName = $request->ShipName;
@@ -87,8 +95,9 @@ class HomeController extends Controller
             $order->shipWard = $request->ShipWard;
             $order->shipDistrict = $request->ShipDistrict;
             $order->shipProvince = $request->ShipProvince;
-            $order->shipAddress = $request->ShipAddress;
+            $order->shipAddress = $request->ShipAddress2;
         }
+        
         $order->save();
         Cart::destroy();
         foreach(Cart::content() as $item){

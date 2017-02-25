@@ -20,6 +20,7 @@
 </div>
 <div class="row">
     <div class="col-lg-9 col-md-9 col-sm-12">
+        @include('user.block.notify')
         <div class="row userInfo">
             <div class="col-xs-12 col-sm-12">
                 <div class="w100 clearfix">
@@ -55,7 +56,7 @@
                                                 
                                                 <div class="form-group">
                                                     <label for="InputPhone">Địa chỉ </label>
-                                                    <input type="text" class="form-control" name="shipAddress" placeholder="Địa chỉ">
+                                                    <input type="text" class="form-control" name="shipAddress1" placeholder="Địa chỉ">
                                                 </div>
                                             
                                             </div>
@@ -65,43 +66,41 @@
                                                     <div class="col-xs-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="InputName">Họ tên khách hàng <sup>*</sup> </label>
-                                                            <input type="text" class="form-control" name="shipName" placeholder="Họ tên khách hàng (ex: Trần Quốc Thiên)">
+                                                            <input type="text" class="form-control" name="ShipName" placeholder="Họ tên khách hàng (ex: Trần Quốc Thiên)">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="InputEmail">Email </label>
-                                                            <input type="text" class="form-control" name="shipEmail" placeholder="Email">
+                                                            <input type="text" class="form-control" name="ShipEmail" placeholder="Email">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="InputPhone">Số điện thoại </label>
-                                                            <input type="text" class="form-control" name="shipPhone" placeholder="Số điện thoại">
+                                                            <input type="text" class="form-control" name="ShipPhone" placeholder="Số điện thoại">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-sm-6">
                                                         
                                                         <div class="form-group">
                                                             <label>Tỉnh/Thành Phố</label>
-                                                            <select name="shipProvince" class="form-control">
-                                                                <option>Quảng Ngãi</option>
-                                                                <option>Phú Yên</option>
+                                                            <select name="ShipProvince" id="shipperProvince" class="form-control">
+                                                                @foreach($provinces as $province)
+                                                                    <option value="{{ $province->matp }}">{{ $province->name }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Quận/Huyện</label>
-                                                            <select name="shipDistrict" class="form-control">
-                                                                <option>Huyện Đức Phổ</option>
-                                                                <option>Thị Trấn Đức Phổ</option>
+                                                            <select name="ShipDistrict" id="shipperDistrict" class="form-control">
+                                                                
                                                             </select>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label>Tỉnh/Thành Phố</label>
-                                                            <select name="shipWard" class="form-control">
-                                                                <option>Phổ Châu</option>
-                                                                <option>Phổ Thạnh</option>
+                                                            <label>Xã/Phường</label>
+                                                            <select name="ShipWard" id="shipperWard" class="form-control">
                                                             </select>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="InputPhone">Địa chỉ </label>
-                                                            <input type="text" class="form-control" name="shipAddress" placeholder="Địa chỉ">
+                                                            <input type="text" class="form-control" name="ShipAddress2" placeholder="Địa chỉ">
                                                         </div>
                                                     </div>
                                                 

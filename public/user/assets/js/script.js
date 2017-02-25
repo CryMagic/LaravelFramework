@@ -11,6 +11,7 @@ $(document).ready(function() {
     latestProductSlider.owlCarousel({
         navigation: false,
         items: 4,
+        loop:Infinity,
         itemsTablet: [768, 2],
         afterInit: customPager,
         afterUpdate: customPager

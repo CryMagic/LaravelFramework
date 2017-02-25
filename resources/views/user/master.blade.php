@@ -53,6 +53,7 @@
     <script src="{{ url('user/assets/js/footable.sortable.js')}}" type="text/javascript"></script>
     <script src="{{ url('user/assets/plugins/validate/jquery.validate.min.js') }}"></script>
     <script src="{{ url('user/assets/js/script-validate.js') }}"></script>
+    <script src="{{ url('user/assets/js/ajax.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $('.footable').footable();

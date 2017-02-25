@@ -17,7 +17,7 @@
                     <div class="col-xs-12 col-sm-6">
                         
                         <h2 class="block-title-2"> Đăng ký tài khoản </h2>
-                        <form role="form" class="regForm" action="{{ route('user.register') }}" method="POST">
+                        <form role="form" id="regForm" class="regForm" action="{{ route('user.register') }}" method="POST">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Họ</label>
@@ -29,7 +29,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" placeholder="Enter email" name="Email">
+                                <input type="email" id="Email1" class="form-control" placeholder="Enter email" name="Email">
+                                <span class="error"><label id="emailUnique1" class="error" style="display:none"></label></span>
+                                <img style="display:none" id="iconloading2" src="{{ url('images/load/loading.gif') }}" width="5%"/>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <h2 class="block-title-2"><span>Tồn tại một tài khoản?</span></h2>
-                        <form role="form" class="logForm " method="POST" action="{{ route('user.login') }}">
+                        <form role="form" id="logForm" class="logForm " method="POST" action="{{ route('user.login') }}">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>E-mail</label>
@@ -52,6 +54,13 @@
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" class="form-control" placeholder="Password" name="Password">
+                            </div>
+                            <div id="thongbao" style="display:none">
+                                <a class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+                                <span id="mess"></span>
+                            </div>
+                            <div class="text-center">
+                                <img style="display:none" id="loading1" src="{{ url('images/load/loading.gif') }}" width="20%"/>
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -62,6 +71,8 @@
                                 <p><a title="Recover your forgotten password" href="{{ route('forget-password') }}">Quên mật khẩu? </a>
                                 </p>
                             </div>
+                            
+                            
                             <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in"></i> Đăng nhập</button>
                         </form>
                     </div>

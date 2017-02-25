@@ -1,4 +1,4 @@
-$('#selectProvince').on('data',function(e){
+$('#selectProvince').on('change',function(e){
     console.log(e);
     var province_id = e.target.value;
     //ajax

@@ -78,3 +78,8 @@ Route::get('add-to-cart/{id}',['as'=>'AddToCart','uses'=>'ShoppingCartController
 Route::get('cart',['as'=>'cart','uses'=>'ShoppingCartController@cart']);
 Route::get('remove-cart/{id}',['as'=>'RemoveCart','uses'=>'ShoppingCartController@removeCart']);
 Route::get('minus-quantity/{id}/{qty}',['as'=>'Minus','uses'=>'ShoppingCartController@minusQuantity']);
+
+//ajax
+Route::get('check-email/{email}','UserLoginController@checkEmailUnique');
+Route::get('/get-all-district','AjaxController@getDistrict');
+Route::get('/get-all-ward','AjaxController@getWard');

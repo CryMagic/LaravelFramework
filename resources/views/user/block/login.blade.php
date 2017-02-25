@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden=" true"> &times; </button>
                 <h3 class="modal-title-site text-center"> Đăng nhập </h3>
             </div>
-            <form id="formLogin" action="{{ route('user.login') }}" method="POST">
+            <form id="formLogin" action="{{route('user.login')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="form-group login-username">
@@ -18,20 +18,20 @@
                             <input name="Password" id="login-password" class="form-control input" size="20" placeholder="Nhập password" type="password">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div>
-                            <div class="checkbox login-remember">
-                                <label>
-                            <input name="rememberme" value="forever" checked="checked" type="checkbox">
-                            Ghi nhớ mật khẩu </label>
-                            </div>
-                        </div>
+                    <div class="text-center">
+                        <img style="display:none" id="loading" src="{{ url('images/load/loader.gif') }}" width="20%"/>
                     </div>
+                    <div id="notify" style="display:none">
+                        <a class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+                        <span id="msg"></span>
+                    </div>
+                    
                     <div>
                         <div>
                             <input name="submit" class="btn btn-block btn-lg btn-primary" value="LOGIN" type="submit">
                         </div>
                     </div>
+                    
                 </div>
             </form>
             <div class="modal-footer">

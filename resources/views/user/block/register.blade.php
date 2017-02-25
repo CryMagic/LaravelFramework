@@ -13,7 +13,7 @@
                 <h5 style="padding:10px 0 10px 0;" class="text-center"> OR </h5>
                 <div class="form-group reg-username">
                     <div>
-                        <input name="FirstName" class="form-control input" size="20" placeholder="Firstname" type="text">
+                        <input name="FirstName" id="FirstName" class="form-control"  size="20" placeholder="Firstname" type="text">
                     </div>
                 </div>
                 <div class="form-group reg-username">
@@ -23,7 +23,9 @@
                 </div>
                 <div class="form-group reg-email">
                     <div>
-                        <input name="Email" class="form-control input" size="20" placeholder="Enter Email" type="email">
+                        <input name="Email" id="Email" class="form-control input" size="20" placeholder="Enter Email" type="email">
+                        <span class="error"><label id="emailUnique" class="error" style="display:none"></label></span>
+                        <img style="display:none" id="iconloading" src="{{ url('images/load/loader.gif') }}" width="10%"/>
                     </div>
                 </div>
                 <div class="form-group reg-password">

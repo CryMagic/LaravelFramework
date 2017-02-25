@@ -12,9 +12,16 @@ class UserLoginController extends Controller
         $email = $request->Email;
         $password = $request->Password;
         if(Auth::attempt(['email' => $email, 'password' => $password])){
-            return redirect('/');
+            return 'ok'; 
         }
-        return redirect()->route('account-two');
+        return "fail";
+    }
+    public function checkEmailUnique($email){
+        $user = User::where('email',$email)->first();
+        if($user){
+            return "found";
+        }
+        return "not found";
     }
     public function register(Request $request){
         $user = new User();
