@@ -4,8 +4,8 @@
         <div class="row">
             <div class="breadcrumbDiv col-lg-12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">{{ $category->cateName }}</li>
+                    <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                    <li class="active">{{ $category_name->cateName }}</li>
                 </ul>
             </div>
         </div>
@@ -107,8 +107,8 @@
                                 </div>
                                 <div class="block-element">
                                     <label>
-                              <input type="checkbox" name="tour" value="3"/>
-                              Sản phẩm không giảm giá </label>
+                                        <input type="checkbox" name="tour" value="3"/> Sản phẩm không giảm giá 
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -117,10 +117,10 @@
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12">
                 <div class="w100 clearfix category-top">
-                    <h2> {{ $category->cateName }} </h2>
-                    <div class="categoryImage"><img src="{{ url('user/images/site/category.jpg') }}" class="img-responsive" alt="img"></div>
+                    <h2> {{ $category_name->cateName }} </h2>
+                    <div class="categoryImage"><img src="{{ url('user/images/site/hinh4.jpg') }}" class="img-responsive" alt="img"></div>
                 </div>
-                <div class="row subCategoryList clearfix owl-carousel owl-theme" id="bannerslide">
+                <div class="subCategoryList clearfix owl-carousel owl-theme" id="bannerslide">
                     @foreach($cate_parent as $item)
                     <div class="text-center ">
                         <div class="thumbnail equalheight">

@@ -28,4 +28,22 @@ class Controller extends BaseController
         view()->share('orderNotReads',$orderNotReads);
         view()->share('countOrderNotRead',$countOrderNotRead);
     }
+    public function responseOK($result, $code = 200)
+    {
+        return response()->json(['code' => $code, 'result' => $result], $code);
+    }
+
+    public function responseFail($code, $message = null)
+    {
+        return response()->json(['code' => $code, 'message' => $message], $code);
+    }
+    
+    public function responseUnknownError($message)
+    {
+        return $this->responseFail(520, $message);
+    }
+    public function responseTokenError($message)
+    {
+        return $this->responseFail(401, $message);
+    }
 }

@@ -81,22 +81,26 @@
                                                         
                                                         <div class="form-group">
                                                             <label>Tỉnh/Thành Phố</label>
-                                                            <select name="ShipProvince" id="shipperProvince" class="form-control">
+                                                            <select autofocus name="ShipProvince" id="shipperProvince" class="form-control">
                                                                 @foreach($provinces as $province)
                                                                     <option value="{{ $province->matp }}">{{ $province->name }}</option>
                                                                 @endforeach
                                                             </select>
+                                                            <img id="loadProvince" style="display:none" src="{{ url('images/load/loading.gif') }}" width="5%"/>
                                                         </div>
+                                                        
                                                         <div class="form-group">
                                                             <label>Quận/Huyện</label>
-                                                            <select name="ShipDistrict" id="shipperDistrict" class="form-control">
+                                                            <select autofocus name="ShipDistrict" id="shipperDistrict" class="form-control">
                                                                 
                                                             </select>
+                                                            <img id="loadDistrict" style="display:none" src="{{ url('images/load/loading.gif') }}" width="5%"/>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Xã/Phường</label>
                                                             <select name="ShipWard" id="shipperWard" class="form-control">
                                                             </select>
+                                                            <img id="loadWard" style="display:none" src="{{ url('images/load/loading.gif') }}" width="5%"/>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="InputPhone">Địa chỉ </label>

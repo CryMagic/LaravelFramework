@@ -47,11 +47,11 @@ class HomeController extends Controller
         return view('user.pages.blog-detail',compact('blog','blog_recommend'));
     }
     public function category($id){
-        $category = Category::find($id);
+        $category_name = Category::find($id);
         $cate_noneparent = Category::where('parent','<>',0)->get();
         $cate_parent = Category::where('parent',0)->get();
-        $product_category = Product::where('cateID',$category->id)->paginate(12);
-        return view('user.pages.category',compact('category','cate_noneparent','cate_parent','product_category'));
+        $product_category = Product::where('cateID',$category_name->id)->paginate(12);
+        return view('user.pages.category',compact('category_name','cate_noneparent','cate_parent','product_category'));
     }
     public function checkout(){
         $payment_methods = PaymentMethod::all();
@@ -140,10 +140,13 @@ class HomeController extends Controller
         return view('user.pages.my-address');
     }
     public function orderList(){
-        return view('user.pages.order-list');
+        $order_lists = Order::where('userID',Auth::user()->id)->get();
+        // return $order_lists;
+        return view('user.pages.order-list',compact('order_lists'));
     }
-    public function orderStatus(){
-        return view('user.pages.order-status');
+    public function orderStatus($id){
+        $order_detail = OrderDetail::find($id);
+        return view('user.pages.order-status',compact('order_detail'));
     }
     public function productDetail($id){
         $product = Product::find($id);

@@ -56,7 +56,7 @@ Route::get('error-page',['as'=>'error-page','uses'=>'HomeController@errorPage'])
 Route::get('forget-password',['as'=>'forget-password','uses'=>'HomeController@forgetPassword']);
 Route::get('my-address',['as'=>'my-address','uses'=>'HomeController@myAddress']);
 Route::get('order-list',['as'=>'order-list','uses'=>'HomeController@orderList']);
-Route::get('order-status',['as'=>'order-status','uses'=>'HomeController@orderStatus']);
+Route::get('order-status/{id}',['as'=>'order-status','uses'=>'HomeController@orderStatus']);
 Route::get('product-detail/{id}/{alias}',[
     'as'=>'ProductDetail',
     'uses'=>'HomeController@productDetail'

@@ -97,145 +97,25 @@
                                     <div class="table-responsive">
                                         <table class="order-details-cart">
                                             <tbody>
+                                                @foreach($order_detail as $item)
                                                 <tr class="cartProduct">
                                                     <td class="cartProductThumb" style="width:20%">
                                                         <div>
-                                                            <a href="product-details.html"> <img alt="img" src="{{ url('user/images/product/3.jpg') }}">
+                                                            <a href="{{ route('ProductDetail',[$item->productID,changeTitle($item->belongsToProduct->productName)]) }}"> <img alt="img">
                                                             </a>
                                                         </div>
                                                     </td>
                                                     <td style="width:40%">
                                                         <div class="miniCartDescription">
-                                                            <h4><a href="product-details.html"> TSHOP Tshirt DO9 </a></h4>
-                                                            <span class="size"> 12 x 1.5 L </span>
-                                                            <div class="price"><span> $22 </span></div>
+                                                            <h4><a href="{{ route('ProductDetail',[$item->productID,changeTitle($item->belongsToProduct->productName)]) }}"> TSHOP Tshirt DO9 </a></h4>
+                                                            
+                                                            <div class="price"><span> {{ number_format($item->price,'0',',','.') }} đ</span></div>
                                                         </div>
                                                     </td>
-                                                    <td class="" style="width:10%"><a> X 1 </a></td>
-                                                    <td class="" style="width:15%"><span> $33 </span></td>
+                                                    <td class="" style="width:10%"><a> X {{ $item->quantity }} </a></td>
+                                                    <td class="" style="width:15%"><span> {{ number_format($item->price*$item->quantity,'0',',','.') }} đ </span></td>
                                                 </tr>
-                                                <tr class="cartProduct">
-                                                    <td class="cartProductThumb" style="width:20%">
-                                                        <div>
-                                                            <a href="product-details.html"> <img alt="img" src="{{ url('user/images/product/2.jpg') }}">
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                    <td style="width:40%">
-                                                        <div class="miniCartDescription">
-                                                            <h4><a href="product-details.html"> TShir TSHOP 09 </a></h4>
-                                                            <span class="size"> 12 x 1.5 L </span>
-                                                            <div class="price"><span> $15 </span></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="" style="width:10%"><a> X 1 </a></td>
-                                                    <td class="" style="width:15%"><span> $120 </span></td>
-                                                </tr>
-                                                <tr class="cartProduct">
-                                                    <td class="cartProductThumb" style="width:20%">
-                                                        <div>
-                                                            <a href="product-details.html"> <img alt="img" src="{{ url('user/images/product/5.jpg') }}">
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                    <td style="width:40%">
-                                                        <div class="miniCartDescription">
-                                                            <h4><a href="product-details.html"> Tshir 2014 </a></h4>
-                                                            <span class="size"> 12 x 1.5 L </span>
-                                                            <div class="price"><span> $30 </span></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="" style="width:10%"><a> X 1 </a></td>
-                                                    <td class="" style="width:15%"><span> $80 </span></td>
-                                                </tr>
-                                                <tr class="cartProduct">
-                                                    <td class="cartProductThumb" style="width:20%">
-                                                        <div>
-                                                            <a href="product-details.html"> <img alt="img" src="{{ url('user/images/product/3.jpg') }}">
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                    <td style="width:40%">
-                                                        <div class="miniCartDescription">
-                                                            <h4><a href="product-details.html"> TSHOP T shirt DO20 </a></h4>
-                                                            <span class="size"> 12 x 1.5 L </span>
-                                                            <div class="price"><span> $15 </span></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="miniCartQuantity" style="width:10%"><a> X 1 </a></td>
-                                                    <td class="miniCartSubtotal" style="width:15%"><span> $55 </span></td>
-                                                </tr>
-                                                <tr class="cartProduct">
-                                                    <td class="cartProductThumb" style="width:20%">
-                                                        <div>
-                                                            <a href="product-details.html"> <img alt="img" src="{{ url('user/images/product/4.jpg') }}">
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                    <td style="width:40%">
-                                                        <div class="miniCartDescription">
-                                                            <h4><a href="product-details.html"> T shirt Black </a></h4>
-                                                            <span class="size"> 12 x 1.5 L </span>
-                                                            <div class="price"><span> $44 </span></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="" style="width:10%"><a> X 1 </a></td>
-                                                    <td class="" style="width:15%"><span> $40 </span></td>
-                                                </tr>
-                                                <tr class="cartProduct">
-                                                    <td class="cartProductThumb" style="width:20%">
-                                                        <div>
-                                                            <a href="product-details.html"> <img alt="img" src="{{ url('user/images/site/winter.jpg') }}">
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                    <td style="width:40%">
-                                                        <div class="miniCartDescription">
-                                                            <h4><a href="product-details.html"> G Star T shirt </a></h4>
-                                                            <span class="size"> 12 x 1.5 L </span>
-                                                            <div class="price"><span> $80 </span></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="" style="width:10%"><a> X 1 </a></td>
-                                                    <td class="" style="width:15%"><span> $8.80 </span></td>
-                                                </tr>
-                                                <tr class="cartTotalTr blank">
-                                                    <td class="" style="width:20%">
-                                                        <div></div>
-                                                    </td>
-                                                    <td style="width:40%"></td>
-                                                    <td class="" style="width:20%"></td>
-                                                    <td class="" style="width:15%"><span> </span></td>
-                                                </tr>
-                                                <tr class="cartTotalTr">
-                                                    <td class="" style="width:20%">
-                                                        <div></div>
-                                                    </td>
-                                                    <td colspan="2" style="width:40%">Total products</td>
-                                                    <td class="" style="width:15%"><span> $216.51 </span></td>
-                                                </tr>
-                                                <tr class="cartTotalTr">
-                                                    <td class="" style="width:20%">
-                                                        <div></div>
-                                                    </td>
-                                                    <td colspan="2" style="width:40%">Shipping</td>
-                                                    <td class="" style="width:15%"><span> $10.51 </span></td>
-                                                </tr>
-                                                <tr class="cartTotalTr">
-                                                    <td class="" style="width:20%">
-                                                        <div></div>
-                                                    </td>
-                                                    <td colspan="2" style="width:40%">Total (tax excl.)</td>
-                                                    <td class="" style="width:15%"><span> $216.51 </span></td>
-                                                </tr>
-                                                <tr class="cartTotalTr">
-                                                    <td class="" style="width:20%">
-                                                        <div></div>
-                                                    </td>
-                                                    <td style="width:40%"></td>
-                                                    <td class="" style="width:20%">SubTotal</td>
-                                                    <td class="" style="width:15%"><span class="price"> $216.51 </span></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
