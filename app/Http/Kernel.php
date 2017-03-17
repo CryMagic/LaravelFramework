@@ -54,5 +54,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'AdminLogin' => \App\Http\Middleware\AdminMiddleware::class,
         'Checkout' => \App\Http\Middleware\CheckoutMiddleware::class,
+        'cors' => \App\Http\Middleware\Cors::class,
     ];
 }

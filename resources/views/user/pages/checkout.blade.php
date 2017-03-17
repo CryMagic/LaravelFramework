@@ -174,7 +174,7 @@
                                                                     <tr class="CartProduct">
                                                                         <td class="CartProductThumb">
                                                                             <div>
-                                                                                <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->alias)]) }}"><img src="{{url('images/product/',$item->options['img'])}}"></a>
+                                                                                <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->alias)]) }}"><img src="{{ $item->options['img'] }}"></a>
                                                                             </div>
                                                                         </td>
                                                                         <td>

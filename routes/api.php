@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
-Route::group(['prefix' => 'v1'], function() {
+Route::group(['prefix' => 'v1','middleware'=>'cors'], function() {
     Route::get('products','API\V1\ProductAPIController@getAllProduct');
 });

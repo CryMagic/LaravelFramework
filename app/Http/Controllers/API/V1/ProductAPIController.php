@@ -10,7 +10,7 @@ class ProductAPIController extends Controller
 {
     public function getAllProduct(){
         $result = collect();
-        $products = Product::take(4)->get();
+        $products = Product::OrderBy('id','DESC')->take(10)->get();
         $result->push(['products'=>$products]);
         return $this->responseOK($result);
     }   

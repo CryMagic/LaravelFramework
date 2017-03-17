@@ -40,7 +40,7 @@
                     </div>
                     <div class="post-main-view">
                         <div class="post-lead-image  wow fadeInDown  " data-wow-duration="0.2s">
-                            <a href="{{ route('BlogDetail',[$blog->id,$blog->alias]) }}"> <img src="{{ url('images/product/',$blog->picture) }}" class="img-responsive" alt="G"> </a>
+                            <a href="{{ route('BlogDetail',[$blog->id,$blog->alias]) }}"> <img src="{{ $blog->picture }}" class="img-responsive" alt="G"> </a>
                         </div>
                         <div class="post-description  wow fadeInDown  " data-wow-duration="0.2s">
                             

@@ -39,7 +39,7 @@
                                     <tr class="CartProduct">
                                         <td class="CartProductThumb">
                                             <div>
-                                                <a href=""><img src="{{ url('images/product/'.$item->options['img']) }}" alt="img"></a>
+                                                <a href=""><img src="{{ $item->options['img'] }}" alt="img"></a>
                                             </div>
                                         </td>
                                         <td>

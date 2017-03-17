@@ -17,8 +17,8 @@
                         <div class="quickview">
                             <a data-toggle="modal" class="btn btn-xs btn-quickview" data-target="#myModal">Xem nhanh </a>
                         </div>
-                        <a href="product-details.html">
-                            <img src="{{ url('images/product/'.$item->picture) }}" alt="img" class="img-responsive">
+                        <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}">
+                            <img src="{{ $item->picture }}" alt="img" class="img-responsive">
                         </a>
                         <div class="promotion">
                             <span class="new-product"> NEW</span>
@@ -76,7 +76,7 @@
                             <div class="quickview">
                                 <a data-toggle="modal" class="btn btn-xs btn-quickview" data-target="#myModal">Xem nhanh </a>
                             </div>
-                            <a href=""><img src="{{ url('images/product/'.$item->picture) }}" alt="img" class="img-responsive"></a>
+                            <a href=""><img src="{{ $item->picture }}" alt="img" class="img-responsive"></a>
                             <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>
                         </div>
                         <div class="description">
@@ -110,7 +110,7 @@
             <div class="col-lg-12">
                 <ul class="no-margin brand-carousel owl-carousel owl-theme">
                     @foreach($category_images as $category)
-                    <li><a><img src="{{ url('images/category/'.$category->picture) }}" alt="img"></a></li>
+                    <li><a><img src="{{ $category->picture }}" alt="img"></a></li>
                     @endforeach
                 </ul>
             </div>

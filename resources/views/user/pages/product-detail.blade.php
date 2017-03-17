@@ -13,8 +13,8 @@
          <div class="row transitionfx">
             <div class="col-lg-6 col-md-6 col-sm-6">
                <div class="main-image sp-wrap col-lg-12 no-padding">
-                  <a href="{{ url('images/product/'.$product->picture) }}">
-                        <img src="{{ url('images/product/'.$product->picture) }}" class="img-responsive" alt="img"></a>
+                  <a href="{{ $product->picture }}">
+                        <img src="{{ $product->picture }}" class="img-responsive" alt="img"></a>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-5">
@@ -115,7 +115,7 @@
             @foreach($product_recommend as $item)
                <div class="item">
                   <div class="product">
-                     <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}" class="product-image"> <img src="{{ url('images/product/'.$item->picture) }}" alt="img"> </a>
+                     <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}" class="product-image"> <img src="{{ $item->picture }}" alt="img"> </a>
                      <div class="description">
                         <h4><a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}">{{ str_limit($item->productName ,40, '...')}}</a></h4>
                         <div class="price"><span>{{ number_format($item->price,'0',',','.') }} đ</span></div>

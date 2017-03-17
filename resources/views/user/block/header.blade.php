@@ -60,7 +60,7 @@
                                 <tr class="miniCartProduct">
                                     <td style="width:20%" class="miniCartProductThumb">
                                         <div>
-                                            <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> <img src="{{ url('images/product/'.$item->options['img']) }}" alt="img"> </a>
+                                            <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> <img src="{{ $item->options['img'] }}" alt="img"> </a>
                                         </div>
                                     </td>
 
@@ -96,7 +96,7 @@
                                 <ul class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
                                     <li>
                                         <a class="newProductMenuBlock" > 
-                                            <img class="img-responsive" src="{{ url('images/category/'.$category->picture) }}" alt="product">
+                                            <img class="img-responsive" src="{{ $category->picture }}" alt="product">
                                             <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> {{ $category->cateName }} </span>
                                             
                                         </a>
@@ -147,7 +147,7 @@
                                         <tr class="miniCartProduct">
                                             <td style="width:20%" class="miniCartProductThumb">
                                                 <div>
-                                                    <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> <img src="{{ url('images/product/'.$item->options['img']) }}" alt="img">
+                                                    <a href="{{ route('ProductDetail',[$item->id,changeTitle($item->name)]) }}"> <img src="{{ $item->options['img'] }}" alt="img">
                                                     </a>
                                                 </div>
                                             </td>

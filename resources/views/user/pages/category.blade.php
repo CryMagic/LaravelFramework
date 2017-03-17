@@ -125,7 +125,7 @@
                     <div class="text-center ">
                         <div class="thumbnail equalheight">
                             <a class="subCategoryThumb">
-                                <img src="{{ url('images/category/',$item->picture) }}" class="img-rounded " alt="img"> 
+                                <img src="{{ $item->picture }}" class="img-rounded " alt="img"> 
                             </a> 
                             <a class="subCategoryTitle"><span> {{ $item->cateName  }} </span></a>
                         </div>
@@ -161,7 +161,7 @@
                                 <div class="quickview">
                                     <a data-toggle="modal" class="btn btn-xs btn-quickview" data-target="#myModal">Xem nhanh </a>
                                 </div>
-                                <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}"><img src="{{ url('images/product/'.$item->picture) }}" alt="img" class="img-responsive"></a>
+                                <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}"><img src="{{ $item->picture }}" alt="img" class="img-responsive"></a>
                                 <div class="promotion"><span class="new-product"> NEW</span></div>
                             </div>
                             <div class="description">

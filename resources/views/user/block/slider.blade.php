@@ -9,7 +9,7 @@
         <div class="product-slide">
             <div class="col-sm-4 product-slide-left">
                 <a class="product-slide-img"> 
-                    <img alt="img" src="{{ url('images/product/'.$item->picture) }}" style="height:400px" class="img-responsive">
+                    <img alt="img" src="{{ $item->picture }}" style="height:400px" class="img-responsive">
                 </a>
             </div>
             <div class="col-sm-6">
