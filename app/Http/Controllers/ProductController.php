@@ -54,19 +54,12 @@ class ProductController extends Controller
         $product->cateID = $request->Category;
         //Save picture product
         if($request->hasFile('Picture')){
+
             $file = $request->file('Picture');
 
-            $img = $file->getClientOriginalName();
-
-            $imgName = str_random(15)."_".$img;
-
-            while(file_exists('images/product/'.$imgName)){
-                 $imgName = str_random(15)."_".$img;
-            }
-
-            //Move to Folder images/category
-            $file->move('images/product/',$imgName);
-            $product->picture = $imgName;
+            $result = $this->uploadImg($file);
+            
+            $product->picture = $result['url'];
         }
         $product->save();
         return redirect()->route('product.index')->with(['status'=>'success','messages'=>'Thêm sản phẩm thành công']);
@@ -120,18 +113,9 @@ class ProductController extends Controller
         if($request->hasFile('Picture')){
             $file = $request->file('Picture');
 
-            $img = $file->getClientOriginalName();
-
-            $imgName = str_random(15)."_".$img;
-
-            while(file_exists('images/product/'.$imgName)){
-                 $imgName = str_random(15)."_".$img;
-            }
-
-            //Move to Folder images/product
-            $file->move('images/product/',$imgName);
-            unlink("images/product/".$product->picture);
-            $product->picture = $imgName;
+            $result = $this->uploadImg($file);
+            
+            $product->picture = $result['url'];
         }
         $product->save();
         return redirect()->route('product.index')->with(['status'=>'success','messages'=>'Cập nhật thông tin sản phẩm thành công']);
@@ -146,9 +130,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        if($product->picture != null){
-            unlink("images/product/".$product->picture);
-        }
         $product->delete();
         return back()->with(['status'=>'success','messages'=>'Xóa sản phẩm thành công']);
     }

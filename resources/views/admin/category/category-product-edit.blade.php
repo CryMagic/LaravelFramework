@@ -29,7 +29,7 @@
                                     <label class="form-label">Hình ảnh</label>
                                     <div class="controls">
                                         @if($item->picture != null)
-                                            <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded" width="100px" height="100px">
+                                            <img src="{{ $item->picture }}" class="img-rounded" width="100px" height="100px">
                                         @endif
                                         <br>
                                         <input type="file" class="form-control" name="Picture" >

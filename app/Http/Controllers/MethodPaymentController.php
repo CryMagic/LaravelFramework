@@ -50,7 +50,8 @@ class MethodPaymentController extends Controller
      */
     public function show($id)
     {
-        
+        $method_payment = PaymentMethod::find($id);
+        return response()->json($method_payment);
     }
 
     /**

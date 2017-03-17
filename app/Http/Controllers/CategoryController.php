@@ -47,17 +47,9 @@ class CategoryController extends Controller
         if($request->hasFile('Picture')){
             $file = $request->file('Picture');
 
-            $img = $file->getClientOriginalName();
+            $result = $this->uploadImg($file);
 
-            $imgName = str_random(4)."_".$img;
-
-            while(file_exists('images/category/'.$imgName)){
-                 $imgName = str_random(4)."_".$img;
-            }
-
-            //Move to Folder images/category
-            $file->move('images/category/',$imgName);
-            $category->picture = $imgName;
+            $category->picture = $result['url'];
         }
         $category->save();
         return back()->with(['status'=>'success','messages'=>'Thêm danh mục sản phẩm thành công']);
@@ -102,15 +94,15 @@ class CategoryController extends Controller
         $category->parent = $request->Parent;
         if($request->hasFile('Picture')){
             $file = $request->file('Picture');
-            $img = $file->getClientOriginalName();
-            $imgName = str_random(4)."_".$img;
-            while(file_exists('images/category/'.$imgName)){
-                 $imgName = str_random(4)."_".$img;
-            }
+
+            $result = $this->uploadImg($file);
+            
+            $category->picture = $result['url'];
+
             //Move to Folder images/category
-            $file->move('images/category/',$imgName);
-            unlink("images/category/".$category->picture);
-            $category->picture = $imgName;
+            // $file->move('images/category/',$imgName);
+            
+            // $category->picture = $imgName;
         }
 
         $category->save();
@@ -132,9 +124,7 @@ class CategoryController extends Controller
                 return redirect()->route('category.index')->with(['status'=>'error','messages'=>'Danh mục có tồn tại các danh mục con']);
             }
         }
-        if($category->picture != null){
-            unlink("images/category/".$category->picture);
-        }
+       
         $category->delete();
         return back()->with(['status'=>'success','messages'=>'Xóa danh mục sản phẩm thành công']);
     }

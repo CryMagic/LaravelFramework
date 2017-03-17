@@ -28,6 +28,28 @@ class Controller extends BaseController
         view()->share('orderNotReads',$orderNotReads);
         view()->share('countOrderNotRead',$countOrderNotRead);
     }
+    public function uploadImg($file){
+    	\Cloudinary::config(array(
+            "cloud_name" => "thientq",
+            "api_key" => "342737156978658",
+            "api_secret" => "Mn6Oth1kGnrbkUbaA8XrUuk4tHg"
+        ));
+        //$result = \Cloud
+        $result = \Cloudinary\Uploader::upload($file);
+        return $result;
+    }
+
+    public function uploadImgInServer($file){
+        //Lấy tên file
+        $name = $file->getClientOriginalName();
+        //$Hinh = str_random(10)."_".$name;
+        while(file_exists('upload/product/'.$Hinh)){
+            $Hinh = str_random(4)."_".$name;
+        }
+        //Di chuyển đến thư mục chứa hình ảnh
+        $file->move('upload/product/',$name);
+        $product->hinhanh = $name;
+    }
     public function responseOK($result, $code = 200)
     {
         return response()->json(['code' => $code, 'result' => $result], $code);

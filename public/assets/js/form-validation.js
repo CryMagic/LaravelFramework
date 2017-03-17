@@ -51,6 +51,98 @@ $(document).ready(function() {
             },
 
         });
+        $('#form-add-method-payment').validate({
+            focusInvalid: false,
+            ignore: "",
+            rules: {
+                MethodName: {
+                    required: true
+                },
+                Description: {
+                    required: true,
+                }
+            },
+            messages: {
+                MethodName: {
+                    required: "Tên phương thức không được để trống"
+                },
+                Description: {
+                    required: "Bạn chưa nhập mô tả phương thức thanh toán"
+                }
+            },
+
+            invalidHandler: function(event, validator) {
+                //display error alert on form submit    
+            },
+
+            errorPlacement: function(label, element) { // render error placement for each input type   
+                console.log(label);
+                $('<span class="error"></span>').insertAfter(element).append(label)
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            highlight: function(element) { // hightlight error inputs
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            unhighlight: function(element) { // revert the change done by hightlight
+
+            },
+
+            success: function(label, element) {
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-error').addClass('has-success');
+            },
+
+        });
+        $('#form-edit-method-payment').validate({
+            focusInvalid: false,
+            ignore: "",
+            rules: {
+                MethodName: {
+                    required: true
+                },
+                Description: {
+                    required: true,
+                }
+            },
+            messages: {
+                MethodName: {
+                    required: "Tên phương thức không được để trống"
+                },
+                Description: {
+                    required: "Bạn chưa nhập mô tả phương thức thanh toán"
+                }
+            },
+
+            invalidHandler: function(event, validator) {
+                //display error alert on form submit    
+            },
+
+            errorPlacement: function(label, element) { // render error placement for each input type   
+                console.log(label);
+                $('<span class="error"></span>').insertAfter(element).append(label)
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            highlight: function(element) { // hightlight error inputs
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-success').addClass('has-error');
+            },
+
+            unhighlight: function(element) { // revert the change done by hightlight
+
+            },
+
+            success: function(label, element) {
+                var parent = $(element).parent().parent('.form-group');
+                parent.removeClass('has-error').addClass('has-success');
+            },
+
+        });
         $('#msg_validate_supply').validate({
             focusInvalid: false,
             ignore: "",

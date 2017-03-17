@@ -97,7 +97,7 @@
             <div class="form-group">
                 <label class="form-label" >Hinh ảnh</label>
                 @if($product->picture != null)
-                    <img src="{{ url('images/product/'.$product->picture) }}" class="img-rounded" width="100px" height="100px">
+                    <img src="{{ $product->picture }}" class="img-rounded" width="100px" height="100px">
                 @endif
                 <br>
                 <div class="controls">

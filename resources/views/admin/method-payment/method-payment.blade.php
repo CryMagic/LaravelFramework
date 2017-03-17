@@ -59,7 +59,7 @@
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                     <div class="btn-group" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" href="#edit-method-payment{{ $item->id }}">
+                                                        <button type="button" class="btn btn-info" data-id="{{$item->id}}">
                                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                                         </button>
                                                         <button type="submit" class="btn btn-danger">
@@ -83,4 +83,50 @@
     @include('admin.method-payment.method-payment-add')
     
     @include('admin.method-payment.method-payment-edit')
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            var btn = $('.btn-info');
+            $(btn).click(function(){
+                
+                var id = $(this).attr('data-id');
+                var url = document.URL;
+                var action = document.URL +'/'+ id;
+                
+                $.ajax({
+                    dataType: 'json',
+                    type: 'GET',
+                    cache:false,
+                    url: url + '/' + id,
+                    data: {
+                        'id': id, 'url': url
+                    },
+                    success: function (data) {
+                        $("#edit-method-payment form").attr('action',action);
+                        var modalBody = "";
+                        modalBody += "<div class='row'>";
+                        modalBody +=    "<div class='col-xs-12'>";
+                        modalBody +=        "<div class='form-group'>";
+                        modalBody +=            "<label class='form-label'>Tên phương thức</label>";
+                        modalBody +=            "<div class='controls'>";
+                        modalBody +=                "<input type='text' class='form-control' name='MethodName' value='"+data.name+"'>";
+                        modalBody +=            "</div>";
+                        modalBody +=        "</div>";
+                        modalBody +=        "<div class='form-group'>";
+                        modalBody +=            "<label class='form-label'>Mô tả</label>";
+                        modalBody +=            "<div class='controls'>";
+                        modalBody +=                "<textarea class='form-control' rows='4' name='Description'>"+data.description+"</textarea>";
+                        modalBody +=            "</div>";
+                        modalBody +=        "</div>";
+                        modalBody +=    "</div>";
+                        modalBody += "</div>";
+                                    
+                        $("#edit-method-payment .modal-body").html(modalBody);
+                        $("#edit-method-payment").modal('show');
+                    }
+                });
+            })
+        })
+    </script>
 @endsection

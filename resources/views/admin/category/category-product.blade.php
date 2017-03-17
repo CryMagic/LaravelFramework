@@ -61,7 +61,7 @@
                                             <td>{{ $item->cateName }}</td>
                                             <td width="13%">
                                                 @if($item->picture != null)
-                                                    <img src="{{ url('images/category/'.$item->picture) }}" class="img-rounded">
+                                                    <img src="{{ $item->picture }}" class="img-rounded">
                                                 @else
                                                     <img src="{{ url('data/product_icon.png') }}" class="img-rounded">
                                                 @endif
