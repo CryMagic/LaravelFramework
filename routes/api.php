@@ -18,4 +18,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 Route::group(['prefix' => 'v1','middleware'=>'cors'], function() {
     Route::get('products','API\V1\ProductAPIController@getAllProduct');
+    Route::get('product/{id}','API\V1\ProductAPIController@getProduct');
 });

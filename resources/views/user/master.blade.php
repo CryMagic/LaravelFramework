@@ -62,6 +62,34 @@
     
     @yield('script')
     @include('user.block.quick-view')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var btn = $('.btn-quickview');
+            $(btn).click(function(){
+                let id = $(this).attr('data-id');
+                let url = 'http://localhost:8000/get-product-detail/';
+                $.ajax({
+                    dataType: 'json',
+                    type: 'GET',
+                    cache:false,
+                    url: url + id,
+                    data: {
+                        'id': id, 'url': url
+                    },
+                    success: function (data) {
+                        $('#ProductDetailModal').modal('show');
+                        $('#ProductDetailModal .product-largeimg-link img').attr('src',data.picture);
+                        $('#ProductDetailModal .product-title').text(data.productName);
+                        let money = data.discount;
+                        let output;
+                        alert(output);
+                        $('#ProductDetailModal .price-sales').text(output);
+                        $('#ProductDetailModal .price-standard').text(data.price);
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>

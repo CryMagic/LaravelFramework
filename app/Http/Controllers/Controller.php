@@ -15,7 +15,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
-        $orderNotReads = Order::where('isRead',false)->orderBy('updated_at','DESC')->paginate(4);
+        $orderNotReads = Order::where('isRead',false)->orderBy('updated_at','DESC')->take(4)->get();
         $countOrderNotRead = Order::where('isRead',false)->count();
         $top_product = Product::orderBy('created_at','DESC')->take(5)->get(); 
         $categories = Category::where('parent',0)->get();

@@ -15,7 +15,7 @@
                     </button>
                     <div class="image">
                         <div class="quickview">
-                            <a data-toggle="modal" class="btn btn-xs btn-quickview" data-target="#myModal">Xem nhanh </a>
+                            <a data-toggle="modal" data-id="{{ $item->id }}" class="btn btn-xs btn-quickview">Xem nhanh </a>
                         </div>
                         <a href="{{ route('ProductDetail',[$item->id,$item->alias]) }}">
                             <img src="{{ $item->picture }}" alt="img" class="img-responsive">
@@ -74,7 +74,7 @@
                         </button>
                         <div class="image">
                             <div class="quickview">
-                                <a data-toggle="modal" class="btn btn-xs btn-quickview" data-target="#myModal">Xem nhanh </a>
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" data-id="{{ $item->id }}">Xem nhanh </a>
                             </div>
                             <a href=""><img src="{{ $item->picture }}" alt="img" class="img-responsive"></a>
                             <div class="promotion"><span class="new-product"> NEW</span> <span class="discount">15% OFF</span></div>

@@ -83,3 +83,4 @@ Route::get('minus-quantity/{id}/{qty}',['as'=>'Minus','uses'=>'ShoppingCartContr
 Route::get('check-email/{email}','UserLoginController@checkEmailUnique');
 Route::get('/get-all-district','AjaxController@getDistrict');
 Route::get('/get-all-ward','AjaxController@getWard');
+Route::get('/get-product-detail/{id}','AjaxController@productDetail');

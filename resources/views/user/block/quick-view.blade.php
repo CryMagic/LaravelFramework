@@ -1,10 +1,11 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="ProductDetailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
     <div class="modal-dialog" role="document">
         <div class="main-image col-lg-5 no-padding style3">
-            <a class="product-largeimg-link" href="product-details.html"><img src="{{ url('user/images/product_details/low-res-white/1.jpg') }}" class="img-responsive product-largeimg" alt="img">
+            <a class="product-largeimg-link" href="product-details.html">
+                <img src="{{ url('user/images/product_details/low-res-white/1.jpg') }}" class="img-responsive product-largeimg" alt="img">
             </a>
             <div class="modal-product-thumb">
                 <a class="thumbLink selected"><img data-large="{{ url('user/images/product_details/low-res-white/1.jpg') }}" alt="img" class="img-responsive" src="{{ url('user/images/product_details/low-res-white/1.jpg') }}">
@@ -21,9 +22,12 @@
         </button>
             <div class="modal-details-inner">
                 <h1 class="product-title">
-                    Lorem ipsum dolor sit amet</h2>
+                    Lorem ipsum dolor sit amet</h1>
                     <h3 class="product-code">Product Code : DEN1098</h3>
-                    <div class="product-price"><span class="price-sales"> $70</span> <span class="price-standard">$95</span></div>
+                    <div class="product-price">
+                        <span class="price-sales"> $70</span> 
+                        <span class="price-standard">$95</span>
+                    </div>
                     <div class="details-description">
                         <p>In scelerisque libero ut elit porttitor commodo Suspendisse laoreet magna. </p>
                     </div>

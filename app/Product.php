@@ -8,6 +8,9 @@ class Product extends Model
 {
     protected $table = 'products';
 
+    protected $fillable = [
+        'productName', 'alias', 'price', 'inStock', 'discount','isContinue','relatedImage','avgRating','description','note',
+    ];
     public function belongsToSupplies(){
         return $this->belongsTo('App\Supply','supplierID','id');
     }
